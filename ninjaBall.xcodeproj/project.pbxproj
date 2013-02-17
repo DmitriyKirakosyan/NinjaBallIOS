@@ -206,6 +206,7 @@
 		2CA320A916CBD69B00E2A55A /* ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA320A816CBD69B00E2A55A /* ninja.png */; };
 		2CA320AC16CC0C3100E2A55A /* DrawingController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA320AA16CC0C3100E2A55A /* DrawingController.cpp */; };
 		2CA320AE16CD4E2500E2A55A /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA320AD16CD4E2500E2A55A /* footprint.png */; };
+		2CCA9D0416D13E2A00603D1D /* Ninja.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D0216D13E2A00603D1D /* Ninja.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -644,6 +645,8 @@
 		2CA320AA16CC0C3100E2A55A /* DrawingController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DrawingController.cpp; path = Classes/DrawingController.cpp; sourceTree = "<group>"; };
 		2CA320AB16CC0C3100E2A55A /* DrawingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawingController.h; path = Classes/DrawingController.h; sourceTree = "<group>"; };
 		2CA320AD16CD4E2500E2A55A /* footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = footprint.png; path = Resources/footprint.png; sourceTree = "<group>"; };
+		2CCA9D0216D13E2A00603D1D /* Ninja.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Ninja.cpp; path = Classes/Ninja.cpp; sourceTree = "<group>"; };
+		2CCA9D0316D13E2A00603D1D /* Ninja.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ninja.h; path = Classes/Ninja.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1539,12 +1542,22 @@
 		2CA320A416CBC5B700E2A55A /* game */ = {
 			isa = PBXGroup;
 			children = (
+				2CCA9D0116D13E1100603D1D /* ninja */,
 				2CA320A516CBC5CC00E2A55A /* GameScene.cpp */,
 				2CA320A616CBC5CC00E2A55A /* GameScene.h */,
 				2CA320AA16CC0C3100E2A55A /* DrawingController.cpp */,
 				2CA320AB16CC0C3100E2A55A /* DrawingController.h */,
 			);
 			name = game;
+			sourceTree = "<group>";
+		};
+		2CCA9D0116D13E1100603D1D /* ninja */ = {
+			isa = PBXGroup;
+			children = (
+				2CCA9D0216D13E2A00603D1D /* Ninja.cpp */,
+				2CCA9D0316D13E2A00603D1D /* Ninja.h */,
+			);
+			name = ninja;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1797,6 +1810,7 @@
 				2C78EAFC1689084800CFA337 /* MainScene.cpp in Sources */,
 				2CA320A716CBC5CC00E2A55A /* GameScene.cpp in Sources */,
 				2CA320AC16CC0C3100E2A55A /* DrawingController.cpp in Sources */,
+				2CCA9D0416D13E2A00603D1D /* Ninja.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

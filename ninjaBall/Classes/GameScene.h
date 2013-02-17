@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 
 class DrawingController;
+class Ninja;
 
 class GameScene : public cocos2d::CCScene
 {
@@ -40,7 +41,7 @@ public:
 
     
 private:
-    cocos2d::CCSprite* _ninja;
+    Ninja* _ninja;
     
     cocos2d::CCArray* _touchPoints;
     
@@ -49,6 +50,8 @@ private:
     bool _isDrawing;
     
     bool isPointUnderNinja(cocos2d::CCPoint point);
+    
+    void onNinjaMoveToPointComplete(cocos2d::CCNode* sender);
     
 };
 

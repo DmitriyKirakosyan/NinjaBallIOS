@@ -16,7 +16,7 @@ DrawingController::DrawingController(CCLayer* drawingLayer)
     _pathParts = NULL;
 }
 
-void DrawingController::drawPathToPoint(CCPoint point)
+CCArray* DrawingController::drawPathToPoint(CCPoint point)
 {
     
     CCPoint lastPoint;
@@ -32,17 +32,28 @@ void DrawingController::drawPathToPoint(CCPoint point)
     else
     {
         CCLOGERROR("[ERROR] cant find last point!");
-        return;
+        return NULL;
     }
     
+    CCArray* result = CCArray::create();
+    CCPoint* pPartPoint;
+    
+    CCPoint partPoint;
     CCSprite* pathPart;
     float lineLength = ccpDistance(lastPoint, point);
     for (int i = PATH_DISTANCE; i < lineLength; i+= PATH_DISTANCE) {
-        pathPart = this->createPathPart(ccpLerp(lastPoint, point, (float)i / lineLength));
+        partPoint = ccpLerp(lastPoint, point, (float)i / lineLength);
+        pathPart = this->createPathPart(partPoint);
         _pathParts->addObject(pathPart);
-        _drawingContainer->addChild(pathPart);
+        _drawingContainer->addChild(pathPart, 0);
+        
+        //for return
+        pPartPoint = new CCPoint();
+        pPartPoint->x = partPoint.x;
+        pPartPoint->y = partPoint.y;
+        result->addObject(pPartPoint);
     }
-    
+    return result;
 }
 
 void DrawingController::clear()
@@ -59,7 +70,7 @@ void DrawingController::clear()
     _pathParts = NULL;
 }
 
-void DrawingController::removePathPartByPoint(CCPoint point)
+void DrawingController::removePathPartByPointFromScreen(CCPoint point)
 {
     CCObject* item;
     CCSprite* pathPart;
@@ -68,11 +79,16 @@ void DrawingController::removePathPartByPoint(CCPoint point)
         pathPart = (CCSprite*) item;
         if (pathPart->getPosition().x == point.x && pathPart->getPosition().y == point.y)
         {
-            _pathParts->removeObject(pathPart);
             _drawingContainer->removeChild(pathPart, true);
             break;
         }
     }
+}
+
+void DrawingController::removeOldestPathPartFromScreen()
+{
+    CCSprite* pathPart = (CCSprite*) _pathParts->objectAtIndex(0);
+    _drawingContainer->removeChild(pathPart, true);
 }
 
 void DrawingController::setStartPoint(CCPoint point)

@@ -8,6 +8,7 @@
 
 #include "GameScene.h"
 #include "DrawingController.h"
+#include "Ninja.h"
 
 using namespace cocos2d;
 
@@ -40,12 +41,12 @@ void GameSceneLayer::start()
     _drawingController = new DrawingController(this);
     
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-    _ninja = new CCSprite();
+    _ninja = new Ninja(callfuncN_selector(GameSceneLayer::onNinjaMoveToPointComplete), this);
     _ninja->initWithFile("ninja.png");
     _ninja->setPosition(ccp(winSize.width/2, winSize.height/2));
     
     
-    this->addChild(_ninja);
+    this->addChild(_ninja, 1);
 }
 
 //touch callbacks
@@ -72,6 +73,7 @@ void GameSceneLayer::ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* e
 {
     _isDrawing = false;
     _drawingController->clear();
+    _ninja->stopWalk();
 }
 
 void GameSceneLayer::ccTouchesMoved(cocos2d::CCSet* touches, cocos2d::CCEvent* event)
@@ -91,6 +93,27 @@ void GameSceneLayer::ccTouchesMoved(cocos2d::CCSet* touches, cocos2d::CCEvent* e
         touchPoint->setPoint(location.x, location.y);
         _touchPoints->addObject(touchPoint);
         
-        _drawingController->drawPathToPoint(location);
+        CCArray* partPoints = _drawingController->drawPathToPoint(location);
+        
+        CCObject* item;
+        CCARRAY_FOREACH(partPoints, item)
+        {
+            _ninja->addWalkingPoint(ccp( ((CCPoint*)item)->x, ((CCPoint*)item)->y));
+            delete item;
+        }
+        partPoints->removeAllObjects();
+    }
+}
+
+void GameSceneLayer::onNinjaMoveToPointComplete(CCNode* sender)
+{
+    _drawingController->removePathPartByPointFromScreen(_ninja->getCurrentWalkPoint());
+    if (_ninja->canWalk())
+    {
+        _ninja->goWalk();
+    }
+    else
+    {
+        _ninja->stopWalk();
     }
 }

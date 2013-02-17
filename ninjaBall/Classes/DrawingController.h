@@ -23,14 +23,23 @@ public:
     void clear();
     
     /**
-     Удаляет часть нарисованного пути по заданной точке
+     Удаляет часть нарисованного пути по заданной точке только с экрана,
+     в массиве она остается
      */
-    void removePathPartByPoint(cocos2d::CCPoint point);
+    void removePathPartByPointFromScreen(cocos2d::CCPoint point);
+    
+    /**
+     Удаляет самую старую часть нарисованного пути только с экрана,
+     в массиве она остается
+     */
+    void removeOldestPathPartFromScreen();
     
     /**
      Рисует путь от последней до заданной точки
+     @arg point
+     @return массив построенных точек пути
      */
-    void drawPathToPoint(cocos2d::CCPoint point);
+    cocos2d::CCArray* drawPathToPoint(cocos2d::CCPoint point);
     
     /**
      Устанавливает начальную точку для рисования пути
