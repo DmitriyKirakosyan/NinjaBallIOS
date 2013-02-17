@@ -1,5 +1,6 @@
 #include "MainScene.h"
 #include "SimpleAudioEngine.h"
+#include "GameScene.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -61,15 +62,25 @@ bool MainScene::init()
 
 
     CCSprite* background = CCSprite::create("MainMenuBG.png");
-    background->setPosition(ccp(size.width/2, size.height/2));
-    CCLog("size : %f, %f", size.width, size.height);
     
-    this->addChild(background, 0);
+    CCMenuItemSprite* playBtn = CCMenuItemSprite::create(background, background, this, menu_selector(MainScene::menuPlayCallback));
+    playBtn->setPosition(ccp(size.width/2, size.height/2));
+    //CCLog("size : %f, %f", size.width, size.height);
+    
+    pMenu->addChild(playBtn);
+    
+    //this->addChild(background, 0);
 
     // add the label as a child to this layer
     this->addChild(pLabel, 1);
     
     return true;
+}
+
+void MainScene::menuPlayCallback(CCObject* pSender)
+{
+    GameScene* gameScene = GameScene::create();
+    CCDirector::sharedDirector()->replaceScene(gameScene);
 }
 
 void MainScene::menuCloseCallback(CCObject* pSender)

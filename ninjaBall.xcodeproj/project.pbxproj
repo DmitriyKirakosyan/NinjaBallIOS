@@ -202,6 +202,10 @@
 		2C78EAF91689084800CFA337 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C78EAF81689084800CFA337 /* AppDelegate.cpp */; };
 		2C78EAFC1689084800CFA337 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C78EAFB1689084800CFA337 /* MainScene.cpp */; };
 		2CA320A316CA799C00E2A55A /* MainMenuBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA320A216CA799C00E2A55A /* MainMenuBG.png */; };
+		2CA320A716CBC5CC00E2A55A /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA320A516CBC5CC00E2A55A /* GameScene.cpp */; };
+		2CA320A916CBD69B00E2A55A /* ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA320A816CBD69B00E2A55A /* ninja.png */; };
+		2CA320AC16CC0C3100E2A55A /* DrawingController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA320AA16CC0C3100E2A55A /* DrawingController.cpp */; };
+		2CA320AE16CD4E2500E2A55A /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA320AD16CD4E2500E2A55A /* footprint.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -634,6 +638,12 @@
 		2C78EAFA1689084800CFA337 /* MainScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainScene.h; path = Classes/MainScene.h; sourceTree = "<group>"; };
 		2C78EAFB1689084800CFA337 /* MainScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MainScene.cpp; path = Classes/MainScene.cpp; sourceTree = "<group>"; };
 		2CA320A216CA799C00E2A55A /* MainMenuBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MainMenuBG.png; path = Resources/MainMenuBG.png; sourceTree = "<group>"; };
+		2CA320A516CBC5CC00E2A55A /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = Classes/GameScene.cpp; sourceTree = "<group>"; };
+		2CA320A616CBC5CC00E2A55A /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = Classes/GameScene.h; sourceTree = "<group>"; };
+		2CA320A816CBD69B00E2A55A /* ninja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ninja.png; path = Resources/ninja.png; sourceTree = "<group>"; };
+		2CA320AA16CC0C3100E2A55A /* DrawingController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DrawingController.cpp; path = Classes/DrawingController.cpp; sourceTree = "<group>"; };
+		2CA320AB16CC0C3100E2A55A /* DrawingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawingController.h; path = Classes/DrawingController.h; sourceTree = "<group>"; };
+		2CA320AD16CD4E2500E2A55A /* footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = footprint.png; path = Resources/footprint.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -703,6 +713,8 @@
 		2C78E86B1689084500CFA337 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CA320AD16CD4E2500E2A55A /* footprint.png */,
+				2CA320A816CBD69B00E2A55A /* ninja.png */,
 				2C78E86C1689084500CFA337 /* CloseNormal.png */,
 				2C78E86E1689084500CFA337 /* CloseSelected.png */,
 				2C78E8701689084500CFA337 /* Default.png */,
@@ -1515,12 +1527,24 @@
 		2C78EAF61689084800CFA337 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2CA320A416CBC5B700E2A55A /* game */,
 				2C78EAF71689084800CFA337 /* AppDelegate.h */,
 				2C78EAF81689084800CFA337 /* AppDelegate.cpp */,
 				2C78EAFA1689084800CFA337 /* MainScene.h */,
 				2C78EAFB1689084800CFA337 /* MainScene.cpp */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		2CA320A416CBC5B700E2A55A /* game */ = {
+			isa = PBXGroup;
+			children = (
+				2CA320A516CBC5CC00E2A55A /* GameScene.cpp */,
+				2CA320A616CBC5CC00E2A55A /* GameScene.h */,
+				2CA320AA16CC0C3100E2A55A /* DrawingController.cpp */,
+				2CA320AB16CC0C3100E2A55A /* DrawingController.h */,
+			);
+			name = game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1585,6 +1609,8 @@
 				2C78E8811689084500CFA337 /* iTunesArtwork in Resources */,
 				2C78E9131689084500CFA337 /* ChangeLog in Resources */,
 				2CA320A316CA799C00E2A55A /* MainMenuBG.png in Resources */,
+				2CA320A916CBD69B00E2A55A /* ninja.png in Resources */,
+				2CA320AE16CD4E2500E2A55A /* footprint.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1769,6 +1795,8 @@
 				2C78EAF01689084800CFA337 /* HttpClient.cpp in Sources */,
 				2C78EAF91689084800CFA337 /* AppDelegate.cpp in Sources */,
 				2C78EAFC1689084800CFA337 /* MainScene.cpp in Sources */,
+				2CA320A716CBC5CC00E2A55A /* GameScene.cpp in Sources */,
+				2CA320AC16CC0C3100E2A55A /* DrawingController.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
