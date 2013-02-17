@@ -48,7 +48,7 @@ private:
     
     bool _isDrawing;
     
-    
+    bool isPointUnderNinja(cocos2d::CCPoint point);
     
 };
 

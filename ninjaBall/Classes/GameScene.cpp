@@ -55,9 +55,17 @@ void GameSceneLayer::ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* e
     CCTouch* touch = (CCTouch*) touches->anyObject();
     CCPoint location = touch->getLocationInView();
     location = CCDirector::sharedDirector()->convertToGL(location);
-    _drawingController->setStartPoint(location);
-    _isDrawing = true;
     
+    CCPoint ninjaPoint = _ninja->getPosition();
+    CCSize ninjaSize = _ninja->getContentSize();
+    
+    //if location under ninja
+    if (location.x > ninjaPoint.x - ninjaSize.width/2 && location.x < ninjaPoint.x + ninjaSize.width/2 &&
+        location.y > ninjaPoint.y - ninjaSize.height/2 && location.y < ninjaPoint.y + ninjaSize.height/2)
+    {
+        _drawingController->setStartPoint(location);
+        _isDrawing = true;
+    }
 }
 
 void GameSceneLayer::ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event)
@@ -68,17 +76,21 @@ void GameSceneLayer::ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* e
 
 void GameSceneLayer::ccTouchesMoved(cocos2d::CCSet* touches, cocos2d::CCEvent* event)
 {
-    CCTouch* touch = (CCTouch*) touches->anyObject();
-    CCPoint location = touch->getLocationInView();
-    location = CCDirector::sharedDirector()->convertToGL(location);
-    if (_touchPoints == NULL)
+    if (_isDrawing)
     {
-        _touchPoints = new CCArray();
+        CCTouch* touch = (CCTouch*) touches->anyObject();
+        CCPoint location = touch->getLocationInView();
+        location = CCDirector::sharedDirector()->convertToGL(location);
+        
+        if (_touchPoints == NULL)
+        {
+            _touchPoints = new CCArray();
+        }
+        
+        CCPoint* touchPoint = new CCPoint();
+        touchPoint->setPoint(location.x, location.y);
+        _touchPoints->addObject(touchPoint);
+        
+        _drawingController->drawPathToPoint(location);
     }
-    
-    CCPoint* touchPoint = new CCPoint();
-    touchPoint->setPoint(location.x, location.y);
-    _touchPoints->addObject(touchPoint);
-    
-    _drawingController->drawPathToPoint(location);
 }

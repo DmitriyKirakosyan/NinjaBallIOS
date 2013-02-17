@@ -37,10 +37,7 @@ void DrawingController::drawPathToPoint(CCPoint point)
     
     CCSprite* pathPart;
     float lineLength = ccpDistance(lastPoint, point);
-    CCLog("last point : %f, %f", lastPoint.x, lastPoint.y);
-    CCLog("now point : %f, %f", point.x, point.y);
     for (int i = PATH_DISTANCE; i < lineLength; i+= PATH_DISTANCE) {
-        CCLog("coef for interpolation %f", ((float)i / lineLength));
         pathPart = this->createPathPart(ccpLerp(lastPoint, point, (float)i / lineLength));
         _pathParts->addObject(pathPart);
         _drawingContainer->addChild(pathPart);
