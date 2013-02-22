@@ -36,6 +36,8 @@ public:
      */
     void start();
     
+    virtual void update();
+    
     void ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
     void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
     void ccTouchesMoved(cocos2d::CCSet* touches, cocos2d::CCEvent* event);

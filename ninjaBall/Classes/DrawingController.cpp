@@ -54,7 +54,17 @@ CCArray* DrawingController::drawPathToPoint(CCPoint point)
         pPartPoint->autorelease();
         result->addObject(pPartPoint);
     }
+    
     return result;
+}
+
+void DrawingController::stopDraw()
+{
+    if (_pathParts != NULL && _pathParts->count() > 0)
+    {
+        CCSprite* pathPart = (CCSprite*) _pathParts->lastObject();
+        pathPart->setScale(1.2);
+    }
 }
 
 void DrawingController::clear()
@@ -73,7 +83,6 @@ void DrawingController::clear()
         {
             _pathParts->removeLastObject();
         }
-       // _pathParts->removeAllObjects();
     }
     _pathParts = NULL;
 }

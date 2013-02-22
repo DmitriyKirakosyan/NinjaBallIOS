@@ -52,6 +52,26 @@ void GameSceneLayer::start()
     
     
     this->addChild(_ninja, 1);
+    
+    this->schedule(schedule_selector(GameSceneLayer::update));
+}
+
+void GameSceneLayer::update()
+{
+    if (_obstaclesController->testHit(_ninja))
+    {
+        if (_ninja->getOpacity() == 255)
+        {
+            _ninja->setOpacity(100);
+        }
+    }
+    else
+    {
+        if (_ninja->getOpacity() != 255)
+        {
+            _ninja->setOpacity(255);
+        }
+    }
 }
 
 //touch callbacks
@@ -80,6 +100,7 @@ void GameSceneLayer::ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* e
 void GameSceneLayer::ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event)
 {
     _isDrawing = false;
+    _drawingController->stopDraw();
 }
 
 void GameSceneLayer::ccTouchesMoved(cocos2d::CCSet* touches, cocos2d::CCEvent* event)

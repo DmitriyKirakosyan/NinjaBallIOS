@@ -41,6 +41,8 @@ public:
      */
     cocos2d::CCArray* drawPathToPoint(cocos2d::CCPoint point);
     
+    void stopDraw();
+    
     /**
      Устанавливает начальную точку для рисования пути
      */

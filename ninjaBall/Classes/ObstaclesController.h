@@ -16,6 +16,7 @@ class ObstaclesController
 public:
     ObstaclesController(cocos2d::CCLayer* mapLayer, cocos2d::CCSize winSize);
     
+    bool testHit(cocos2d::CCSprite* object);
     void createRandomObstacles();
     void clear();
   
