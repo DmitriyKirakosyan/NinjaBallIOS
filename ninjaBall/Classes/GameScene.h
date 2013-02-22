@@ -13,6 +13,7 @@
 
 class DrawingController;
 class Ninja;
+class ObstaclesController;
 
 class GameScene : public cocos2d::CCScene
 {
@@ -46,6 +47,8 @@ private:
     cocos2d::CCArray* _touchPoints;
     
     DrawingController* _drawingController;
+    
+    ObstaclesController* _obstaclesController;
     
     bool _isDrawing;
     

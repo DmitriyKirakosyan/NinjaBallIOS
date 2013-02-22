@@ -47,7 +47,7 @@ public:
     void setStartPoint(cocos2d::CCPoint point);
     
 private:
-    const float PATH_DISTANCE = 60;
+    const float PATH_DISTANCE;
     
     cocos2d::CCArray* _pathParts;
     cocos2d::CCArray* _pathPartsCollector;

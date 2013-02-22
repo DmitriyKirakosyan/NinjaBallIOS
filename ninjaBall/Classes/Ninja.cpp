@@ -16,6 +16,7 @@ void Ninja::addWalkingPoint(CCPoint point)
     CCPoint* pPoint = new CCPoint();
     pPoint->x = point.x;
     pPoint->y = point.y;
+    pPoint->autorelease();
     _walkingPoints->addObject(pPoint);
     if (!_isWalking)
     {
@@ -27,11 +28,6 @@ void Ninja::stopWalk()
 {
     if (_walkingPoints != NULL)
     {
-        CCObject* item;
-        CCARRAY_FOREACH(_walkingPoints, item)
-        {
-            delete item;
-        }
         _walkingPoints->removeAllObjects();
     }
     _isWalking = false;
@@ -49,13 +45,12 @@ void Ninja::goWalk()
     _isWalking = true;
 
     CCPoint* firstPoint = (CCPoint*) _walkingPoints->objectAtIndex(0);
-    _walkingPoints->removeObject(firstPoint);
-    
     _currentWalkPoint = ccp(firstPoint->x, firstPoint->y);
 	
-    CCMoveTo* moveAction = CCMoveTo::create(1, ccp(firstPoint->x, firstPoint->y));
+    _walkingPoints->removeObject(firstPoint);
+
+    CCMoveTo* moveAction = CCMoveTo::create(.5, ccp(_currentWalkPoint.x, _currentWalkPoint.y));
     CCCallFuncN* callback = CCCallFuncN::create(_callbackTarget, _onMoveToPointCompleteFunc);
-    
     CCFiniteTimeAction* action = CCSequence::create(moveAction, callback, NULL);
     this->runAction(action);
 }

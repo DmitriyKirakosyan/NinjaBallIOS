@@ -10,7 +10,7 @@
 
 using namespace cocos2d;
 
-DrawingController::DrawingController(CCLayer* drawingLayer)
+DrawingController::DrawingController(CCLayer* drawingLayer):PATH_DISTANCE(60)
 {
     _drawingContainer = drawingLayer;
     _pathParts = NULL;
@@ -51,6 +51,7 @@ CCArray* DrawingController::drawPathToPoint(CCPoint point)
         pPartPoint = new CCPoint();
         pPartPoint->x = partPoint.x;
         pPartPoint->y = partPoint.y;
+        pPartPoint->autorelease();
         result->addObject(pPartPoint);
     }
     return result;
@@ -63,9 +64,16 @@ void DrawingController::clear()
         CCObject* pathPart;
         CCARRAY_FOREACH(_pathParts, pathPart)
         {
-            _drawingContainer->removeChild((CCSprite*) pathPart, true);
+            if (_drawingContainer->getChildren()->containsObject(pathPart))
+            {
+                _drawingContainer->removeChild((CCSprite*) pathPart, false);
+            }
         }
-        _pathParts->removeAllObjects();
+        while (_pathParts->count() > 0)
+        {
+            _pathParts->removeLastObject();
+        }
+       // _pathParts->removeAllObjects();
     }
     _pathParts = NULL;
 }
