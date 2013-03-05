@@ -10,10 +10,12 @@
 #define __ninjaBall__GameScene__
 
 #include "cocos2d.h"
+#include "LevelCompleteMenu.h"
 
 class DrawingController;
 class Ninja;
-class ObstaclesController;
+class MapView;
+class WindowManager;
 
 class GameScene : public cocos2d::CCScene
 {
@@ -27,7 +29,7 @@ private:
 };
 
 
-class GameSceneLayer : public cocos2d::CCLayerColor
+class GameSceneLayer : public cocos2d::CCLayerColor, public LevelCompleteMenu
 {
 public:
     
@@ -36,11 +38,23 @@ public:
      */
     void start();
     
+    /**
+     Стартует уровень
+     */
+    void startLevel();
+    
     virtual void update();
+    
+    //level complete menu interface
+    virtual void nextLevel();
+    virtual void replyLevel();
+    virtual void returnToMainMenu();
     
     void ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
     void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
     void ccTouchesMoved(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
+    
+    cocos2d::CCLayer* getWindowLayer();
 
     
 private:
@@ -48,9 +62,11 @@ private:
     
     cocos2d::CCArray* _touchPoints;
     
+    WindowManager* _windowManager;
+    
     DrawingController* _drawingController;
     
-    ObstaclesController* _obstaclesController;
+    MapView* _mapView;
     
     bool _isDrawing;
     

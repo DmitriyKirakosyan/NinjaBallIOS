@@ -10,6 +10,7 @@
 #define __ninjaBall__ObstaclesController__
 
 #include "cocos2d.h"
+#include "json.h"
 
 class ObstaclesController
 {
@@ -18,6 +19,7 @@ public:
     
     bool testHit(cocos2d::CCSprite* object);
     void createRandomObstacles();
+    void createFromJSON(Json::Value jsonValue);
     void clear();
   
 private:

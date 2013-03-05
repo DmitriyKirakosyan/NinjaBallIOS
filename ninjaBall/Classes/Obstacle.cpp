@@ -22,6 +22,30 @@ Obstacle::Obstacle(const char* fileName, const CCPoint position)
     this->setPosition(position);
 }
 
+Obstacle* Obstacle::createFromJSON(Json::Value obstacleJson)
+{
+    Obstacle* result = new Obstacle();
+
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    float itemX = obstacleJson.get("x", 0).asDouble() * winSize.width;
+    float itemY = obstacleJson.get("y", 0).asDouble() * winSize.height;
+    result->initWithFile("1.png");
+    result->setScale(0.5f);
+    result->setPosition(ccp(itemX, itemY));
+    
+    if (obstacleJson.get("type", "") == "walking_wall")
+    {
+        Json::Value walkPath = obstacleJson.get("walk_path", "");
+        for (int i = 0; i < walkPath.size(); ++i) {
+            result->addMovePoint(ccp(walkPath[i].get("x", 0).asDouble() * winSize.width,
+                                     walkPath[i].get("y", 0).asDouble() * winSize.height));
+        }
+    }
+    
+    result->autorelease();
+    return result;
+}
+
 void Obstacle::stop()
 {
     this->stopAllActions();
@@ -56,8 +80,20 @@ void Obstacle::setLinearMoving(CCPoint point1, CCPoint point2)
     }
 }
 
+void Obstacle::addMovePoint(CCPoint point)
+{
+    if (_movingPath == NULL) { _movingPath = new CCArray(); }
+    CCPoint* pPoint = new CCPoint();
+    pPoint->x = point.x;
+    pPoint->y = point.y;
+    pPoint->autorelease();
+    _movingPath->addObject(pPoint);
+    if (!_isMoving) { this->moveToPoint(point); }
+}
+
 void Obstacle::moveToPoint(CCPoint point)
 {
+    _isMoving = true;
     _currentTargetPoint = point;
     float duration = (1.0/60) * ccpDistance(this->getPosition(), point);
     CCMoveTo* moveAction = CCMoveTo::create(duration, ccp(point.x, point.y));

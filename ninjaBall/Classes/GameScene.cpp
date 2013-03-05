@@ -9,7 +9,10 @@
 #include "GameScene.h"
 #include "DrawingController.h"
 #include "Ninja.h"
+#include "MapView.h"
 #include "ObstaclesController.h"
+#include "GameWindowFactory.h"
+#include "WindowManager.h"
 
 using namespace cocos2d;
 
@@ -19,46 +22,66 @@ bool GameScene::init()
     {
         GameSceneLayer* layer = new GameSceneLayer();
         layer->initWithColor(ccc4(255, 255, 255, 255));
-        
         layer->start();
-        
         this->addChild(layer);
-        
+        this->addChild(layer->getWindowLayer());
         return true;
     }
-    
     return false;
 }
 
 //GameSceneLayer
 
+CCLayer* GameSceneLayer::getWindowLayer()
+{
+    return _windowManager;
+}
+
 void GameSceneLayer::start()
 {
     _isDrawing = false;
     _touchPoints = NULL;
-    
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-
     this->setTouchEnabled(true);
-    
-    _drawingController = new DrawingController(this);
-    
-    _obstaclesController = new ObstaclesController(this, winSize);
-    _obstaclesController->createRandomObstacles();
-    
+
     _ninja = new Ninja(callfuncN_selector(GameSceneLayer::onNinjaMoveToPointComplete), this);
     _ninja->initWithFile("ninja.png");
-    _ninja->setPosition(ccp(winSize.width/2, winSize.height/2));
-    
-    
+
+    _windowManager = new WindowManager(this, new GameWindowFactory(this));
+    _drawingController = new DrawingController(this);
+    _mapView = new MapView(winSize, _ninja);
+    this->addChild(_mapView);
     this->addChild(_ninja, 1);
-    
+    this->startLevel();
+}
+
+void GameSceneLayer::startLevel()
+{
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    _mapView->createLevel("test_map.json");
+//    _ninja->setPosition(ccp(winSize.width - _ninja->getContentSize().width/2,
+//                            _ninja->getContentSize().height/2));
     this->schedule(schedule_selector(GameSceneLayer::update));
+}
+
+void GameSceneLayer::nextLevel()
+{
+    this->startLevel();
+}
+
+void GameSceneLayer::replyLevel()
+{
+    this->startLevel();
+}
+
+void GameSceneLayer::returnToMainMenu()
+{
+    
 }
 
 void GameSceneLayer::update()
 {
-    if (_obstaclesController->testHit(_ninja))
+    if (_mapView->getObstacles()->testHit(_ninja))
     {
         if (_ninja->getOpacity() == 255)
         {
@@ -72,6 +95,15 @@ void GameSceneLayer::update()
             _ninja->setOpacity(255);
         }
     }
+    if (_mapView->isNinjaWin(_ninja))
+    {
+        //show win level window;
+        _ninja->stopWalk();
+        _drawingController->clear();
+        _mapView->clear();
+        this->unschedule(schedule_selector(GameSceneLayer::update));
+        _windowManager->showWindow(GameWindowFactory::LEVEL_COMPLETE_WINDOW);
+    }
 }
 
 //touch callbacks
@@ -80,7 +112,7 @@ void GameSceneLayer::ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* e
 {
     _drawingController->clear();
     _ninja->stopWalk();
-    
+
     CCTouch* touch = (CCTouch*) touches->anyObject();
     CCPoint location = touch->getLocationInView();
     location = CCDirector::sharedDirector()->convertToGL(location);
@@ -110,18 +142,14 @@ void GameSceneLayer::ccTouchesMoved(cocos2d::CCSet* touches, cocos2d::CCEvent* e
         CCTouch* touch = (CCTouch*) touches->anyObject();
         CCPoint location = touch->getLocationInView();
         location = CCDirector::sharedDirector()->convertToGL(location);
-        
         if (_touchPoints == NULL)
         {
             _touchPoints = new CCArray();
         }
-        
         CCPoint* touchPoint = new CCPoint();
         touchPoint->setPoint(location.x, location.y);
         _touchPoints->addObject(touchPoint);
-        
         CCArray* partPoints = _drawingController->drawPathToPoint(location);
-        
         if (partPoints != NULL && partPoints->count() > 0)
         {
             CCObject* item;

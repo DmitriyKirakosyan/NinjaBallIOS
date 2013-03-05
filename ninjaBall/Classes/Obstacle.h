@@ -10,6 +10,7 @@
 #define __ninjaBall__Obstacle__
 
 #include "cocos2d.h"
+#include "json.h"
 
 class Obstacle : public cocos2d::CCSprite
 {
@@ -25,10 +26,14 @@ public:
     Obstacle(const char* behaviour);
 
     void setLinearMoving(cocos2d::CCPoint point1, cocos2d::CCPoint point2);
+    
+    void addMovePoint(cocos2d::CCPoint point);
 
     void stop();
     
     CREATE_FUNC(Obstacle);
+    
+    static Obstacle* createFromJSON(Json::Value obstacleJson);
     
 private:
     

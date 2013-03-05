@@ -20,13 +20,14 @@ ObstaclesController::ObstaclesController(CCLayer* mapLayer, CCSize winSize):MONS
 
 void ObstaclesController::clear()
 {
-    if (_obstacles)
+    if (_obstacles != NULL)
     {
         CCObject* obstacleItem;
         CCARRAY_FOREACH(_obstacles, obstacleItem)
         {
             if (_mapLayer->getChildren()->containsObject(obstacleItem))
             {
+                ((CCSprite*) obstacleItem)->stopAllActions();
                 _mapLayer->removeChild((CCSprite*) obstacleItem, true);
             }
         }
@@ -56,7 +57,6 @@ bool ObstaclesController::testHit(CCSprite* object)
             obstacle->getContentSize().height/2);
         if (objectRect.intersectsRect(obstacleRect))
         {
-            CCLog("intersects!");
             return true;
         }
     }
@@ -90,6 +90,19 @@ void ObstaclesController::createRandomObstacles()
         obstacle->setLinearMoving(ccp(arc4random() % (int) _winsize.width, arc4random() % (int) _winsize.height),
                                   ccp(arc4random() % (int) _winsize.width, arc4random() % (int) _winsize.height));
         
+        if (_obstacles == NULL) { _obstacles = new CCArray(); }
+        _obstacles->addObject(obstacle);
+        _mapLayer->addChild(obstacle);
+    }
+}
+
+void ObstaclesController::createFromJSON(Json::Value jsonValue)
+{
+    Obstacle* obstacle;
+    Json::Value mapItem;
+    for (int i = 0; i < jsonValue.size(); ++i) {
+        mapItem = jsonValue[i];
+        obstacle = Obstacle::createFromJSON(mapItem);
         if (_obstacles == NULL) { _obstacles = new CCArray(); }
         _obstacles->addObject(obstacle);
         _mapLayer->addChild(obstacle);

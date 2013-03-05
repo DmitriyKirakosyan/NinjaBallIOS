@@ -206,6 +206,15 @@
 		2CA320A916CBD69B00E2A55A /* ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA320A816CBD69B00E2A55A /* ninja.png */; };
 		2CA320AC16CC0C3100E2A55A /* DrawingController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA320AA16CC0C3100E2A55A /* DrawingController.cpp */; };
 		2CA320AE16CD4E2500E2A55A /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA320AD16CD4E2500E2A55A /* footprint.png */; };
+		2CA4D27E16E394C4000E4380 /* LevelCompleteWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */; };
+		2CA4D29116E51E02000E4380 /* json_internalarray.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28A16E51E02000E4380 /* json_internalarray.inl */; };
+		2CA4D29216E51E02000E4380 /* json_internalmap.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28B16E51E02000E4380 /* json_internalmap.inl */; };
+		2CA4D29316E51E02000E4380 /* json_reader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D28C16E51E02000E4380 /* json_reader.cpp */; };
+		2CA4D29416E51E02000E4380 /* json_value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D28D16E51E02000E4380 /* json_value.cpp */; };
+		2CA4D29516E51E02000E4380 /* json_valueiterator.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28E16E51E02000E4380 /* json_valueiterator.inl */; };
+		2CA4D29616E51E02000E4380 /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D28F16E51E02000E4380 /* json_writer.cpp */; };
+		2CA4D29716E51E02000E4380 /* sconscript in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D29016E51E02000E4380 /* sconscript */; };
+		2CA4D29916E51FAA000E4380 /* test_map.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D29816E51FAA000E4380 /* test_map.json */; };
 		2CCA9D0416D13E2A00603D1D /* Ninja.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D0216D13E2A00603D1D /* Ninja.cpp */; };
 		2CCA9D0816D66D4400603D1D /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D0616D66D4400603D1D /* Obstacle.cpp */; };
 		2CCA9D0B16D66FAD00603D1D /* ObstaclesController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D0916D66FAD00603D1D /* ObstaclesController.cpp */; };
@@ -222,6 +231,11 @@
 		2CCA9D2316D78B0E00603D1D /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D1616D78B0E00603D1D /* 11.png */; };
 		2CCA9D2416D78B0E00603D1D /* 12.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D1716D78B0E00603D1D /* 12.png */; };
 		2CCA9D2516D78B0E00603D1D /* 13.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D1816D78B0E00603D1D /* 13.png */; };
+		2CCA9D2816DA110F00603D1D /* MapView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D2616DA110F00603D1D /* MapView.cpp */; };
+		2CCA9D2A16DA174400603D1D /* flags.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D2916DA174400603D1D /* flags.png */; };
+		2CCA9D2E16DA517900603D1D /* WindowManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D2C16DA517800603D1D /* WindowManager.cpp */; };
+		2CCA9D3716DA631F00603D1D /* GameWindowFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D3516DA631F00603D1D /* GameWindowFactory.cpp */; };
+		2CCA9D3C16DA805700603D1D /* levelCompleteWindow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D3B16DA805700603D1D /* levelCompleteWindow.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -660,6 +674,25 @@
 		2CA320AA16CC0C3100E2A55A /* DrawingController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DrawingController.cpp; path = Classes/DrawingController.cpp; sourceTree = "<group>"; };
 		2CA320AB16CC0C3100E2A55A /* DrawingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawingController.h; path = Classes/DrawingController.h; sourceTree = "<group>"; };
 		2CA320AD16CD4E2500E2A55A /* footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = footprint.png; path = Resources/footprint.png; sourceTree = "<group>"; };
+		2CA4D27C16E392B3000E4380 /* LevelCompleteMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteMenu.h; path = Classes/LevelCompleteMenu.h; sourceTree = "<group>"; };
+		2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelCompleteWindow.cpp; path = Classes/LevelCompleteWindow.cpp; sourceTree = "<group>"; };
+		2CA4D28116E51E02000E4380 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
+		2CA4D28216E51E02000E4380 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		2CA4D28316E51E02000E4380 /* features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = features.h; sourceTree = "<group>"; };
+		2CA4D28416E51E02000E4380 /* forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forwards.h; sourceTree = "<group>"; };
+		2CA4D28516E51E02000E4380 /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
+		2CA4D28616E51E02000E4380 /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
+		2CA4D28716E51E02000E4380 /* value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = value.h; sourceTree = "<group>"; };
+		2CA4D28816E51E02000E4380 /* writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
+		2CA4D28916E51E02000E4380 /* json_batchallocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json_batchallocator.h; sourceTree = "<group>"; };
+		2CA4D28A16E51E02000E4380 /* json_internalarray.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json_internalarray.inl; sourceTree = "<group>"; };
+		2CA4D28B16E51E02000E4380 /* json_internalmap.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json_internalmap.inl; sourceTree = "<group>"; };
+		2CA4D28C16E51E02000E4380 /* json_reader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = json_reader.cpp; sourceTree = "<group>"; };
+		2CA4D28D16E51E02000E4380 /* json_value.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = json_value.cpp; sourceTree = "<group>"; };
+		2CA4D28E16E51E02000E4380 /* json_valueiterator.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = json_valueiterator.inl; sourceTree = "<group>"; };
+		2CA4D28F16E51E02000E4380 /* json_writer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = json_writer.cpp; sourceTree = "<group>"; };
+		2CA4D29016E51E02000E4380 /* sconscript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sconscript; sourceTree = "<group>"; };
+		2CA4D29816E51FAA000E4380 /* test_map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = test_map.json; path = Resources/test_map.json; sourceTree = "<group>"; };
 		2CCA9D0216D13E2A00603D1D /* Ninja.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Ninja.cpp; path = Classes/Ninja.cpp; sourceTree = "<group>"; };
 		2CCA9D0316D13E2A00603D1D /* Ninja.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ninja.h; path = Classes/Ninja.h; sourceTree = "<group>"; };
 		2CCA9D0616D66D4400603D1D /* Obstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Obstacle.cpp; path = Classes/Obstacle.cpp; sourceTree = "<group>"; };
@@ -679,6 +712,17 @@
 		2CCA9D1616D78B0E00603D1D /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 11.png; path = Resources/monsters/11.png; sourceTree = "<group>"; };
 		2CCA9D1716D78B0E00603D1D /* 12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 12.png; path = Resources/monsters/12.png; sourceTree = "<group>"; };
 		2CCA9D1816D78B0E00603D1D /* 13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 13.png; path = Resources/monsters/13.png; sourceTree = "<group>"; };
+		2CCA9D2616DA110F00603D1D /* MapView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MapView.cpp; path = Classes/MapView.cpp; sourceTree = "<group>"; };
+		2CCA9D2716DA110F00603D1D /* MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapView.h; path = Classes/MapView.h; sourceTree = "<group>"; };
+		2CCA9D2916DA174400603D1D /* flags.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = flags.png; path = Resources/flags.png; sourceTree = "<group>"; };
+		2CCA9D2C16DA517800603D1D /* WindowManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WindowManager.cpp; path = Classes/WindowManager.cpp; sourceTree = "<group>"; };
+		2CCA9D2D16DA517800603D1D /* WindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WindowManager.h; path = Classes/WindowManager.h; sourceTree = "<group>"; };
+		2CCA9D3016DA61D100603D1D /* AWindowFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWindowFactory.h; path = Classes/AWindowFactory.h; sourceTree = "<group>"; };
+		2CCA9D3516DA631F00603D1D /* GameWindowFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameWindowFactory.cpp; path = Classes/GameWindowFactory.cpp; sourceTree = "<group>"; };
+		2CCA9D3616DA631F00603D1D /* GameWindowFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameWindowFactory.h; path = Classes/GameWindowFactory.h; sourceTree = "<group>"; };
+		2CCA9D3816DA737200603D1D /* AWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWindow.h; path = Classes/AWindow.h; sourceTree = "<group>"; };
+		2CCA9D3A16DA7FC300603D1D /* LevelCompleteWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteWindow.h; path = Classes/LevelCompleteWindow.h; sourceTree = "<group>"; };
+		2CCA9D3B16DA805700603D1D /* levelCompleteWindow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = levelCompleteWindow.png; path = Resources/levelCompleteWindow.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -748,6 +792,9 @@
 		2C78E86B1689084500CFA337 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CA4D29816E51FAA000E4380 /* test_map.json */,
+				2CCA9D3B16DA805700603D1D /* levelCompleteWindow.png */,
+				2CCA9D2916DA174400603D1D /* flags.png */,
 				2CCA9D0C16D78B0E00603D1D /* 1.png */,
 				2CCA9D0D16D78B0E00603D1D /* 2.png */,
 				2CCA9D0E16D78B0E00603D1D /* 3.png */,
@@ -794,6 +841,7 @@
 		2C78E88C1689084500CFA337 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				2CA4D27F16E51E02000E4380 /* lib_json */,
 				2C78E88D1689084500CFA337 /* cocos2dx */,
 				2C78EA4B1689084700CFA337 /* CocosDenshion */,
 				2C78EA5F1689084700CFA337 /* extensions */,
@@ -1575,6 +1623,7 @@
 		2C78EAF61689084800CFA337 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2CCA9D2B16DA516300603D1D /* window */,
 				2CA320A416CBC5B700E2A55A /* game */,
 				2C78EAF71689084800CFA337 /* AppDelegate.h */,
 				2C78EAF81689084800CFA337 /* AppDelegate.cpp */,
@@ -1587,6 +1636,7 @@
 		2CA320A416CBC5B700E2A55A /* game */ = {
 			isa = PBXGroup;
 			children = (
+				2CA4D27B16E3928A000E4380 /* menu */,
 				2CCA9D0516D66D2F00603D1D /* map */,
 				2CCA9D0116D13E1100603D1D /* ninja */,
 				2CA320A516CBC5CC00E2A55A /* GameScene.cpp */,
@@ -1595,6 +1645,46 @@
 				2CA320AB16CC0C3100E2A55A /* DrawingController.h */,
 			);
 			name = game;
+			sourceTree = "<group>";
+		};
+		2CA4D27B16E3928A000E4380 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				2CA4D27C16E392B3000E4380 /* LevelCompleteMenu.h */,
+			);
+			name = menu;
+			sourceTree = "<group>";
+		};
+		2CA4D27F16E51E02000E4380 /* lib_json */ = {
+			isa = PBXGroup;
+			children = (
+				2CA4D28016E51E02000E4380 /* json */,
+				2CA4D28916E51E02000E4380 /* json_batchallocator.h */,
+				2CA4D28A16E51E02000E4380 /* json_internalarray.inl */,
+				2CA4D28B16E51E02000E4380 /* json_internalmap.inl */,
+				2CA4D28C16E51E02000E4380 /* json_reader.cpp */,
+				2CA4D28D16E51E02000E4380 /* json_value.cpp */,
+				2CA4D28E16E51E02000E4380 /* json_valueiterator.inl */,
+				2CA4D28F16E51E02000E4380 /* json_writer.cpp */,
+				2CA4D29016E51E02000E4380 /* sconscript */,
+			);
+			name = lib_json;
+			path = libs/lib_json;
+			sourceTree = "<group>";
+		};
+		2CA4D28016E51E02000E4380 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				2CA4D28116E51E02000E4380 /* autolink.h */,
+				2CA4D28216E51E02000E4380 /* config.h */,
+				2CA4D28316E51E02000E4380 /* features.h */,
+				2CA4D28416E51E02000E4380 /* forwards.h */,
+				2CA4D28516E51E02000E4380 /* json.h */,
+				2CA4D28616E51E02000E4380 /* reader.h */,
+				2CA4D28716E51E02000E4380 /* value.h */,
+				2CA4D28816E51E02000E4380 /* writer.h */,
+			);
+			path = json;
 			sourceTree = "<group>";
 		};
 		2CCA9D0116D13E1100603D1D /* ninja */ = {
@@ -1613,8 +1703,33 @@
 				2CCA9D0716D66D4400603D1D /* Obstacle.h */,
 				2CCA9D0916D66FAD00603D1D /* ObstaclesController.cpp */,
 				2CCA9D0A16D66FAD00603D1D /* ObstaclesController.h */,
+				2CCA9D2616DA110F00603D1D /* MapView.cpp */,
+				2CCA9D2716DA110F00603D1D /* MapView.h */,
 			);
 			name = map;
+			sourceTree = "<group>";
+		};
+		2CCA9D2B16DA516300603D1D /* window */ = {
+			isa = PBXGroup;
+			children = (
+				2CCA9D3916DA7F9700603D1D /* core */,
+				2CCA9D3A16DA7FC300603D1D /* LevelCompleteWindow.h */,
+				2CCA9D3516DA631F00603D1D /* GameWindowFactory.cpp */,
+				2CCA9D3616DA631F00603D1D /* GameWindowFactory.h */,
+				2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */,
+			);
+			name = window;
+			sourceTree = "<group>";
+		};
+		2CCA9D3916DA7F9700603D1D /* core */ = {
+			isa = PBXGroup;
+			children = (
+				2CCA9D2C16DA517800603D1D /* WindowManager.cpp */,
+				2CCA9D2D16DA517800603D1D /* WindowManager.h */,
+				2CCA9D3016DA61D100603D1D /* AWindowFactory.h */,
+				2CCA9D3816DA737200603D1D /* AWindow.h */,
+			);
+			name = core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1694,6 +1809,13 @@
 				2CCA9D2316D78B0E00603D1D /* 11.png in Resources */,
 				2CCA9D2416D78B0E00603D1D /* 12.png in Resources */,
 				2CCA9D2516D78B0E00603D1D /* 13.png in Resources */,
+				2CCA9D2A16DA174400603D1D /* flags.png in Resources */,
+				2CCA9D3C16DA805700603D1D /* levelCompleteWindow.png in Resources */,
+				2CA4D29116E51E02000E4380 /* json_internalarray.inl in Resources */,
+				2CA4D29216E51E02000E4380 /* json_internalmap.inl in Resources */,
+				2CA4D29516E51E02000E4380 /* json_valueiterator.inl in Resources */,
+				2CA4D29716E51E02000E4380 /* sconscript in Resources */,
+				2CA4D29916E51FAA000E4380 /* test_map.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1883,6 +2005,13 @@
 				2CCA9D0416D13E2A00603D1D /* Ninja.cpp in Sources */,
 				2CCA9D0816D66D4400603D1D /* Obstacle.cpp in Sources */,
 				2CCA9D0B16D66FAD00603D1D /* ObstaclesController.cpp in Sources */,
+				2CCA9D2816DA110F00603D1D /* MapView.cpp in Sources */,
+				2CCA9D2E16DA517900603D1D /* WindowManager.cpp in Sources */,
+				2CCA9D3716DA631F00603D1D /* GameWindowFactory.cpp in Sources */,
+				2CA4D27E16E394C4000E4380 /* LevelCompleteWindow.cpp in Sources */,
+				2CA4D29316E51E02000E4380 /* json_reader.cpp in Sources */,
+				2CA4D29416E51E02000E4380 /* json_value.cpp in Sources */,
+				2CA4D29616E51E02000E4380 /* json_writer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
