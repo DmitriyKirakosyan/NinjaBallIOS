@@ -10,6 +10,7 @@
 
 #include "cocos2d.h"
 #include "MainScene.h"
+#include "Settings.h"
 
 USING_NS_CC;
 
@@ -34,12 +35,16 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
     pDirector->setAnimationInterval(1.0 / 60);
 
+    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    
+    Settings::createDensity(winSize.width, winSize.height);
+    
     // create a scene. it's an autorelease object
     CCScene *pScene = MainScene::scene();
 
     // run
     pDirector->runWithScene(pScene);
-
+    
     return true;
 }
 

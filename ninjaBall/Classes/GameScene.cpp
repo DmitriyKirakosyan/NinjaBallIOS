@@ -13,6 +13,8 @@
 #include "ObstaclesController.h"
 #include "GameWindowFactory.h"
 #include "WindowManager.h"
+#include "Settings.h"
+#include "ScreenHelper.h"
 
 using namespace cocos2d;
 
@@ -20,8 +22,18 @@ bool GameScene::init()
 {
     if (CCScene::init())
     {
+        this->setAnchorPoint(ccp(0, 0));
+        this->setScale(Settings::density);
+        this->setPosition(ccp(Settings::REAL_WIDTH_OFFSET, Settings::REAL_HEIGHT_OFFSET));
         GameSceneLayer* layer = new GameSceneLayer();
         layer->initWithColor(ccc4(255, 255, 255, 255));
+        layer->setContentSize(CCSize(Settings::VIRTUAL_WIDTH, Settings::VIRTUAL_HEIGHT));
+        //layer->setAnchorPoint(ccp(0, 0));
+        
+        //layer->setScale(Settings::density);
+        
+        CCLog("position : %f, %f", layer->getPosition().x, layer->getPosition().y);
+        
         layer->start();
         this->addChild(layer);
         this->addChild(layer->getWindowLayer());
@@ -39,9 +51,9 @@ CCLayer* GameSceneLayer::getWindowLayer()
 
 void GameSceneLayer::start()
 {
+    
     _isDrawing = false;
     _touchPoints = NULL;
-    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     this->setTouchEnabled(true);
 
     _ninja = new Ninja(callfuncN_selector(GameSceneLayer::onNinjaMoveToPointComplete), this);
@@ -49,7 +61,7 @@ void GameSceneLayer::start()
 
     _windowManager = new WindowManager(this, new GameWindowFactory(this));
     _drawingController = new DrawingController(this);
-    _mapView = new MapView(winSize, _ninja);
+    _mapView = new MapView(_ninja);
     this->addChild(_mapView);
     this->addChild(_ninja, 1);
     this->startLevel();
@@ -59,8 +71,6 @@ void GameSceneLayer::startLevel()
 {
     CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     _mapView->createLevel("test_map.json");
-//    _ninja->setPosition(ccp(winSize.width - _ninja->getContentSize().width/2,
-//                            _ninja->getContentSize().height/2));
     this->schedule(schedule_selector(GameSceneLayer::update));
 }
 
@@ -116,6 +126,11 @@ void GameSceneLayer::ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* e
     CCTouch* touch = (CCTouch*) touches->anyObject();
     CCPoint location = touch->getLocationInView();
     location = CCDirector::sharedDirector()->convertToGL(location);
+    location = ScreenHelper::convetGLtoVirtual(location);
+    if (location.x < 0 || location.x > Settings::VIRTUAL_WIDTH ||
+        location.y < 0 || location.y > Settings::VIRTUAL_HEIGHT) {
+        return;
+    }
     
     CCPoint ninjaPoint = _ninja->getPosition();
     CCSize ninjaSize = _ninja->getContentSize();
@@ -137,11 +152,16 @@ void GameSceneLayer::ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* e
 
 void GameSceneLayer::ccTouchesMoved(cocos2d::CCSet* touches, cocos2d::CCEvent* event)
 {
+    CCTouch* touch = (CCTouch*) touches->anyObject();
+    CCPoint location = touch->getLocationInView();
+    location = CCDirector::sharedDirector()->convertToGL(location);
+    location = ScreenHelper::convetGLtoVirtual(location);
+    if (location.x < 0 || location.x > Settings::VIRTUAL_WIDTH ||
+        location.y < 0 || location.y > Settings::VIRTUAL_HEIGHT) {
+        return;
+    }
     if (_isDrawing)
     {
-        CCTouch* touch = (CCTouch*) touches->anyObject();
-        CCPoint location = touch->getLocationInView();
-        location = CCDirector::sharedDirector()->convertToGL(location);
         if (_touchPoints == NULL)
         {
             _touchPoints = new CCArray();

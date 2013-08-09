@@ -17,7 +17,7 @@ class Ninja;
 class MapView : public cocos2d::CCLayer
 {
 public:
-    MapView(cocos2d::CCSize winSize, Ninja* ninja);
+    MapView(Ninja* ninja);
     inline ObstaclesController* getObstacles() { return _obstacles; }
     
     /**
@@ -45,8 +45,6 @@ private:
     ObstaclesController* _obstacles;
     cocos2d::CCSprite* _finishLine;
     Ninja* _ninja;
-    
-    cocos2d::CCSize _winSize;
 };
 
 #endif /* defined(__ninjaBall__MapView__) */

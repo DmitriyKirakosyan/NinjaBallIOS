@@ -7,6 +7,7 @@
 //
 
 #include "Obstacle.h"
+#include "Settings.h"
 
 using namespace cocos2d;
 
@@ -26,9 +27,9 @@ Obstacle* Obstacle::createFromJSON(Json::Value obstacleJson)
 {
     Obstacle* result = new Obstacle();
 
-    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-    float itemX = obstacleJson.get("x", 0).asDouble() * winSize.width;
-    float itemY = obstacleJson.get("y", 0).asDouble() * winSize.height;
+    //CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    float itemX = obstacleJson.get("x", 0).asDouble() * Settings::VIRTUAL_WIDTH;
+    float itemY = obstacleJson.get("y", 0).asDouble() * Settings::VIRTUAL_HEIGHT;
     result->initWithFile("1.png");
     result->setScale(0.5f);
     result->setPosition(ccp(itemX, itemY));
@@ -37,8 +38,8 @@ Obstacle* Obstacle::createFromJSON(Json::Value obstacleJson)
     {
         Json::Value walkPath = obstacleJson.get("walk_path", "");
         for (int i = 0; i < walkPath.size(); ++i) {
-            result->addMovePoint(ccp(walkPath[i].get("x", 0).asDouble() * winSize.width,
-                                     walkPath[i].get("y", 0).asDouble() * winSize.height));
+            result->addMovePoint(ccp(walkPath[i].get("x", 0).asDouble() * Settings::VIRTUAL_WIDTH,
+                                     walkPath[i].get("y", 0).asDouble() * Settings::VIRTUAL_HEIGHT));
         }
     }
     

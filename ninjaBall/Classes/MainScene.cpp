@@ -1,6 +1,7 @@
 #include "MainScene.h"
 #include "SimpleAudioEngine.h"
 #include "GameScene.h"
+#include "Settings.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -9,6 +10,9 @@ CCScene* MainScene::scene()
 {
     // 'scene' is an autorelease object
     CCScene *scene = CCScene::create();
+    scene->setAnchorPoint(CCPointZero);
+    scene->setScale(Settings::density);
+    scene->setPosition(ccp(Settings::REAL_WIDTH_OFFSET, Settings::REAL_HEIGHT_OFFSET));
     
     // 'layer' is an autorelease object
     MainScene *layer = MainScene::create();
@@ -55,16 +59,16 @@ bool MainScene::init()
     CCLabelTTF* pLabel = CCLabelTTF::create("Ninja Ball", "Thonburi", 34);
 
     // ask director the window size
-    CCSize size = CCDirector::sharedDirector()->getWinSize();
+    //CCSize size = CCDirector::sharedDirector()->getWinSize();
 
     // position the label on the center of the screen
-    pLabel->setPosition( ccp(size.width / 2, size.height - 20) );
+    pLabel->setPosition( ccp(Settings::VIRTUAL_WIDTH / 2, Settings::VIRTUAL_HEIGHT - 20) );
 
 
     CCSprite* background = CCSprite::create("MainMenuBG.png");
     
     CCMenuItemSprite* playBtn = CCMenuItemSprite::create(background, background, this, menu_selector(MainScene::menuPlayCallback));
-    playBtn->setPosition(ccp(size.width/2, size.height/2));
+    playBtn->setPosition(ccp(Settings::VIRTUAL_WIDTH/2, Settings::VIRTUAL_HEIGHT/2));
     //CCLog("size : %f, %f", size.width, size.height);
     
     pMenu->addChild(playBtn);

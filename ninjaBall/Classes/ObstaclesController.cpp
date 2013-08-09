@@ -8,14 +8,14 @@
 
 #include "ObstaclesController.h"
 #include "Obstacle.h"
+#include "Settings.h"
 
 using namespace cocos2d;
 
-ObstaclesController::ObstaclesController(CCLayer* mapLayer, CCSize winSize):MONSTERS_NUM(12)
+ObstaclesController::ObstaclesController(CCLayer* mapLayer):MONSTERS_NUM(12)
 {
     _obstacles = NULL;
     _mapLayer = mapLayer;
-    _winsize = winSize;
 }
 
 void ObstaclesController::clear()
@@ -81,14 +81,16 @@ void ObstaclesController::createRandomObstacles()
         obstacle->initWithFile(imagePath);
         obstacle->setScale(0.5f);
         
-        imageX = (arc4random() % (int)(_winsize.width - obstacle->getContentSize().width)) +
+        imageX = (arc4random() % (int)(Settings::VIRTUAL_WIDTH - obstacle->getContentSize().width)) +
                                         obstacle->getContentSize().width/2;
-        imageY = (arc4random() % (int)(_winsize.height - obstacle->getContentSize().height)) +
+        imageY = (arc4random() % (int)(Settings::VIRTUAL_HEIGHT - obstacle->getContentSize().height)) +
                                         obstacle->getContentSize().height/2;
         obstacle->setPosition(ccp(imageX, imageY));
         
-        obstacle->setLinearMoving(ccp(arc4random() % (int) _winsize.width, arc4random() % (int) _winsize.height),
-                                  ccp(arc4random() % (int) _winsize.width, arc4random() % (int) _winsize.height));
+        obstacle->setLinearMoving(ccp(arc4random() % (int) Settings::VIRTUAL_WIDTH,
+                                      arc4random() % (int) Settings::VIRTUAL_HEIGHT),
+                                  ccp(arc4random() % (int) Settings::VIRTUAL_WIDTH,
+                                      arc4random() % (int) Settings::VIRTUAL_HEIGHT));
         
         if (_obstacles == NULL) { _obstacles = new CCArray(); }
         _obstacles->addObject(obstacle);

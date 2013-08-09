@@ -206,6 +206,8 @@
 		2CA320A916CBD69B00E2A55A /* ninja.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA320A816CBD69B00E2A55A /* ninja.png */; };
 		2CA320AC16CC0C3100E2A55A /* DrawingController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA320AA16CC0C3100E2A55A /* DrawingController.cpp */; };
 		2CA320AE16CD4E2500E2A55A /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA320AD16CD4E2500E2A55A /* footprint.png */; };
+		2CA4696F17B3EFD700E5A952 /* SelectLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4696D17B3EFD700E5A952 /* SelectLevelScene.cpp */; };
+		2CA4697217B4225100E5A952 /* Settings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4697117B4225000E5A952 /* Settings.cpp */; };
 		2CA4D27E16E394C4000E4380 /* LevelCompleteWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */; };
 		2CA4D29116E51E02000E4380 /* json_internalarray.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28A16E51E02000E4380 /* json_internalarray.inl */; };
 		2CA4D29216E51E02000E4380 /* json_internalmap.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28B16E51E02000E4380 /* json_internalmap.inl */; };
@@ -674,6 +676,11 @@
 		2CA320AA16CC0C3100E2A55A /* DrawingController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DrawingController.cpp; path = Classes/DrawingController.cpp; sourceTree = "<group>"; };
 		2CA320AB16CC0C3100E2A55A /* DrawingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DrawingController.h; path = Classes/DrawingController.h; sourceTree = "<group>"; };
 		2CA320AD16CD4E2500E2A55A /* footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = footprint.png; path = Resources/footprint.png; sourceTree = "<group>"; };
+		2CA4696D17B3EFD700E5A952 /* SelectLevelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SelectLevelScene.cpp; path = Classes/SelectLevelScene.cpp; sourceTree = "<group>"; };
+		2CA4696E17B3EFD700E5A952 /* SelectLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectLevelScene.h; path = Classes/SelectLevelScene.h; sourceTree = "<group>"; };
+		2CA4697017B4039C00E5A952 /* Settings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = Classes/Settings.h; sourceTree = "<group>"; };
+		2CA4697117B4225000E5A952 /* Settings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Settings.cpp; path = Classes/Settings.cpp; sourceTree = "<group>"; };
+		2CA4697317B4F65600E5A952 /* ScreenHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ScreenHelper.h; path = Classes/ScreenHelper.h; sourceTree = "<group>"; };
 		2CA4D27C16E392B3000E4380 /* LevelCompleteMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteMenu.h; path = Classes/LevelCompleteMenu.h; sourceTree = "<group>"; };
 		2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelCompleteWindow.cpp; path = Classes/LevelCompleteWindow.cpp; sourceTree = "<group>"; };
 		2CA4D28116E51E02000E4380 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
@@ -1623,12 +1630,14 @@
 		2C78EAF61689084800CFA337 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2CA4696C17B3EF9700E5A952 /* scene */,
 				2CCA9D2B16DA516300603D1D /* window */,
 				2CA320A416CBC5B700E2A55A /* game */,
 				2C78EAF71689084800CFA337 /* AppDelegate.h */,
 				2C78EAF81689084800CFA337 /* AppDelegate.cpp */,
-				2C78EAFA1689084800CFA337 /* MainScene.h */,
-				2C78EAFB1689084800CFA337 /* MainScene.cpp */,
+				2CA4697017B4039C00E5A952 /* Settings.h */,
+				2CA4697117B4225000E5A952 /* Settings.cpp */,
+				2CA4697317B4F65600E5A952 /* ScreenHelper.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1639,12 +1648,23 @@
 				2CA4D27B16E3928A000E4380 /* menu */,
 				2CCA9D0516D66D2F00603D1D /* map */,
 				2CCA9D0116D13E1100603D1D /* ninja */,
-				2CA320A516CBC5CC00E2A55A /* GameScene.cpp */,
-				2CA320A616CBC5CC00E2A55A /* GameScene.h */,
 				2CA320AA16CC0C3100E2A55A /* DrawingController.cpp */,
 				2CA320AB16CC0C3100E2A55A /* DrawingController.h */,
 			);
 			name = game;
+			sourceTree = "<group>";
+		};
+		2CA4696C17B3EF9700E5A952 /* scene */ = {
+			isa = PBXGroup;
+			children = (
+				2CA320A516CBC5CC00E2A55A /* GameScene.cpp */,
+				2CA320A616CBC5CC00E2A55A /* GameScene.h */,
+				2C78EAFA1689084800CFA337 /* MainScene.h */,
+				2C78EAFB1689084800CFA337 /* MainScene.cpp */,
+				2CA4696D17B3EFD700E5A952 /* SelectLevelScene.cpp */,
+				2CA4696E17B3EFD700E5A952 /* SelectLevelScene.h */,
+			);
+			name = scene;
 			sourceTree = "<group>";
 		};
 		2CA4D27B16E3928A000E4380 /* menu */ = {
@@ -2012,6 +2032,8 @@
 				2CA4D29316E51E02000E4380 /* json_reader.cpp in Sources */,
 				2CA4D29416E51E02000E4380 /* json_value.cpp in Sources */,
 				2CA4D29616E51E02000E4380 /* json_writer.cpp in Sources */,
+				2CA4696F17B3EFD700E5A952 /* SelectLevelScene.cpp in Sources */,
+				2CA4697217B4225100E5A952 /* Settings.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

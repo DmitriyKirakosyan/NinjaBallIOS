@@ -11,15 +11,15 @@
 #include "json.h"
 #include <fstream>
 #include "Ninja.h"
+#include "Settings.h"
 
 using namespace cocos2d;
 
-MapView::MapView(CCSize winSize, Ninja* ninja)
+MapView::MapView(Ninja* ninja)
 {
-    _winSize = winSize;
     _ninja = ninja;
     _finishLine = NULL;
-    _obstacles = new ObstaclesController(this, winSize);
+    _obstacles = new ObstaclesController(this);
 }
 
 void MapView::createTestLevel()
@@ -28,7 +28,7 @@ void MapView::createTestLevel()
     _finishLine = CCSprite::create("flags.png");
     _finishLine->setScale(0.5f);
     _finishLine->setPosition(ccp(_finishLine->getContentSize().width/4,
-                                 _winSize.height - _finishLine->getContentSize().height/4));
+                                 Settings::VIRTUAL_HEIGHT - _finishLine->getContentSize().height/4));
     this->addChild(_finishLine);
 }
 
@@ -44,15 +44,15 @@ void MapView::createLevel(const char *fileName)
     CCAssert(parsingSuccessful, "parse problem" + reader.getFormatedErrorMessages());
 
     Json::Value ninjaValue = root.get("ninja", "");
-    float ninjaX = ninjaValue.get("x", 0).asDouble() * _winSize.width;
-    float ninjaY = ninjaValue.get("y", 0).asDouble() * _winSize.height;
+    float ninjaX = ninjaValue.get("x", 0).asDouble() * Settings::VIRTUAL_WIDTH;
+    float ninjaY = ninjaValue.get("y", 0).asDouble() * Settings::VIRTUAL_HEIGHT;
     _ninja->setPosition(ccp(ninjaX, ninjaY));
     
     Json::Value flValue = root.get("finish_line", "");
     _finishLine = CCSprite::create("flags.png");
     _finishLine->setScale(0.5f);
-    _finishLine->setPosition(ccp(flValue.get("x", 0).asDouble() * _winSize.width,
-                                 flValue.get("y", 0).asDouble() * _winSize.height));
+    _finishLine->setPosition(ccp(flValue.get("x", 0).asDouble() * Settings::VIRTUAL_WIDTH,
+                                 flValue.get("y", 0).asDouble() * Settings::VIRTUAL_HEIGHT));
     this->addChild(_finishLine);
     
     _obstacles->createFromJSON(root.get("map_objects", ""));

@@ -10,6 +10,7 @@
 #include "AWindowFactory.h"
 #include "AWindow.h"
 #include "LevelCompleteWindow.h"
+#include "Settings.h"
 
 using namespace cocos2d;
 
@@ -25,9 +26,9 @@ WindowManager::WindowManager(CCLayer* layer, AWindowFactory* windowFactory):WIND
 
 void WindowManager::showWindow(const char *windowName)
 {
-    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
+    //CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     _currentWindow = _windowFactory->getWindow(windowName);
-    _currentWindow->setPosition(ccp(winSize.width/2, winSize.height/2));
+    _currentWindow->setPosition(ccp(Settings::VIRTUAL_WIDTH/2, Settings::VIRTUAL_HEIGHT/2));
     
     this->addChild(_currentWindow, WINDOW_Z_ORDER);
     _currentWindow->open();
