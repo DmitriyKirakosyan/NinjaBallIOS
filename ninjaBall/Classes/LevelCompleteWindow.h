@@ -21,6 +21,8 @@ public:
     LevelCompleteWindow(LevelCompleteMenu* levelCompleteMenu);
     
     void menuCloseCallback(cocos2d::CCObject* pSender);
+    void menuNextCallback(cocos2d::CCObject* pSender);
+    void menuReplayCallback(cocos2d::CCObject* pSender);
     
 private:
     

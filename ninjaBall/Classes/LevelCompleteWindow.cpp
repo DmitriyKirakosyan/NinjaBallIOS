@@ -16,28 +16,47 @@ LevelCompleteWindow::LevelCompleteWindow(LevelCompleteMenu* levelCompleteMenu): 
 {
     this->initWithFile("levelCompleteWindow.png");
     
-    //cocos2d::CCSize winSize = cocos2d::CCDirector::sharedDirector()->getWinSize();
+    cocos2d::CCMenuItemImage *pCloseItem =
+                    CCMenuItemImage::create("Left.png",
+                                            "Left.png",
+                                            this, menu_selector(LevelCompleteWindow::menuCloseCallback) );
+    cocos2d::CCMenuItemImage *pReplayItem =
+                    CCMenuItemImage::create("Replay.png",
+                                            "Replay.png",
+                                            this, menu_selector(LevelCompleteWindow::menuReplayCallback) );
+    cocos2d::CCMenuItemImage *pNextItem =
+                    CCMenuItemImage::create("Right-Play.png",
+                                            "Right-Play.png",
+                                            this, menu_selector(LevelCompleteWindow::menuNextCallback) );
     
-    //CCLog("width : %f, height : %f", winSize.width, winSize.height);
-    
-    CCLog("width : %i", Settings::VIRTUAL_WIDTH);
-    
-    cocos2d::CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
-                                                                            "CloseNormal.png",
-                                                                            "CloseSelected.png",
-                                                                            this, menu_selector(LevelCompleteWindow::menuCloseCallback) );
+    float buttonsWidth = pCloseItem->getContentSize().width +
+                         pReplayItem->getContentSize().width +
+                         pNextItem->getContentSize().width;
     
     CCSize windowSize = this->getContentSize();
-    pCloseItem->setPosition( ccp(windowSize.width - pCloseItem->getContentSize().width/2,
-                                 windowSize.height - pCloseItem->getContentSize().height/2));
+    pCloseItem->setPosition( ccp(windowSize.width/2 - buttonsWidth/2, windowSize.height/2));
+    pReplayItem->setPosition(ccp(windowSize.width/2, windowSize.height/2));
+    pNextItem->setPosition(ccp(windowSize.width/2 + buttonsWidth/2, windowSize.height/2));
     
     // create menu, it's an autorelease object
-    cocos2d::CCMenu* pMenu = cocos2d::CCMenu::create(pCloseItem, NULL);
+    cocos2d::CCMenu* pMenu = cocos2d::CCMenu::create(pCloseItem, pReplayItem, pNextItem, NULL);
     pMenu->setPosition( cocos2d::CCPointZero );
     this->addChild(pMenu, 1);
 }
 
-void LevelCompleteWindow::menuCloseCallback(cocos2d::CCObject* pSender)
+void LevelCompleteWindow::menuCloseCallback(cocos2d::CCObject *pSender)
+{
+    this->setReadyToClose(true);
+    _levelCompleteMenu->returnToMainMenu();
+}
+
+void LevelCompleteWindow::menuReplayCallback(cocos2d::CCObject *pSender)
+{
+    this->setReadyToClose(true);
+    _levelCompleteMenu->replyLevel();
+}
+
+void LevelCompleteWindow::menuNextCallback(cocos2d::CCObject* pSender)
 {
     this->setReadyToClose(true);
     _levelCompleteMenu->nextLevel();

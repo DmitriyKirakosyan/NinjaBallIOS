@@ -15,6 +15,7 @@
 #include "WindowManager.h"
 #include "Settings.h"
 #include "ScreenHelper.h"
+#include "MainScene.h"
 
 using namespace cocos2d;
 
@@ -28,9 +29,6 @@ bool GameScene::init()
         GameSceneLayer* layer = new GameSceneLayer();
         layer->initWithColor(ccc4(255, 255, 255, 255));
         layer->setContentSize(CCSize(Settings::VIRTUAL_WIDTH, Settings::VIRTUAL_HEIGHT));
-        //layer->setAnchorPoint(ccp(0, 0));
-        
-        //layer->setScale(Settings::density);
         
         CCLog("position : %f, %f", layer->getPosition().x, layer->getPosition().y);
         
@@ -86,7 +84,8 @@ void GameSceneLayer::replyLevel()
 
 void GameSceneLayer::returnToMainMenu()
 {
-    
+    CCScene* mainScene = MainScene::scene();
+    CCDirector::sharedDirector()->replaceScene(mainScene);
 }
 
 void GameSceneLayer::update()

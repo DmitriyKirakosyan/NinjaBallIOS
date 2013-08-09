@@ -30,7 +30,7 @@ Obstacle* Obstacle::createFromJSON(Json::Value obstacleJson)
     //CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     float itemX = obstacleJson.get("x", 0).asDouble() * Settings::VIRTUAL_WIDTH;
     float itemY = obstacleJson.get("y", 0).asDouble() * Settings::VIRTUAL_HEIGHT;
-    result->initWithFile("1.png");
+    result->initWithFile("yellowMonster.png");
     result->setScale(0.5f);
     result->setPosition(ccp(itemX, itemY));
     
