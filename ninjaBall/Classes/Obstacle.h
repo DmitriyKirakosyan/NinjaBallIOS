@@ -15,6 +15,8 @@
 class Obstacle : public cocos2d::CCSprite
 {
 public:
+    static const char* WALKING_WALL;
+    
     Obstacle()
     {
         _movingPath = NULL;
@@ -37,11 +39,11 @@ public:
     
 private:
     
-    
-    
     void moveToPoint(cocos2d::CCPoint point);
     
     void onMoveToPointComplete(cocos2d::CCNode* sender);
+    
+    static const char* getMonsterImage(const char* monsterType);
     
     bool _isMoving;
     cocos2d::CCArray* _movingPath;

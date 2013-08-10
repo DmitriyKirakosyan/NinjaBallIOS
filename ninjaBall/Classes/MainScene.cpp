@@ -2,6 +2,7 @@
 #include "SimpleAudioEngine.h"
 #include "GameScene.h"
 #include "Settings.h"
+#include "SelectLevelScene.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -47,9 +48,6 @@ bool MainScene::init()
     pCloseItem->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width - 20, 20) );
 
     // create menu, it's an autorelease object
-    CCMenu* pMenu = CCMenu::create(pCloseItem, NULL);
-    pMenu->setPosition( CCPointZero );
-    this->addChild(pMenu, 1);
 
     /////////////////////////////
     // 3. add your codes below...
@@ -66,25 +64,66 @@ bool MainScene::init()
 
 
     CCSprite* background = CCSprite::create("MainMenuBG.png");
+    background->setPosition(ccp(Settings::VIRTUAL_WIDTH/2, Settings::VIRTUAL_HEIGHT/2));
+    this->addChild(background);
     
-    CCMenuItemSprite* playBtn = CCMenuItemSprite::create(background, background, this, menu_selector(MainScene::menuPlayCallback));
-    playBtn->setPosition(ccp(Settings::VIRTUAL_WIDTH/2, Settings::VIRTUAL_HEIGHT/2));
-    //CCLog("size : %f, %f", size.width, size.height);
+    CCMenuItemImage* pPlayBtn = CCMenuItemImage::create("Play@2x.png", "Play@2x.png",
+                                                        this, menu_selector(MainScene::playCallback));
+    CCMenuItemImage* pOptionsBtn = CCMenuItemImage::create("Options@2x.png", "Options@2x.png",
+                                                           this, menu_selector(MainScene::optionsCallback));
+    CCMenuItemImage* pCreditsBtn = CCMenuItemImage::create("Credits@2x.png", "Credits@2x.png",
+                                                           this, menu_selector(MainScene::creditsCallback));
     
-    pMenu->addChild(playBtn);
+    float buttonsHeight = pPlayBtn->getContentSize().height +
+                            pOptionsBtn->getContentSize().height +
+                            pCreditsBtn->getContentSize().height;
     
-    //this->addChild(background, 0);
+    CCSize screenSize = CCSize(Settings::VIRTUAL_WIDTH, Settings::VIRTUAL_HEIGHT);
+    pPlayBtn->setPosition( ccp(screenSize.width/2, screenSize.height/2 + buttonsHeight/2));
+    pOptionsBtn->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+    pCreditsBtn->setPosition(ccp(screenSize.width/2, screenSize.height/2 - buttonsHeight/2));
 
-    // add the label as a child to this layer
+    pPlayBtn->setScale(0.6);
+    pOptionsBtn->setScale(0.6);
+    pCreditsBtn->setScale(0.6);
+
+//    this->runAction(CCSequence::create(CCCallFuncO::create(this,  selector:@selector(tweenNode:) object:playButton],
+//                     [CCCallFuncO actionWithTarget:self selector:@selector(tweenNode:) object:optionsButton],
+//                     [CCCallFuncO actionWithTarget:self selector:@selector(tweenNode:) object:creditsButton],
+//                     nil]];
+    
+    CCMenu* pMenu = CCMenu::create(pCloseItem, pPlayBtn, pOptionsBtn, pCreditsBtn, NULL);
+    pMenu->setPosition( CCPointZero );
+    this->addChild(pMenu, 1);
     this->addChild(pLabel, 1);
     
+    this->tweenNode(pPlayBtn);
+    this->tweenNode(pOptionsBtn);
+    this->tweenNode(pCreditsBtn);
+
     return true;
 }
 
-void MainScene::menuPlayCallback(CCObject* pSender)
+void MainScene::tweenNode(CCNode  * menuItem) {
+    menuItem->runAction(CCEaseElasticOut::create(CCScaleTo::create(1.7, 1)));
+}
+
+
+void MainScene::playCallback(CCObject* pSender)
 {
-    GameScene* gameScene = GameScene::create();
-    CCDirector::sharedDirector()->replaceScene(gameScene);
+    CCScene* scene = SelectLevelScene::scene();
+    //GameScene* gameScene = GameScene::create();
+    CCDirector::sharedDirector()->replaceScene(scene);
+}
+
+void MainScene::optionsCallback(cocos2d::CCObject *pSender)
+{
+    
+}
+
+void MainScene::creditsCallback(cocos2d::CCObject *pSender)
+{
+    
 }
 
 void MainScene::menuCloseCallback(CCObject* pSender)

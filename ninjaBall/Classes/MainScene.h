@@ -15,10 +15,15 @@ public:
     // a selector callback
     void menuCloseCallback(CCObject* pSender);
     
-    void menuPlayCallback(CCObject* pSender);
+    void playCallback(CCObject* pSender);
+    void optionsCallback(CCObject* pSender);
+    void creditsCallback(CCObject* pSender);
 
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(MainScene);
+    
+private:
+    void tweenNode(cocos2d::CCNode  * menuItem);
 };
 
 #endif // __HELLOWORLD_SCENE_H__

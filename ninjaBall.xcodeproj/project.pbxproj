@@ -253,6 +253,7 @@
 		2CA469CF17B5187900E5A952 /* Sound-On@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA469AE17B5187900E5A952 /* Sound-On@2x.png */; };
 		2CA469D017B5187900E5A952 /* Start.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA469AF17B5187900E5A952 /* Start.png */; };
 		2CA469D117B5187900E5A952 /* Start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA469B017B5187900E5A952 /* Start@2x.png */; };
+		2CA469D317B68F1500E5A952 /* selectLevel.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA469D217B68F1500E5A952 /* selectLevel.png */; };
 		2CA4D27E16E394C4000E4380 /* LevelCompleteWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */; };
 		2CA4D29116E51E02000E4380 /* json_internalarray.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28A16E51E02000E4380 /* json_internalarray.inl */; };
 		2CA4D29216E51E02000E4380 /* json_internalmap.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28B16E51E02000E4380 /* json_internalmap.inl */; };
@@ -771,6 +772,7 @@
 		2CA469AE17B5187900E5A952 /* Sound-On@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sound-On@2x.png"; sourceTree = "<group>"; };
 		2CA469AF17B5187900E5A952 /* Start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Start.png; sourceTree = "<group>"; };
 		2CA469B017B5187900E5A952 /* Start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start@2x.png"; sourceTree = "<group>"; };
+		2CA469D217B68F1500E5A952 /* selectLevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selectLevel.png; path = Resources/selectLevel.png; sourceTree = "<group>"; };
 		2CA4D27C16E392B3000E4380 /* LevelCompleteMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteMenu.h; path = Classes/LevelCompleteMenu.h; sourceTree = "<group>"; };
 		2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelCompleteWindow.cpp; path = Classes/LevelCompleteWindow.cpp; sourceTree = "<group>"; };
 		2CA4D28116E51E02000E4380 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
@@ -889,6 +891,7 @@
 		2C78E86B1689084500CFA337 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CA469D217B68F1500E5A952 /* selectLevel.png */,
 				2CA4698E17B5187900E5A952 /* Text */,
 				2CA4699A17B5187900E5A952 /* Text-Buttons */,
 				2CA4697517B5186100E5A952 /* Buttons */,
@@ -2043,6 +2046,7 @@
 				2CA469CF17B5187900E5A952 /* Sound-On@2x.png in Resources */,
 				2CA469D017B5187900E5A952 /* Start.png in Resources */,
 				2CA469D117B5187900E5A952 /* Start@2x.png in Resources */,
+				2CA469D317B68F1500E5A952 /* selectLevel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

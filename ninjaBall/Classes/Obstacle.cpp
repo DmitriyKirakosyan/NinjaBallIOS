@@ -11,6 +11,8 @@
 
 using namespace cocos2d;
 
+const char* Obstacle::WALKING_WALL = "walking_wall";
+
 Obstacle::Obstacle(const char* behaviour)
 {
     Obstacle();
@@ -30,11 +32,12 @@ Obstacle* Obstacle::createFromJSON(Json::Value obstacleJson)
     //CCSize winSize = CCDirector::sharedDirector()->getWinSize();
     float itemX = obstacleJson.get("x", 0).asDouble() * Settings::VIRTUAL_WIDTH;
     float itemY = obstacleJson.get("y", 0).asDouble() * Settings::VIRTUAL_HEIGHT;
-    result->initWithFile("yellowMonster.png");
+    const char* type = obstacleJson.get("type", "").asCString();
+    result->initWithFile(Obstacle::getMonsterImage(type));
     result->setScale(0.5f);
     result->setPosition(ccp(itemX, itemY));
     
-    if (obstacleJson.get("type", "") == "walking_wall")
+    if (std::strcmp(type, WALKING_WALL))
     {
         Json::Value walkPath = obstacleJson.get("walk_path", "");
         for (int i = 0; i < walkPath.size(); ++i) {
@@ -125,4 +128,18 @@ void Obstacle::onMoveToPointComplete(CCNode* sender)
         }
     }
     if (!movingContinue) { _isMoving = false; }
+}
+
+const char* Obstacle::getMonsterImage(const char* monsterType)
+{
+    const char* result;
+    if (std::strcmp(monsterType, WALKING_WALL)) {
+        result = "yellowMonster.png";
+    }
+    else
+    {
+        CCLOGERROR("unknown monster type");
+        result = "";
+    }
+    return result;
 }
