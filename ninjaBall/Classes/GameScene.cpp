@@ -16,10 +16,28 @@
 #include "Settings.h"
 #include "ScreenHelper.h"
 #include "MainScene.h"
+#include "LevelProvider.h"
 
 using namespace cocos2d;
 
-bool GameScene::init()
+GameScene* GameScene::create(const char *levelName)
+{
+    GameScene *pRet = new GameScene();
+    if (pRet && pRet->init(levelName))
+    {
+        pRet->autorelease();
+        return pRet;
+    }
+    else
+    {
+        delete pRet;
+        pRet = NULL;
+        return NULL;
+    }
+
+}
+
+bool GameScene::init(const char* levelName)
 {
     if (CCScene::init())
     {
@@ -32,7 +50,7 @@ bool GameScene::init()
         
         CCLog("position : %f, %f", layer->getPosition().x, layer->getPosition().y);
         
-        layer->start();
+        layer->start(levelName);
         this->addChild(layer);
         this->addChild(layer->getWindowLayer());
         return true;
@@ -47,7 +65,7 @@ CCLayer* GameSceneLayer::getWindowLayer()
     return _windowManager;
 }
 
-void GameSceneLayer::start()
+void GameSceneLayer::start(const char* levelName)
 {
     
     _isDrawing = false;
@@ -62,24 +80,41 @@ void GameSceneLayer::start()
     _mapView = new MapView(_ninja);
     this->addChild(_mapView);
     this->addChild(_ninja, 1);
-    this->startLevel();
+
+    this->startLevel(levelName);
 }
 
-void GameSceneLayer::startLevel()
+void GameSceneLayer::startLevel(const char* levelName)
 {
-    CCSize winSize = CCDirector::sharedDirector()->getWinSize();
-    _mapView->createLevel("test_map.json");
+    _currentLevelName = levelName;
+    _mapView->createLevel(levelName);
     this->schedule(schedule_selector(GameSceneLayer::update));
 }
 
+
 void GameSceneLayer::nextLevel()
 {
-    this->startLevel();
+    if (LevelProvider::getInstance()->hasNextLevel(_currentLevelName.c_str()))
+    {
+        this->startLevel(LevelProvider::getInstance()->getNextLevel(_currentLevelName.c_str()));
+    }
+}
+
+bool GameSceneLayer::canStartNextLevel()
+{
+    if (LevelProvider::getInstance()->hasNextLevel(_currentLevelName.c_str()))
+    {
+        const char* nextLevel = LevelProvider::getInstance()->getNextLevel(_currentLevelName.c_str());
+        if (LevelProvider::getInstance()->isLevelAvailable(nextLevel)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 void GameSceneLayer::replyLevel()
 {
-    this->startLevel();
+    this->startLevel(_currentLevelName.c_str());
 }
 
 void GameSceneLayer::returnToMainMenu()
@@ -111,6 +146,7 @@ void GameSceneLayer::update()
         _drawingController->clear();
         _mapView->clear();
         this->unschedule(schedule_selector(GameSceneLayer::update));
+        LevelProvider::getInstance()->completeLevel(_currentLevelName.c_str());
         _windowManager->showWindow(GameWindowFactory::LEVEL_COMPLETE_WINDOW);
     }
 }

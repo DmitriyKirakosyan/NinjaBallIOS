@@ -52,10 +52,18 @@ bool MainScene::init()
     /////////////////////////////
     // 3. add your codes below...
 
+    CCUserDefault* userData = CCUserDefault::sharedUserDefault();
+    std::string helloData = userData->getStringForKey("hello");
+    CCLog("hello data : %s", helloData.c_str());
+    
     // add a label shows "Hello World"
     // create and initialize a label
-    CCLabelTTF* pLabel = CCLabelTTF::create("Ninja Ball", "Thonburi", 34);
+    std::string labelStr = "Ninja Ball : " + helloData;
+    CCLabelTTF* pLabel = CCLabelTTF::create(labelStr.c_str(), "Thonburi", 34);
 
+    //userData->setStringForKey("hello", "wayway");
+    //userData->flush();
+    
     // ask director the window size
     //CCSize size = CCDirector::sharedDirector()->getWinSize();
 
@@ -100,7 +108,8 @@ bool MainScene::init()
     this->tweenNode(pPlayBtn);
     this->tweenNode(pOptionsBtn);
     this->tweenNode(pCreditsBtn);
-
+    
+    
     return true;
 }
 

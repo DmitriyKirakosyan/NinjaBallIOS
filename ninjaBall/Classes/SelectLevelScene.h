@@ -19,11 +19,14 @@ public:
     static cocos2d::CCScene* scene();
     
     void closeCallback(cocos2d::CCObject* pSender);
-    void playCallback(cocos2d::CCObject* pSender);
     
-        
+    void levelSelectCallback(cocos2d::CCObject* pSender);
+    
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(SelectLevelScene);
+    
+private:
+    cocos2d::CCArray* _levelBtns;
 
 };
 

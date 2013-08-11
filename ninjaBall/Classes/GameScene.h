@@ -21,10 +21,12 @@ class GameScene : public cocos2d::CCScene
 {
 public:
     
-    bool init();
     
-    CREATE_FUNC(GameScene);
+    static GameScene* create(const char* levelName);
+    
+    
 private:
+    bool init(const char* levelName);
     
 };
 
@@ -36,12 +38,12 @@ public:
     /**
      Стартует игру
      */
-    void start();
+    void start(const char* levelName);
     
     /**
      Стартует уровень
      */
-    void startLevel();
+    void startLevel(const char * levelName);
     
     virtual void update();
     
@@ -49,6 +51,7 @@ public:
     virtual void nextLevel();
     virtual void replyLevel();
     virtual void returnToMainMenu();
+    virtual bool canStartNextLevel();
     
     void ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
     void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
@@ -58,6 +61,8 @@ public:
 
     
 private:
+    std::string _currentLevelName;
+    
     Ninja* _ninja;
     
     cocos2d::CCArray* _touchPoints;

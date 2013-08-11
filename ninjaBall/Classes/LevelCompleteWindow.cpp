@@ -42,6 +42,10 @@ LevelCompleteWindow::LevelCompleteWindow(LevelCompleteMenu* levelCompleteMenu): 
     cocos2d::CCMenu* pMenu = cocos2d::CCMenu::create(pCloseItem, pReplayItem, pNextItem, NULL);
     pMenu->setPosition( cocos2d::CCPointZero );
     this->addChild(pMenu, 1);
+    
+    if (!levelCompleteMenu->canStartNextLevel()) {
+        pNextItem->setEnabled(false);
+    }
 }
 
 void LevelCompleteWindow::menuCloseCallback(cocos2d::CCObject *pSender)

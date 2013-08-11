@@ -15,6 +15,7 @@ public:
     virtual void nextLevel() = 0;
     virtual void replyLevel() = 0;
     virtual void returnToMainMenu() = 0;
+    virtual bool canStartNextLevel() = 0;
 };
 
 
