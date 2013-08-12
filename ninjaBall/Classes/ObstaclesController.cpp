@@ -63,39 +63,42 @@ bool ObstaclesController::testHit(CCSprite* object)
     return false;
 }
 
+/**
+ @depricated 
+ */
 void ObstaclesController::createRandomObstacles()
 {
-    int obstaclesNum = arc4random() % 3 + 2;
-    char* sImageNumber;
-    char* imagePath;
-    int imageNumber;
-    float imageX, imageY;
-    Obstacle* obstacle;
-    for (int i = 0; i < obstaclesNum; ++i) {
-        imageNumber = arc4random() % MONSTERS_NUM;
-        sImageNumber = new char[((sizeof (imageNumber + 1) * CHAR_BIT) + 2)/3 + 2];
-        sprintf(sImageNumber, "%d", imageNumber + 1);
-        imagePath = strcat(sImageNumber, ".png");
-        
-        obstacle = Obstacle::create();
-        obstacle->initWithFile(imagePath);
-        obstacle->setScale(0.5f);
-        
-        imageX = (arc4random() % (int)(Settings::VIRTUAL_WIDTH - obstacle->getContentSize().width)) +
-                                        obstacle->getContentSize().width/2;
-        imageY = (arc4random() % (int)(Settings::VIRTUAL_HEIGHT - obstacle->getContentSize().height)) +
-                                        obstacle->getContentSize().height/2;
-        obstacle->setPosition(ccp(imageX, imageY));
-        
-        obstacle->setLinearMoving(ccp(arc4random() % (int) Settings::VIRTUAL_WIDTH,
-                                      arc4random() % (int) Settings::VIRTUAL_HEIGHT),
-                                  ccp(arc4random() % (int) Settings::VIRTUAL_WIDTH,
-                                      arc4random() % (int) Settings::VIRTUAL_HEIGHT));
-        
-        if (_obstacles == NULL) { _obstacles = new CCArray(); }
-        _obstacles->addObject(obstacle);
-        _mapLayer->addChild(obstacle);
-    }
+//    int obstaclesNum = arc4random() % 3 + 2;
+//    char* sImageNumber;
+//    char* imagePath;
+//    int imageNumber;
+//    float imageX, imageY;
+//    Obstacle* obstacle;
+//    for (int i = 0; i < obstaclesNum; ++i) {
+//        imageNumber = arc4random() % MONSTERS_NUM;
+//        sImageNumber = new char[((sizeof (imageNumber + 1) * CHAR_BIT) + 2)/3 + 2];
+//        sprintf(sImageNumber, "%d", imageNumber + 1);
+//        imagePath = strcat(sImageNumber, ".png");
+//        
+//        obstacle = Obstacle::create();
+//        obstacle->initWithFile(imagePath);
+//        obstacle->setScale(0.5f);
+//        
+//        imageX = (arc4random() % (int)(Settings::VIRTUAL_WIDTH - obstacle->getContentSize().width)) +
+//                                        obstacle->getContentSize().width/2;
+//        imageY = (arc4random() % (int)(Settings::VIRTUAL_HEIGHT - obstacle->getContentSize().height)) +
+//                                        obstacle->getContentSize().height/2;
+//        obstacle->setPosition(ccp(imageX, imageY));
+//        
+//        obstacle->setLinearMoving(ccp(arc4random() % (int) Settings::VIRTUAL_WIDTH,
+//                                      arc4random() % (int) Settings::VIRTUAL_HEIGHT),
+//                                  ccp(arc4random() % (int) Settings::VIRTUAL_WIDTH,
+//                                      arc4random() % (int) Settings::VIRTUAL_HEIGHT));
+//        
+//        if (_obstacles == NULL) { _obstacles = new CCArray(); }
+//        _obstacles->addObject(obstacle);
+//        _mapLayer->addChild(obstacle);
+//    }
 }
 
 void ObstaclesController::createFromJSON(Json::Value jsonValue)

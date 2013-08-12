@@ -260,6 +260,7 @@
 		2CA469E117B7D6C400E5A952 /* LevelProvider.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA469E017B7D6C400E5A952 /* LevelProvider.cpp */; };
 		2CA469E417B8300A00E5A952 /* level_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA469E217B8300A00E5A952 /* level_2.json */; };
 		2CA469E517B8300A00E5A952 /* level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA469E317B8300A00E5A952 /* level_3.json */; };
+		2CA469E917B909DA00E5A952 /* MovingObstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA469E717B909DA00E5A952 /* MovingObstacle.cpp */; };
 		2CA4D27E16E394C4000E4380 /* LevelCompleteWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */; };
 		2CA4D29116E51E02000E4380 /* json_internalarray.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28A16E51E02000E4380 /* json_internalarray.inl */; };
 		2CA4D29216E51E02000E4380 /* json_internalmap.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28B16E51E02000E4380 /* json_internalmap.inl */; };
@@ -785,6 +786,8 @@
 		2CA469E017B7D6C400E5A952 /* LevelProvider.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelProvider.cpp; path = Classes/LevelProvider.cpp; sourceTree = "<group>"; };
 		2CA469E217B8300A00E5A952 /* level_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level_2.json; sourceTree = "<group>"; };
 		2CA469E317B8300A00E5A952 /* level_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level_3.json; sourceTree = "<group>"; };
+		2CA469E717B909DA00E5A952 /* MovingObstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MovingObstacle.cpp; path = Classes/MovingObstacle.cpp; sourceTree = "<group>"; };
+		2CA469E817B909DA00E5A952 /* MovingObstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovingObstacle.h; path = Classes/MovingObstacle.h; sourceTree = "<group>"; };
 		2CA4D27C16E392B3000E4380 /* LevelCompleteMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteMenu.h; path = Classes/LevelCompleteMenu.h; sourceTree = "<group>"; };
 		2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelCompleteWindow.cpp; path = Classes/LevelCompleteWindow.cpp; sourceTree = "<group>"; };
 		2CA4D28116E51E02000E4380 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
@@ -1875,6 +1878,17 @@
 			name = level;
 			sourceTree = "<group>";
 		};
+		2CA469E617B908F500E5A952 /* obstacle */ = {
+			isa = PBXGroup;
+			children = (
+				2CCA9D0616D66D4400603D1D /* Obstacle.cpp */,
+				2CCA9D0716D66D4400603D1D /* Obstacle.h */,
+				2CA469E717B909DA00E5A952 /* MovingObstacle.cpp */,
+				2CA469E817B909DA00E5A952 /* MovingObstacle.h */,
+			);
+			name = obstacle;
+			sourceTree = "<group>";
+		};
 		2CA4D27B16E3928A000E4380 /* menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1927,8 +1941,7 @@
 		2CCA9D0516D66D2F00603D1D /* map */ = {
 			isa = PBXGroup;
 			children = (
-				2CCA9D0616D66D4400603D1D /* Obstacle.cpp */,
-				2CCA9D0716D66D4400603D1D /* Obstacle.h */,
+				2CA469E617B908F500E5A952 /* obstacle */,
 				2CCA9D0916D66FAD00603D1D /* ObstaclesController.cpp */,
 				2CCA9D0A16D66FAD00603D1D /* ObstaclesController.h */,
 				2CCA9D2616DA110F00603D1D /* MapView.cpp */,
@@ -2293,6 +2306,7 @@
 				2CA4696F17B3EFD700E5A952 /* SelectLevelScene.cpp in Sources */,
 				2CA4697217B4225100E5A952 /* Settings.cpp in Sources */,
 				2CA469E117B7D6C400E5A952 /* LevelProvider.cpp in Sources */,
+				2CA469E917B909DA00E5A952 /* MovingObstacle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
