@@ -11,20 +11,17 @@
 
 #include "cocos2d.h"
 #include "json.h"
+#include "Ninja.h"
 
 class Obstacle : public cocos2d::CCSprite
 {
 public:
     static const char* WALKING_WALL;
     
-    Obstacle()
-    {
-    }
-    
-    Obstacle(const char* fileName, const cocos2d::CCPoint position);
-    Obstacle(const char* behaviour);
+    Obstacle() {}
 
-    CREATE_FUNC(Obstacle);
+    bool checkHit(cocos2d::CCSprite* mapObject);
+    bool checkHeroDamage(Ninja* hero);
     
     static Obstacle* createFromJSON(Json::Value obstacleJson);
     

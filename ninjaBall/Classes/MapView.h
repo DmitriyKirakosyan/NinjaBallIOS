@@ -33,6 +33,7 @@ public:
     /**
      Проверяет, выиграл ли нинзя
      @param ninja нинзя
+     TODO странный метод, зачем ему параметр?
      */
     bool isNinjaWin(cocos2d::CCSprite* ninja);
   

@@ -38,24 +38,27 @@ void ObstaclesController::clear()
 
 bool ObstaclesController::testHit(CCSprite* object)
 {
-    CCRect objectRect = CCRectMake(
-            object->getPosition().x - object->getContentSize().width/4,
-            object->getPosition().y - object->getContentSize().height/4,
-            object->getContentSize().width/2,
-            object->getContentSize().height/2);
-    
     CCObject* item;
-    CCSprite* obstacle;
-    CCRect obstacleRect;
+    Obstacle* obstacle;
     CCARRAY_FOREACH(_obstacles, item)
     {
-        obstacle = (CCSprite*) item;
-        obstacleRect = CCRectMake(
-            obstacle->getPosition().x - obstacle->getContentSize().width/4,
-            obstacle->getPosition().y - obstacle->getContentSize().height/4,
-            obstacle->getContentSize().width/2,
-            obstacle->getContentSize().height/2);
-        if (objectRect.intersectsRect(obstacleRect))
+        obstacle = (Obstacle*) item;
+        if (obstacle->checkHit(object))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool ObstaclesController::testDamage(Ninja* ninja)
+{
+    CCObject* item;
+    Obstacle* obstacle;
+    CCARRAY_FOREACH(_obstacles, item)
+    {
+        obstacle = (Obstacle*) item;
+        if (obstacle->checkHeroDamage(ninja))
         {
             return true;
         }

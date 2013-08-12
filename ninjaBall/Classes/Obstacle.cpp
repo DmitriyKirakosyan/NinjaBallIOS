@@ -17,16 +17,26 @@ const char* Obstacle::RABBIT_MONSTER_IMG = "rabbitMonster.png";
 
 const char* Obstacle::WALKING_WALL = "walking_wall";
 
-Obstacle::Obstacle(const char* behaviour)
+
+bool Obstacle::checkHeroDamage(Ninja *hero)
 {
-    Obstacle();
+    return false;
 }
 
-Obstacle::Obstacle(const char* fileName, const CCPoint position)
+bool Obstacle::checkHit(cocos2d::CCSprite *mapObject)
 {
-    Obstacle();
-    this->initWithFile(fileName);
-    this->setPosition(position);
+    CCRect objectRect = mapObject->getTextureRect();
+    objectRect.origin = ccp(mapObject->getPosition().x - mapObject->getContentSize().width/2,
+                            mapObject->getPosition().y - mapObject->getContentSize().height/2);
+    
+    CCRect obstacleRect = this->getTextureRect();
+    obstacleRect.origin = ccp(this->getPosition().x - this->getContentSize().width/2,
+                              this->getPosition().y - this->getContentSize().height/2);
+    if (objectRect.intersectsRect(obstacleRect))
+    {
+        return true;
+    }
+    return false;
 }
 
 Obstacle* Obstacle::createFromJSON(Json::Value obstacleJson)

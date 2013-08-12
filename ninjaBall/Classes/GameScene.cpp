@@ -80,6 +80,10 @@ void GameSceneLayer::start(const char* levelName)
     _mapView = new MapView(_ninja);
     this->addChild(_mapView);
     this->addChild(_ninja, 1);
+    
+//    CCSprite* back = CCSprite::create("StoreHouseRoom.png");
+//    back->setPosition(ccp(Settings::VIRTUAL_WIDTH/2, Settings::VIRTUAL_HEIGHT/2));
+//    this->addChild(back);
 
     this->startLevel(levelName);
 }

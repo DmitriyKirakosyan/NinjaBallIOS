@@ -12,12 +12,16 @@
 #include "cocos2d.h"
 #include "json.h"
 
+
+class Ninja;
+
 class ObstaclesController
 {
 public:
     ObstaclesController(cocos2d::CCLayer* mapLayer);
     
     bool testHit(cocos2d::CCSprite* object);
+    bool testDamage(Ninja* ninja);
     void createFromJSON(Json::Value jsonValue);
     void clear();
   

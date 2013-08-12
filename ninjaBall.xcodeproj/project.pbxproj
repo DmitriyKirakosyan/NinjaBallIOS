@@ -261,6 +261,9 @@
 		2CA469E417B8300A00E5A952 /* level_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA469E217B8300A00E5A952 /* level_2.json */; };
 		2CA469E517B8300A00E5A952 /* level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA469E317B8300A00E5A952 /* level_3.json */; };
 		2CA469E917B909DA00E5A952 /* MovingObstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA469E717B909DA00E5A952 /* MovingObstacle.cpp */; };
+		2CA469EC17B934E000E5A952 /* Door.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA469EA17B934DF00E5A952 /* Door.cpp */; };
+		2CA469F117B9716500E5A952 /* gameBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA469F017B9716500E5A952 /* gameBack.png */; };
+		2CA469F317B972AD00E5A952 /* StoreHouseRoom.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA469F217B972AD00E5A952 /* StoreHouseRoom.png */; };
 		2CA4D27E16E394C4000E4380 /* LevelCompleteWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */; };
 		2CA4D29116E51E02000E4380 /* json_internalarray.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28A16E51E02000E4380 /* json_internalarray.inl */; };
 		2CA4D29216E51E02000E4380 /* json_internalmap.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28B16E51E02000E4380 /* json_internalmap.inl */; };
@@ -788,6 +791,12 @@
 		2CA469E317B8300A00E5A952 /* level_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level_3.json; sourceTree = "<group>"; };
 		2CA469E717B909DA00E5A952 /* MovingObstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MovingObstacle.cpp; path = Classes/MovingObstacle.cpp; sourceTree = "<group>"; };
 		2CA469E817B909DA00E5A952 /* MovingObstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovingObstacle.h; path = Classes/MovingObstacle.h; sourceTree = "<group>"; };
+		2CA469EA17B934DF00E5A952 /* Door.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Door.cpp; path = Classes/Door.cpp; sourceTree = "<group>"; };
+		2CA469EB17B934DF00E5A952 /* Door.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Door.h; path = Classes/Door.h; sourceTree = "<group>"; };
+		2CA469ED17B9398000E5A952 /* IDoor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IDoor.h; path = Classes/IDoor.h; sourceTree = "<group>"; };
+		2CA469EE17B96E7600E5A952 /* MapObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MapObject.h; path = Classes/MapObject.h; sourceTree = "<group>"; };
+		2CA469F017B9716500E5A952 /* gameBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameBack.png; sourceTree = "<group>"; };
+		2CA469F217B972AD00E5A952 /* StoreHouseRoom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StoreHouseRoom.png; sourceTree = "<group>"; };
 		2CA4D27C16E392B3000E4380 /* LevelCompleteMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteMenu.h; path = Classes/LevelCompleteMenu.h; sourceTree = "<group>"; };
 		2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelCompleteWindow.cpp; path = Classes/LevelCompleteWindow.cpp; sourceTree = "<group>"; };
 		2CA4D28116E51E02000E4380 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
@@ -905,6 +914,7 @@
 		2C78E86B1689084500CFA337 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CA469EF17B9716200E5A952 /* background */,
 				2CA469D717B6C7B800E5A952 /* json */,
 				2CA469D417B6C75400E5A952 /* levelRoom */,
 				2CA4698E17B5187900E5A952 /* Text */,
@@ -1885,8 +1895,21 @@
 				2CCA9D0716D66D4400603D1D /* Obstacle.h */,
 				2CA469E717B909DA00E5A952 /* MovingObstacle.cpp */,
 				2CA469E817B909DA00E5A952 /* MovingObstacle.h */,
+				2CA469EA17B934DF00E5A952 /* Door.cpp */,
+				2CA469EB17B934DF00E5A952 /* Door.h */,
+				2CA469ED17B9398000E5A952 /* IDoor.h */,
 			);
 			name = obstacle;
+			sourceTree = "<group>";
+		};
+		2CA469EF17B9716200E5A952 /* background */ = {
+			isa = PBXGroup;
+			children = (
+				2CA469F217B972AD00E5A952 /* StoreHouseRoom.png */,
+				2CA469F017B9716500E5A952 /* gameBack.png */,
+			);
+			name = background;
+			path = Resources/background;
 			sourceTree = "<group>";
 		};
 		2CA4D27B16E3928A000E4380 /* menu */ = {
@@ -1946,6 +1969,7 @@
 				2CCA9D0A16D66FAD00603D1D /* ObstaclesController.h */,
 				2CCA9D2616DA110F00603D1D /* MapView.cpp */,
 				2CCA9D2716DA110F00603D1D /* MapView.h */,
+				2CA469EE17B96E7600E5A952 /* MapObject.h */,
 			);
 			name = map;
 			sourceTree = "<group>";
@@ -2107,6 +2131,8 @@
 				2CA469DD17B76A5F00E5A952 /* levelItemLocked.png in Resources */,
 				2CA469E417B8300A00E5A952 /* level_2.json in Resources */,
 				2CA469E517B8300A00E5A952 /* level_3.json in Resources */,
+				2CA469F117B9716500E5A952 /* gameBack.png in Resources */,
+				2CA469F317B972AD00E5A952 /* StoreHouseRoom.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2307,6 +2333,7 @@
 				2CA4697217B4225100E5A952 /* Settings.cpp in Sources */,
 				2CA469E117B7D6C400E5A952 /* LevelProvider.cpp in Sources */,
 				2CA469E917B909DA00E5A952 /* MovingObstacle.cpp in Sources */,
+				2CA469EC17B934E000E5A952 /* Door.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
