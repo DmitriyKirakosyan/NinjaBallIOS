@@ -21,11 +21,6 @@ public:
     inline ObstaclesController* getObstacles() { return _obstacles; }
     
     /**
-     Создает тестовый уровень
-     */
-    void createTestLevel();
-    
-    /**
      Создает уровень из json файла
      */
     void createLevel(const char* fileName);

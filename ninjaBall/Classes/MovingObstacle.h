@@ -21,6 +21,7 @@ public:
         _movingPath = NULL;
         _isMoving = false;
         _currentTargetPoint = cocos2d::CCPointZero;
+        cocos2d::CCSprite::initWithFile(Obstacle::RABBIT_MONSTER_IMG);
     }
     
     void setLinearMoving(cocos2d::CCPoint point1, cocos2d::CCPoint point2);

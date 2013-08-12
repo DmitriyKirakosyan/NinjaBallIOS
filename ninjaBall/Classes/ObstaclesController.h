@@ -18,7 +18,6 @@ public:
     ObstaclesController(cocos2d::CCLayer* mapLayer);
     
     bool testHit(cocos2d::CCSprite* object);
-    void createRandomObstacles();
     void createFromJSON(Json::Value jsonValue);
     void clear();
   

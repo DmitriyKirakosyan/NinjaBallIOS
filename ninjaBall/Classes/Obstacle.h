@@ -28,9 +28,11 @@ public:
     
     static Obstacle* createFromJSON(Json::Value obstacleJson);
     
-private:
+protected:
+    static const char* YELLOW_MONSTER_IMG;
+    static const char* RABBIT_MONSTER_IMG;
     
-    static const char* getMonsterImage(const char* monsterType);
+private:
     
 };
 

@@ -22,16 +22,6 @@ MapView::MapView(Ninja* ninja)
     _obstacles = new ObstaclesController(this);
 }
 
-void MapView::createTestLevel()
-{
-    _obstacles->createRandomObstacles();
-    _finishLine = CCSprite::create("flags.png");
-    _finishLine->setScale(0.5f);
-    _finishLine->setPosition(ccp(_finishLine->getContentSize().width/4,
-                                 Settings::VIRTUAL_HEIGHT - _finishLine->getContentSize().height/4));
-    this->addChild(_finishLine);
-}
-
 void MapView::createLevel(const char *fileName)
 {
     Json::Value root;   // will contains the root value after parsing.
