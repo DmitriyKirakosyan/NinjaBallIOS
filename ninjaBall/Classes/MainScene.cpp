@@ -3,6 +3,7 @@
 #include "GameScene.h"
 #include "Settings.h"
 #include "SelectLevelScene.h"
+#include "InterfacePositions.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -47,68 +48,26 @@ bool MainScene::init()
                                         menu_selector(MainScene::menuCloseCallback) );
     pCloseItem->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width - 20, 20) );
 
-    // create menu, it's an autorelease object
-
-    /////////////////////////////
-    // 3. add your codes below...
-
-    CCUserDefault* userData = CCUserDefault::sharedUserDefault();
-    std::string helloData = userData->getStringForKey("hello");
-    CCLog("hello data : %s", helloData.c_str());
     
-    // add a label shows "Hello World"
-    // create and initialize a label
-    std::string labelStr = "Ninja Ball : " + helloData;
-    CCLabelTTF* pLabel = CCLabelTTF::create(labelStr.c_str(), "Thonburi", 34);
-
-    //userData->setStringForKey("hello", "wayway");
-    //userData->flush();
-    
-    // ask director the window size
-    //CCSize size = CCDirector::sharedDirector()->getWinSize();
-
-    // position the label on the center of the screen
-    pLabel->setPosition( ccp(Settings::VIRTUAL_WIDTH / 2, Settings::VIRTUAL_HEIGHT - 20) );
-
-
-    CCSprite* background = CCSprite::create("MainMenuBG.png");
+    CCSprite* background = CCSprite::create("mainMenuBkg.png");
     background->setPosition(ccp(Settings::VIRTUAL_WIDTH/2, Settings::VIRTUAL_HEIGHT/2));
     this->addChild(background);
     
-    CCMenuItemImage* pPlayBtn = CCMenuItemImage::create("Play@2x.png", "Play@2x.png",
+    CCMenuItemImage* pPlayBtn = CCMenuItemImage::create("startBtn_1.png", "startBtn_2.png",
                                                         this, menu_selector(MainScene::playCallback));
-    CCMenuItemImage* pOptionsBtn = CCMenuItemImage::create("Options@2x.png", "Options@2x.png",
+    CCMenuItemImage* pOptionsBtn = CCMenuItemImage::create("optionsBtn_1.png", "optionsBtn_2.png",
                                                            this, menu_selector(MainScene::optionsCallback));
-    CCMenuItemImage* pCreditsBtn = CCMenuItemImage::create("Credits@2x.png", "Credits@2x.png",
+    CCMenuItemImage* pCreditsBtn = CCMenuItemImage::create("aboutBtn_1.png", "aboutBtn_2.png",
                                                            this, menu_selector(MainScene::creditsCallback));
     
-    float buttonsHeight = pPlayBtn->getContentSize().height +
-                            pOptionsBtn->getContentSize().height +
-                            pCreditsBtn->getContentSize().height;
-    
-    CCSize screenSize = CCSize(Settings::VIRTUAL_WIDTH, Settings::VIRTUAL_HEIGHT);
-    pPlayBtn->setPosition( ccp(screenSize.width/2, screenSize.height/2 + buttonsHeight/2));
-    pOptionsBtn->setPosition(ccp(screenSize.width/2, screenSize.height/2));
-    pCreditsBtn->setPosition(ccp(screenSize.width/2, screenSize.height/2 - buttonsHeight/2));
+    pPlayBtn->setPosition( ccp(InterfacePositions::MENU_PLAY_BTN_X, InterfacePositions::MENU_PLAY_BTN_Y));
+    pOptionsBtn->setPosition(ccp(InterfacePositions::MENU_OPTIONS_BTN_X, InterfacePositions::MENU_OPTIONS_BTN_Y));
+    pCreditsBtn->setPosition(ccp(InterfacePositions::MENU_ABOUT_BTN_X, InterfacePositions::MENU_ABOUT_BTN_Y));
 
-    pPlayBtn->setScale(0.6);
-    pOptionsBtn->setScale(0.6);
-    pCreditsBtn->setScale(0.6);
 
-//    this->runAction(CCSequence::create(CCCallFuncO::create(this,  selector:@selector(tweenNode:) object:playButton],
-//                     [CCCallFuncO actionWithTarget:self selector:@selector(tweenNode:) object:optionsButton],
-//                     [CCCallFuncO actionWithTarget:self selector:@selector(tweenNode:) object:creditsButton],
-//                     nil]];
-    
     CCMenu* pMenu = CCMenu::create(pCloseItem, pPlayBtn, pOptionsBtn, pCreditsBtn, NULL);
     pMenu->setPosition( CCPointZero );
     this->addChild(pMenu, 1);
-    this->addChild(pLabel, 1);
-    
-    this->tweenNode(pPlayBtn);
-    this->tweenNode(pOptionsBtn);
-    this->tweenNode(pCreditsBtn);
-    
     
     return true;
 }

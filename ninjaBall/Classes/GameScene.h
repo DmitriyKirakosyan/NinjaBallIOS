@@ -45,7 +45,7 @@ public:
      */
     void startLevel(const char * levelName);
     
-    virtual void update();
+    virtual void update(float dt);
     
     //level complete menu interface
     virtual void nextLevel();

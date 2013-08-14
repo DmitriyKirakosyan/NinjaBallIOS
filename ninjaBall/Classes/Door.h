@@ -12,17 +12,22 @@
 #include "Obstacle.h"
 #include "IDoor.h"
 
-class Door : public Obstacle, public IDoor
+class Door : public Obstacle
 {
 public:
-    Door()
+    Door(const char* id): Obstacle(0)
     {
         cocos2d::CCSprite::initWithFile(Obstacle::YELLOW_MONSTER_IMG);
         _opened = false;
     }
     
-    void open();
-    void close();
+    //switchable
+    void on();
+    void off();
+    inline bool isOn() { return _opened; }
+    
+    bool checkHit(cocos2d::CCSprite* object);
+    inline bool checkHeroDamage(Ninja* ninja) { return false; }
     
     
 private:

@@ -11,14 +11,18 @@
 
 #include "cocos2d.h"
 #include "json.h"
+#include "World.h"
 
 
 class Ninja;
+class World;
 
 class ObstaclesController
 {
 public:
     ObstaclesController(cocos2d::CCLayer* mapLayer);
+    
+    void interact(Ninja* ninja);
     
     bool testHit(cocos2d::CCSprite* object);
     bool testDamage(Ninja* ninja);
@@ -28,6 +32,8 @@ public:
 private:
     cocos2d::CCArray* _obstacles;
     cocos2d::CCLayer* _mapLayer;
+    
+    World _world;
     
     const unsigned int MONSTERS_NUM;
 };

@@ -12,6 +12,7 @@
 #include "GameScene.h"
 #include "LevelProvider.h"
 #include "ScreenHelper.h"
+#include "InterfacePositions.h"
 
 using namespace cocos2d;
 //using namespace CocosDenshion;
@@ -46,11 +47,33 @@ bool SelectLevelScene::init()
     }
 
     CCSize screenSize = CCSize(Settings::VIRTUAL_WIDTH, Settings::VIRTUAL_HEIGHT);
-
-    CCSprite* background = CCSprite::create("selectLevel.png");
-    background->setPosition(ccp(screenSize.width/2, screenSize.height/2));
     
-    this->addChild(background);
+    
+    float backScaleX = Settings::FULL_VIRTUAL_WIDTH / Settings::VIRTUAL_WIDTH;
+    float backScaleY = Settings::FULL_VIRTUAL_HEIGHT / Settings::VIRTUAL_HEIGHT;
+    
+    
+    CCSprite* imposedBkg = CCSprite::create("selLevImBkg.png");
+    imposedBkg->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+    imposedBkg->setScaleX(backScaleX);
+    imposedBkg->setScaleY(backScaleY);
+
+    CCSprite* selectMenuBkg = CCSprite::create("selMenuBkg.png");
+    selectMenuBkg->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+    selectMenuBkg->setScaleX(backScaleX);
+    selectMenuBkg->setScaleY(backScaleY);
+    
+    CCSprite* rollCircle = CCSprite::create("selLevCircle.png");
+    rollCircle->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+    rollCircle->runAction(CCRepeatForever::create(CCRotateBy::create(1, 10)));
+    
+    CCSprite* selBkgLevel = CCSprite::create("selBkgLevel.png");
+    selBkgLevel->setPosition(ccp(screenSize.width/2, screenSize.height/2));
+    
+    this->addChild(selectMenuBkg);
+    this->addChild(rollCircle);
+    this->addChild(selBkgLevel);
+    this->addChild(imposedBkg);
     
     CCMenuItemImage *pCloseItem =
         CCMenuItemImage::create("CloseNormal.png",
@@ -60,23 +83,28 @@ bool SelectLevelScene::init()
     CCSize btnSize = pCloseItem->getContentSize();
     
     pCloseItem->setPosition( ccp(screenSize.width - btnSize.width/2,
-                                 screenSize.height/2 - btnSize.height));
+                                 screenSize.height - btnSize.height/2));
     
     // create menu, it's an autorelease object
     cocos2d::CCMenu* pMenu = cocos2d::CCMenu::create(pCloseItem, NULL);
 
     _levelBtns = new CCArray();
-    int offset = 106;
-    CCPoint position;
+    
+    int startX = 50;
+    float itemY, itemX;
+    
+    float xOffset = (selBkgLevel->getContentSize().width - startX*2) / ITEMS_NUM_IN_RAW;
     
     CCMenuItemImage* levelBtn;
     int levelsNum = LevelProvider::getInstance()->LEVELS_NUM;
     for (int i = 0; i < levelsNum; ++i) {
-        levelBtn = CCMenuItemImage::create("levelItem.png", "levelItem.png", "levelItemLocked.png",
+        levelBtn = CCMenuItemImage::create("levelItem.png", "levelItem.png", "lockedLevelItem.png",
                                            this, menu_selector(SelectLevelScene::levelSelectCallback));
-        position = ccp(350 + i * offset, screenSize.height - (150 + ((int)(i / 5))* offset));
-        levelBtn->setPosition(position);
-        levelBtn->setScale(1.5f);
+        itemX = startX + i * xOffset;
+        itemY = InterfacePositions::LEVEL_SELECT_ITEM_Y_START +
+                int(i / 10) * InterfacePositions::LEVEL_SELECT_ITEM_Y_OFFSET;
+        
+        levelBtn->setPosition(ccp(itemX,  itemY));
         if (i >= LevelProvider::getInstance()->getAvailableLevelsNum()) levelBtn->setEnabled(false);
         pMenu->addChild(levelBtn);
         _levelBtns->addObject(levelBtn);
@@ -84,7 +112,7 @@ bool SelectLevelScene::init()
     
     
     pMenu->setPosition( cocos2d::CCPointZero );
-    this->addChild(pMenu, 1);
+    selBkgLevel->addChild(pMenu, 1);
  
     return true;
 }

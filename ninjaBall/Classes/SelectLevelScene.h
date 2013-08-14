@@ -27,6 +27,8 @@ public:
     
 private:
     cocos2d::CCArray* _levelBtns;
+    
+    const int ITEMS_NUM_IN_RAW = 10;
 
 };
 

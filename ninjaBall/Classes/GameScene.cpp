@@ -127,9 +127,9 @@ void GameSceneLayer::returnToMainMenu()
     CCDirector::sharedDirector()->replaceScene(mainScene);
 }
 
-void GameSceneLayer::update()
+void GameSceneLayer::update(float dt)
 {
-    if (_mapView->getObstacles()->testHit(_ninja))
+    if (_mapView->getObstaclesController()->testHit(_ninja))
     {
         if (_ninja->getOpacity() == 255)
         {

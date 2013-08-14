@@ -10,15 +10,16 @@
 #define __ninjaBall__MapView__
 
 #include "cocos2d.h"
+#include "World.h"
 
 class ObstaclesController;
 class Ninja;
 
-class MapView : public cocos2d::CCLayer
+class MapView : public cocos2d::CCLayer, public World
 {
 public:
     MapView(Ninja* ninja);
-    inline ObstaclesController* getObstacles() { return _obstacles; }
+    inline ObstaclesController* getObstaclesController() { return _obstacles; }
     
     /**
      Создает уровень из json файла
@@ -30,12 +31,17 @@ public:
      */
     void clear();
     
+    void tick();
+    
     /**
      Проверяет, выиграл ли нинзя
      @param ninja нинзя
      TODO странный метод, зачем ему параметр?
      */
     bool isNinjaWin(cocos2d::CCSprite* ninja);
+    
+    //world interface
+    inline Ninja* getHero() { return _ninja; }
   
 private:
     ObstaclesController* _obstacles;

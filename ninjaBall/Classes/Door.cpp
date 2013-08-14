@@ -7,14 +7,23 @@
 //
 
 #include "Door.h"
+#include "World.h"
+#include "Ninja.h"
+
+using namespace cocos2d;
 
 
-void Door::open()
+void Door::on()
 {
     _opened = true;
 }
 
-void Door::close()
+void Door::off()
 {
     _opened = false;
+}
+
+bool Door::checkHit(cocos2d::CCSprite *object)
+{
+    return Obstacle::checkHit(object);
 }

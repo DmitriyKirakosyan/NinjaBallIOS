@@ -22,6 +22,11 @@ MapView::MapView(Ninja* ninja)
     _obstacles = new ObstaclesController(this);
 }
 
+void MapView::tick()
+{
+    
+}
+
 void MapView::createLevel(const char *fileName)
 {
     Json::Value root;   // will contains the root value after parsing.

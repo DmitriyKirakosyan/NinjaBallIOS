@@ -16,6 +16,18 @@ ObstaclesController::ObstaclesController(CCLayer* mapLayer):MONSTERS_NUM(12)
 {
     _obstacles = NULL;
     _mapLayer = mapLayer;
+    _world = World();
+}
+
+void ObstaclesController::interact(Ninja* ninja)
+{
+    CCObject* obstacleItem;
+    _world.ninja = ninja;
+    _world.obstacles = _obstacles;
+    CCARRAY_FOREACH(_obstacles, obstacleItem)
+    {
+        ((Obstacle*) obstacleItem)->interactWithWorld(_world);
+    }
 }
 
 void ObstaclesController::clear()

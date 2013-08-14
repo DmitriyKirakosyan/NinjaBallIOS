@@ -11,26 +11,51 @@
 
 #include "cocos2d.h"
 #include "json.h"
-#include "Ninja.h"
+#include "SwitchableObject.h"
 
-class Obstacle : public cocos2d::CCSprite
+class World;
+class Ninja;
+
+class Obstacle : public cocos2d::CCSprite, public SwitchableObject
 {
 public:
-    static const char* WALKING_WALL;
+    static const char* WALL;
+    static const char* WALKING_MINKER;
+    static const char* DOOR;
+    static const char* BUTTON;
+    static const char* MACE;
     
-    Obstacle() {}
+    Obstacle(const char* id) {
+        _id = id;
+    }
+    
+    inline const char* getId() { return _id; }
 
-    bool checkHit(cocos2d::CCSprite* mapObject);
-    bool checkHeroDamage(Ninja* hero);
+    virtual bool checkHit(cocos2d::CCSprite* mapObject);
+    virtual bool checkHeroDamage(Ninja* hero);
+    virtual void interactWithWorld(World world);
     
     static Obstacle* createFromJSON(Json::Value obstacleJson);
+    
+    //switchable
+    virtual void on(){}
+    virtual void off(){}
+    virtual bool isOn() { return true; }
     
 protected:
     static const char* YELLOW_MONSTER_IMG;
     static const char* RABBIT_MONSTER_IMG;
     
 private:
+    const char* _id;
     
+    static Obstacle* createWallMinker(Json::Value minkerJson);
+    static Obstacle* createDoor(Json::Value doorJson);
+    static Obstacle* createButton(Json::Value buttonJson);
+    static Obstacle* createMace(Json::Value miceJson);
+    static Obstacle* createWall(Json::Value wallJson);
+    
+    static cocos2d::CCPoint getItemPosition(Json::Value itemJson);
 };
 
 #endif /* defined(__ninjaBall__Obstacle__) */

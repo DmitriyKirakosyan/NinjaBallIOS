@@ -16,7 +16,7 @@ class MovingObstacle : public Obstacle
 {
 public:
     
-    MovingObstacle()
+    MovingObstacle(const char* id):Obstacle(0)
     {
         _movingPath = NULL;
         _isMoving = false;
