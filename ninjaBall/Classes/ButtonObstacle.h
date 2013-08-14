@@ -17,7 +17,7 @@ class IDoor;
 class ButtonObstacle : public Obstacle
 {
 public:
-    ButtonObstacle(const char* id, const char* switchableId):Obstacle(id)
+    ButtonObstacle(const int id, const int switchableId):Obstacle(id)
     {
         _switchableId = switchableId;
     }
@@ -30,7 +30,7 @@ public:
     void interactWithWorld(World world);
     
 private:
-    const char* _switchableId;
+    int _switchableId;
     SwitchableObject* _switchableObject;
     
     SwitchableObject* getSwitchable(cocos2d::CCArray* obstacles);

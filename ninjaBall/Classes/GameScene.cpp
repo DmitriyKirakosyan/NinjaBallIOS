@@ -143,6 +143,7 @@ void GameSceneLayer::update(float dt)
             _ninja->setOpacity(255);
         }
     }
+    _mapView->tick();
     if (_mapView->isNinjaWin(_ninja))
     {
         //show win level window;

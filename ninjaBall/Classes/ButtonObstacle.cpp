@@ -40,7 +40,7 @@ SwitchableObject* ButtonObstacle::getSwitchable(CCArray* obstacles)
     CCObject* obstacleItem;
     CCARRAY_FOREACH(obstacles, obstacleItem)
     {
-        if (std::strcmp(((Obstacle*)obstacleItem)->getId(), _switchableId))
+        if (((Obstacle*)obstacleItem)->getId() == _switchableId)
         {
             result = (Obstacle*) obstacleItem;
         }

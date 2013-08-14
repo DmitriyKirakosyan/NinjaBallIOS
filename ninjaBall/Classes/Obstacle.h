@@ -25,11 +25,11 @@ public:
     static const char* BUTTON;
     static const char* MACE;
     
-    Obstacle(const char* id) {
+    Obstacle(const int id) {
         _id = id;
     }
     
-    inline const char* getId() { return _id; }
+    inline const int getId() { return _id; }
 
     virtual bool checkHit(cocos2d::CCSprite* mapObject);
     virtual bool checkHeroDamage(Ninja* hero);
@@ -45,9 +45,11 @@ public:
 protected:
     static const char* YELLOW_MONSTER_IMG;
     static const char* RABBIT_MONSTER_IMG;
+    static const char* RED_RABBIT_MONSTER_IMG;
+    static const char* BLUE_PORTAL_MONSTER_IMG;
     
 private:
-    const char* _id;
+    int _id;
     
     static Obstacle* createWallMinker(Json::Value minkerJson);
     static Obstacle* createDoor(Json::Value doorJson);
@@ -56,6 +58,7 @@ private:
     static Obstacle* createWall(Json::Value wallJson);
     
     static cocos2d::CCPoint getItemPosition(Json::Value itemJson);
+    static int getItemId(Json::Value itemJson);
 };
 
 #endif /* defined(__ninjaBall__Obstacle__) */

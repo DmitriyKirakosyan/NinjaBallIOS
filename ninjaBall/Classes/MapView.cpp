@@ -24,7 +24,7 @@ MapView::MapView(Ninja* ninja)
 
 void MapView::tick()
 {
-    
+    _obstacles->interact(_ninja);
 }
 
 void MapView::createLevel(const char *fileName)

@@ -16,11 +16,13 @@ using namespace cocos2d;
 void Door::on()
 {
     _opened = true;
+    this->setScale(1.5);
 }
 
 void Door::off()
 {
     _opened = false;
+    this->setScale(1);
 }
 
 bool Door::checkHit(cocos2d::CCSprite *object)

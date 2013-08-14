@@ -302,9 +302,9 @@
 		2CCA9D0B16D66FAD00603D1D /* ObstaclesController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D0916D66FAD00603D1D /* ObstaclesController.cpp */; };
 		2CCA9D1916D78B0E00603D1D /* yellowMonster.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D0C16D78B0E00603D1D /* yellowMonster.png */; };
 		2CCA9D1A16D78B0E00603D1D /* rabbitMonster.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D0D16D78B0E00603D1D /* rabbitMonster.png */; };
-		2CCA9D1B16D78B0E00603D1D /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D0E16D78B0E00603D1D /* 3.png */; };
+		2CCA9D1B16D78B0E00603D1D /* redRabbitMonster.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D0E16D78B0E00603D1D /* redRabbitMonster.png */; };
 		2CCA9D1C16D78B0E00603D1D /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D0F16D78B0E00603D1D /* 4.png */; };
-		2CCA9D1D16D78B0E00603D1D /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D1016D78B0E00603D1D /* 5.png */; };
+		2CCA9D1D16D78B0E00603D1D /* bluePortalMonster.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D1016D78B0E00603D1D /* bluePortalMonster.png */; };
 		2CCA9D1E16D78B0E00603D1D /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D1116D78B0E00603D1D /* 6.png */; };
 		2CCA9D1F16D78B0E00603D1D /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D1216D78B0E00603D1D /* 7.png */; };
 		2CCA9D2016D78B0E00603D1D /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CCA9D1316D78B0E00603D1D /* 8.png */; };
@@ -876,9 +876,9 @@
 		2CCA9D0A16D66FAD00603D1D /* ObstaclesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObstaclesController.h; path = Classes/ObstaclesController.h; sourceTree = "<group>"; };
 		2CCA9D0C16D78B0E00603D1D /* yellowMonster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellowMonster.png; path = Resources/monsters/yellowMonster.png; sourceTree = "<group>"; };
 		2CCA9D0D16D78B0E00603D1D /* rabbitMonster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rabbitMonster.png; path = Resources/monsters/rabbitMonster.png; sourceTree = "<group>"; };
-		2CCA9D0E16D78B0E00603D1D /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 3.png; path = Resources/monsters/3.png; sourceTree = "<group>"; };
+		2CCA9D0E16D78B0E00603D1D /* redRabbitMonster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = redRabbitMonster.png; path = Resources/monsters/redRabbitMonster.png; sourceTree = "<group>"; };
 		2CCA9D0F16D78B0E00603D1D /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 4.png; path = Resources/monsters/4.png; sourceTree = "<group>"; };
-		2CCA9D1016D78B0E00603D1D /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 5.png; path = Resources/monsters/5.png; sourceTree = "<group>"; };
+		2CCA9D1016D78B0E00603D1D /* bluePortalMonster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bluePortalMonster.png; path = Resources/monsters/bluePortalMonster.png; sourceTree = "<group>"; };
 		2CCA9D1116D78B0E00603D1D /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 6.png; path = Resources/monsters/6.png; sourceTree = "<group>"; };
 		2CCA9D1216D78B0E00603D1D /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 7.png; path = Resources/monsters/7.png; sourceTree = "<group>"; };
 		2CCA9D1316D78B0E00603D1D /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 8.png; path = Resources/monsters/8.png; sourceTree = "<group>"; };
@@ -977,9 +977,9 @@
 				2CCA9D2916DA174400603D1D /* flags.png */,
 				2CCA9D0C16D78B0E00603D1D /* yellowMonster.png */,
 				2CCA9D0D16D78B0E00603D1D /* rabbitMonster.png */,
-				2CCA9D0E16D78B0E00603D1D /* 3.png */,
+				2CCA9D0E16D78B0E00603D1D /* redRabbitMonster.png */,
 				2CCA9D0F16D78B0E00603D1D /* 4.png */,
-				2CCA9D1016D78B0E00603D1D /* 5.png */,
+				2CCA9D1016D78B0E00603D1D /* bluePortalMonster.png */,
 				2CCA9D1116D78B0E00603D1D /* 6.png */,
 				2CCA9D1216D78B0E00603D1D /* 7.png */,
 				2CCA9D1316D78B0E00603D1D /* 8.png */,
@@ -2168,9 +2168,9 @@
 				2CA320AE16CD4E2500E2A55A /* footprint.png in Resources */,
 				2CCA9D1916D78B0E00603D1D /* yellowMonster.png in Resources */,
 				2CCA9D1A16D78B0E00603D1D /* rabbitMonster.png in Resources */,
-				2CCA9D1B16D78B0E00603D1D /* 3.png in Resources */,
+				2CCA9D1B16D78B0E00603D1D /* redRabbitMonster.png in Resources */,
 				2CCA9D1C16D78B0E00603D1D /* 4.png in Resources */,
-				2CCA9D1D16D78B0E00603D1D /* 5.png in Resources */,
+				2CCA9D1D16D78B0E00603D1D /* bluePortalMonster.png in Resources */,
 				2CCA9D1E16D78B0E00603D1D /* 6.png in Resources */,
 				2CCA9D1F16D78B0E00603D1D /* 7.png in Resources */,
 				2CCA9D2016D78B0E00603D1D /* 8.png in Resources */,
