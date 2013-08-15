@@ -24,6 +24,7 @@ public:
     static const char* DOOR;
     static const char* BUTTON;
     static const char* MACE;
+    static const char* MAUL;
     
     Obstacle(const int id) {
         _id = id;
@@ -60,6 +61,7 @@ private:
     static Obstacle* createButton(Json::Value buttonJson);
     static Obstacle* createMace(Json::Value miceJson);
     static Obstacle* createWall(Json::Value wallJson);
+    static Obstacle* createMaul(Json::Value maulJson);
     
     static cocos2d::CCPoint getItemPosition(Json::Value itemJson);
     static int getItemId(Json::Value itemJson);

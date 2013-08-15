@@ -30,9 +30,10 @@
         },
         {
             "id": 5,
-            "type": "mill",
+            "type": "maul",
             "x": 0.5,
-            "y": 0.5
+            "y": 0.5,
+            "rotationSpeed": 0.05
         },
         {
             "id": 6,

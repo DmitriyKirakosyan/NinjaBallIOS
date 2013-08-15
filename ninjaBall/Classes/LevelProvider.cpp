@@ -54,7 +54,8 @@ void LevelProvider::completeLevel(const char *level)
         _availableLevelsNum++;
         
         CCUserDefault* userData = CCUserDefault::sharedUserDefault();
-        userData->setIntegerForKey("availableLevelsNum", _availableLevelsNum);
+        userData->setIntegerForKey(AVAILABLE_LEVELS_NUM_KEY, _availableLevelsNum);
+        userData->flush();
     }
 }
 

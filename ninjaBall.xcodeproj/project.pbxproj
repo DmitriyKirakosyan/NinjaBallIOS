@@ -324,6 +324,7 @@
 		2CA46A9317BCFD7E00E5A952 /* storeHouseBkgWalls.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A8E17BCFD7E00E5A952 /* storeHouseBkgWalls.png */; };
 		2CA46A9417BCFD7E00E5A952 /* wallLight_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A8F17BCFD7E00E5A952 /* wallLight_1.png */; };
 		2CA46A9517BCFD7E00E5A952 /* wallLight_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A9017BCFD7E00E5A952 /* wallLight_2.png */; };
+		2CA46A9817BD027600E5A952 /* Maul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46A9617BD026F00E5A952 /* Maul.cpp */; };
 		2CA4D27E16E394C4000E4380 /* LevelCompleteWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */; };
 		2CA4D29116E51E02000E4380 /* json_internalarray.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28A16E51E02000E4380 /* json_internalarray.inl */; };
 		2CA4D29216E51E02000E4380 /* json_internalmap.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28B16E51E02000E4380 /* json_internalmap.inl */; };
@@ -921,6 +922,8 @@
 		2CA46A8E17BCFD7E00E5A952 /* storeHouseBkgWalls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeHouseBkgWalls.png; sourceTree = "<group>"; };
 		2CA46A8F17BCFD7E00E5A952 /* wallLight_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallLight_1.png; sourceTree = "<group>"; };
 		2CA46A9017BCFD7E00E5A952 /* wallLight_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallLight_2.png; sourceTree = "<group>"; };
+		2CA46A9617BD026F00E5A952 /* Maul.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Maul.cpp; sourceTree = "<group>"; };
+		2CA46A9717BD027200E5A952 /* Maul.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Maul.h; sourceTree = "<group>"; };
 		2CA4D27C16E392B3000E4380 /* LevelCompleteMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteMenu.h; path = Classes/LevelCompleteMenu.h; sourceTree = "<group>"; };
 		2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelCompleteWindow.cpp; path = Classes/LevelCompleteWindow.cpp; sourceTree = "<group>"; };
 		2CA4D28116E51E02000E4380 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
@@ -2016,6 +2019,8 @@
 				2CA46A4517BBAC6900E5A952 /* SwitchableObject.h */,
 				2CA46A4617BBB14700E5A952 /* ButtonObstacle.cpp */,
 				2CA46A4717BBB14900E5A952 /* ButtonObstacle.h */,
+				2CA46A9617BD026F00E5A952 /* Maul.cpp */,
+				2CA46A9717BD027200E5A952 /* Maul.h */,
 			);
 			name = obstacle;
 			sourceTree = "<group>";
@@ -2656,6 +2661,7 @@
 				2CA469EC17B934E000E5A952 /* Door.cpp in Sources */,
 				2CA46A4817BBB14B00E5A952 /* ButtonObstacle.cpp in Sources */,
 				2CA46A8917BCFA2E00E5A952 /* FinishLine.cpp in Sources */,
+				2CA46A9817BD027600E5A952 /* Maul.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -134,7 +134,7 @@ void GameSceneLayer::returnToMainMenu()
 
 void GameSceneLayer::update(float dt)
 {
-    if (_mapView->getObstaclesController()->testHit(_ninja))
+    if (_mapView->getObstaclesController()->testDamage(_ninja))
     {
         if (_ninja->getOpacity() == 255)
         {

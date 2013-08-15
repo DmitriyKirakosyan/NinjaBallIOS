@@ -12,6 +12,7 @@
 #include "ButtonObstacle.h"
 #include "Door.h"
 #include "World.h"
+#include "Maul.h"
 
 using namespace cocos2d;
 
@@ -30,6 +31,7 @@ const char* Obstacle::WALL = "wall";
 const char* Obstacle::MACE = "mace";
 const char* Obstacle::DOOR = "door";
 const char* Obstacle::BUTTON = "button";
+const char* Obstacle::MAUL = "maul";
 
 
 bool Obstacle::checkHeroDamage(Ninja *hero)
@@ -81,6 +83,10 @@ Obstacle* Obstacle::createFromJSON(Json::Value obstacleJson)
     {
         result = createButton(obstacleJson);
     }
+    else if (std::strcmp(type_c, MAUL) == 0)
+    {
+        result = createMaul(obstacleJson);
+    }
     
     else
     {
@@ -130,6 +136,14 @@ Obstacle* Obstacle::createDoor(Json::Value doorJson)
     result->setPosition(getItemPosition(doorJson));
     int state = doorJson.get("state", 0).asInt();
     if (state != 0) result->on();
+    return result;
+}
+
+Obstacle* Obstacle::createMaul(Json::Value maulJson)
+{
+    float rotationSpeed = 1.0f / (float)maulJson.get("rotationSpeed", 1).asDouble();
+    Maul* result = new Maul(getItemId(maulJson), rotationSpeed);
+    result->setPosition(getItemPosition(maulJson));
     return result;
 }
 

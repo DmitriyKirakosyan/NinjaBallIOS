@@ -74,14 +74,4 @@ bool MapView::isNinjaWin(CCSprite* ninja)
     finishRect.origin = ccp(_finishLine->getPosition().x - _finishLine->getContentSize().width/2,
                               _finishLine->getPosition().y - _finishLine->getContentSize().height/2);
     return (ninjaRect.intersectsRect(finishRect));
-//    CCRect ninjaRect = CCRectMake(
-//                                   ninja->getPosition().x - ninja->getContentSize().width/4,
-//                                   ninja->getPosition().y - ninja->getContentSize().height/4,
-//                                   ninja->getContentSize().width/2,
-//                                   ninja->getContentSize().height/2);
-//    CCRect finishLineRect = CCRectMake(
-//                                       _finishLine->getPosition().x - _finishLine->getContentSize().width/8,
-//                                       _finishLine->getPosition().y - _finishLine->getContentSize().height/8,
-//                                       _finishLine->getContentSize().width/4, _finishLine->getContentSize().height/4);
-//    return ninjaRect.intersectsRect(finishLineRect);
 }
