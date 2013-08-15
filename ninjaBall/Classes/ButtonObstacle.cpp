@@ -20,16 +20,33 @@ void ButtonObstacle::interactWithWorld(World world)
     {
         _switchableObject = this->getSwitchable(world.obstacles);
     }
+    if (Obstacle::checkHit(world.ninja))
+    {
+        if (!_isOn) this->on();
+    }
+}
+
+void ButtonObstacle::on()
+{
+    if (_isOn) return;
+    _isOn = true;
+    this->initWithFile(Obstacle::PUSH_BTN_ON_IMG);
+
     if (_switchableObject != NULL)
     {
-        if (Obstacle::checkHit(world.ninja))
-        {
-            if (!_switchableObject->isOn()) _switchableObject->on();
-        }
-        else
-        {
-            if (_switchableObject->isOn()) _switchableObject->off();
-        }
+        if (!_switchableObject->isOn()) _switchableObject->on();
+    }
+}
+
+void ButtonObstacle::off()
+{
+    if (!_isOn) return;
+    _isOn = false;
+    this->initWithFile(Obstacle::PUSH_BTN_OFF_IMG);
+
+    if (_switchableObject != NULL)
+    {
+        if (_switchableObject->isOn()) _switchableObject->off();
     }
 }
 

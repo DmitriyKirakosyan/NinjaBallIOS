@@ -16,14 +16,7 @@ class MovingObstacle : public Obstacle
 {
 public:
     
-    MovingObstacle(const int id):Obstacle(id)
-    {
-        _movingPath = NULL;
-        _isMoving = false;
-        _currentTargetPoint = cocos2d::CCPointZero;
-        cocos2d::CCSprite::initWithFile(Obstacle::RABBIT_MONSTER_IMG);
-    }
-    
+    MovingObstacle(const int id);
     void setLinearMoving(cocos2d::CCPoint point1, cocos2d::CCPoint point2);
     
     void addMovePoint(cocos2d::CCPoint point);

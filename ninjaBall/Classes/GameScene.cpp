@@ -72,6 +72,15 @@ void GameSceneLayer::start(const char* levelName)
     _touchPoints = NULL;
     this->setTouchEnabled(true);
 
+    float backScaleX = Settings::FULL_VIRTUAL_WIDTH / Settings::VIRTUAL_WIDTH;
+    float backScaleY = Settings::FULL_VIRTUAL_HEIGHT / Settings::VIRTUAL_HEIGHT;
+    
+    CCSprite* back = CCSprite::create("storeHouseBkg.png");
+    back->setPosition(ccp(Settings::VIRTUAL_WIDTH/2, Settings::VIRTUAL_HEIGHT/2));
+    back->setScaleX(backScaleX);
+    back->setScaleY(backScaleY);
+    this->addChild(back);
+    
     _ninja = new Ninja(callfuncN_selector(GameSceneLayer::onNinjaMoveToPointComplete), this);
     _ninja->initWithFile("ninja.png");
 
@@ -81,10 +90,6 @@ void GameSceneLayer::start(const char* levelName)
     this->addChild(_mapView);
     this->addChild(_ninja, 1);
     
-//    CCSprite* back = CCSprite::create("StoreHouseRoom.png");
-//    back->setPosition(ccp(Settings::VIRTUAL_WIDTH/2, Settings::VIRTUAL_HEIGHT/2));
-//    this->addChild(back);
-
     this->startLevel(levelName);
 }
 

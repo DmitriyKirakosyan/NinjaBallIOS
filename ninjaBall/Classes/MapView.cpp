@@ -12,6 +12,7 @@
 #include <fstream>
 #include "Ninja.h"
 #include "Settings.h"
+#include "FinishLine.h"
 
 using namespace cocos2d;
 
@@ -44,8 +45,7 @@ void MapView::createLevel(const char *fileName)
     _ninja->setPosition(ccp(ninjaX, ninjaY));
     
     Json::Value flValue = root.get("finish_line", "");
-    _finishLine = CCSprite::create("flags.png");
-    _finishLine->setScale(0.5f);
+    _finishLine = FinishLine::create();
     _finishLine->setPosition(ccp(flValue.get("x", 0).asDouble() * Settings::VIRTUAL_WIDTH,
                                  flValue.get("y", 0).asDouble() * Settings::VIRTUAL_HEIGHT));
     this->addChild(_finishLine);
@@ -66,14 +66,22 @@ void MapView::clear()
 
 bool MapView::isNinjaWin(CCSprite* ninja)
 {
-    CCRect ninjaRect = CCRectMake(
-                                   ninja->getPosition().x - ninja->getContentSize().width/4,
-                                   ninja->getPosition().y - ninja->getContentSize().height/4,
-                                   ninja->getContentSize().width/2,
-                                   ninja->getContentSize().height/2);
-    CCRect finishLineRect = CCRectMake(
-                                       _finishLine->getPosition().x - _finishLine->getContentSize().width/8,
-                                       _finishLine->getPosition().y - _finishLine->getContentSize().height/8,
-                                       _finishLine->getContentSize().width/4, _finishLine->getContentSize().height/4);
-    return ninjaRect.intersectsRect(finishLineRect);
+    CCRect ninjaRect = ninja->getTextureRect();
+    ninjaRect.origin = ccp(ninja->getPosition().x - ninja->getContentSize().width/2,
+                            ninja->getPosition().y - ninja->getContentSize().height/2);
+    
+    CCRect finishRect = _finishLine->getTextureRect();
+    finishRect.origin = ccp(_finishLine->getPosition().x - _finishLine->getContentSize().width/2,
+                              _finishLine->getPosition().y - _finishLine->getContentSize().height/2);
+    return (ninjaRect.intersectsRect(finishRect));
+//    CCRect ninjaRect = CCRectMake(
+//                                   ninja->getPosition().x - ninja->getContentSize().width/4,
+//                                   ninja->getPosition().y - ninja->getContentSize().height/4,
+//                                   ninja->getContentSize().width/2,
+//                                   ninja->getContentSize().height/2);
+//    CCRect finishLineRect = CCRectMake(
+//                                       _finishLine->getPosition().x - _finishLine->getContentSize().width/8,
+//                                       _finishLine->getPosition().y - _finishLine->getContentSize().height/8,
+//                                       _finishLine->getContentSize().width/4, _finishLine->getContentSize().height/4);
+//    return ninjaRect.intersectsRect(finishLineRect);
 }

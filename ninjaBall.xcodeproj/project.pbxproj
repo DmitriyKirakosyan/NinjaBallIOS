@@ -289,6 +289,41 @@
 		2CA46A3E17BA824200E5A952 /* selMenuBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A3817BA824200E5A952 /* selMenuBkg.png */; };
 		2CA46A3F17BA824200E5A952 /* selLevImBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A3917BA824200E5A952 /* selLevImBkg.png */; };
 		2CA46A4817BBB14B00E5A952 /* ButtonObstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46A4617BBB14700E5A952 /* ButtonObstacle.cpp */; };
+		2CA46A6A17BC355900E5A952 /* box.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A4A17BC355900E5A952 /* box.png */; };
+		2CA46A6B17BC355900E5A952 /* finish.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A4B17BC355900E5A952 /* finish.png */; };
+		2CA46A6C17BC355900E5A952 /* finishLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A4C17BC355900E5A952 /* finishLight.png */; };
+		2CA46A6D17BC355900E5A952 /* maulBall.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A4D17BC355900E5A952 /* maulBall.png */; };
+		2CA46A6E17BC355900E5A952 /* maulBase.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A4E17BC355900E5A952 /* maulBase.png */; };
+		2CA46A6F17BC355900E5A952 /* maulRope.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A4F17BC355900E5A952 /* maulRope.png */; };
+		2CA46A7017BC355900E5A952 /* pushBtn_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A5017BC355900E5A952 /* pushBtn_1.png */; };
+		2CA46A7117BC355900E5A952 /* pushBtn_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A5117BC355900E5A952 /* pushBtn_2.png */; };
+		2CA46A7217BC355900E5A952 /* saw.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A5217BC355900E5A952 /* saw.png */; };
+		2CA46A7317BC355900E5A952 /* sawBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A5317BC355900E5A952 /* sawBkg.png */; };
+		2CA46A7417BC355900E5A952 /* spark_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A5517BC355900E5A952 /* spark_1.png */; };
+		2CA46A7517BC355900E5A952 /* spark_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A5617BC355900E5A952 /* spark_2.png */; };
+		2CA46A7617BC355900E5A952 /* spark_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A5717BC355900E5A952 /* spark_3.png */; };
+		2CA46A7717BC355900E5A952 /* teslaItem1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A5A17BC355900E5A952 /* teslaItem1.png */; };
+		2CA46A7817BC355900E5A952 /* teslaItem10.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A5B17BC355900E5A952 /* teslaItem10.png */; };
+		2CA46A7917BC355900E5A952 /* teslaItem11.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A5C17BC355900E5A952 /* teslaItem11.png */; };
+		2CA46A7A17BC355900E5A952 /* teslaItem12.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A5D17BC355900E5A952 /* teslaItem12.png */; };
+		2CA46A7B17BC355900E5A952 /* teslaItem13.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A5E17BC355900E5A952 /* teslaItem13.png */; };
+		2CA46A7C17BC355900E5A952 /* teslaItem14.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A5F17BC355900E5A952 /* teslaItem14.png */; };
+		2CA46A7D17BC355900E5A952 /* teslaItem15.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A6017BC355900E5A952 /* teslaItem15.png */; };
+		2CA46A7E17BC355900E5A952 /* teslaItem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A6117BC355900E5A952 /* teslaItem2.png */; };
+		2CA46A7F17BC355900E5A952 /* teslaItem3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A6217BC355900E5A952 /* teslaItem3.png */; };
+		2CA46A8017BC355900E5A952 /* teslaItem4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A6317BC355900E5A952 /* teslaItem4.png */; };
+		2CA46A8117BC355900E5A952 /* teslaItem5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A6417BC355900E5A952 /* teslaItem5.png */; };
+		2CA46A8217BC355900E5A952 /* teslaItem6.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A6517BC355900E5A952 /* teslaItem6.png */; };
+		2CA46A8317BC355900E5A952 /* teslaItem7.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A6617BC355900E5A952 /* teslaItem7.png */; };
+		2CA46A8417BC355900E5A952 /* teslaItem8.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A6717BC355900E5A952 /* teslaItem8.png */; };
+		2CA46A8517BC355900E5A952 /* teslaItem9.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A6817BC355900E5A952 /* teslaItem9.png */; };
+		2CA46A8617BC355900E5A952 /* teslaItem.swf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A6917BC355900E5A952 /* teslaItem.swf */; };
+		2CA46A8917BCFA2E00E5A952 /* FinishLine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46A8717BCFA2400E5A952 /* FinishLine.cpp */; };
+		2CA46A9117BCFD7E00E5A952 /* storeHouseBkg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A8C17BCFD7E00E5A952 /* storeHouseBkg.png */; };
+		2CA46A9217BCFD7E00E5A952 /* storeHouseBkgFill.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A8D17BCFD7E00E5A952 /* storeHouseBkgFill.png */; };
+		2CA46A9317BCFD7E00E5A952 /* storeHouseBkgWalls.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A8E17BCFD7E00E5A952 /* storeHouseBkgWalls.png */; };
+		2CA46A9417BCFD7E00E5A952 /* wallLight_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A8F17BCFD7E00E5A952 /* wallLight_1.png */; };
+		2CA46A9517BCFD7E00E5A952 /* wallLight_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A9017BCFD7E00E5A952 /* wallLight_2.png */; };
 		2CA4D27E16E394C4000E4380 /* LevelCompleteWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */; };
 		2CA4D29116E51E02000E4380 /* json_internalarray.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28A16E51E02000E4380 /* json_internalarray.inl */; };
 		2CA4D29216E51E02000E4380 /* json_internalmap.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28B16E51E02000E4380 /* json_internalmap.inl */; };
@@ -850,6 +885,42 @@
 		2CA46A4517BBAC6900E5A952 /* SwitchableObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SwitchableObject.h; path = Classes/SwitchableObject.h; sourceTree = "<group>"; };
 		2CA46A4617BBB14700E5A952 /* ButtonObstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ButtonObstacle.cpp; path = Classes/ButtonObstacle.cpp; sourceTree = "<group>"; };
 		2CA46A4717BBB14900E5A952 /* ButtonObstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ButtonObstacle.h; path = Classes/ButtonObstacle.h; sourceTree = "<group>"; };
+		2CA46A4A17BC355900E5A952 /* box.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = box.png; sourceTree = "<group>"; };
+		2CA46A4B17BC355900E5A952 /* finish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finish.png; sourceTree = "<group>"; };
+		2CA46A4C17BC355900E5A952 /* finishLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finishLight.png; sourceTree = "<group>"; };
+		2CA46A4D17BC355900E5A952 /* maulBall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maulBall.png; sourceTree = "<group>"; };
+		2CA46A4E17BC355900E5A952 /* maulBase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maulBase.png; sourceTree = "<group>"; };
+		2CA46A4F17BC355900E5A952 /* maulRope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maulRope.png; sourceTree = "<group>"; };
+		2CA46A5017BC355900E5A952 /* pushBtn_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pushBtn_1.png; sourceTree = "<group>"; };
+		2CA46A5117BC355900E5A952 /* pushBtn_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pushBtn_2.png; sourceTree = "<group>"; };
+		2CA46A5217BC355900E5A952 /* saw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saw.png; sourceTree = "<group>"; };
+		2CA46A5317BC355900E5A952 /* sawBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sawBkg.png; sourceTree = "<group>"; };
+		2CA46A5517BC355900E5A952 /* spark_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark_1.png; sourceTree = "<group>"; };
+		2CA46A5617BC355900E5A952 /* spark_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark_2.png; sourceTree = "<group>"; };
+		2CA46A5717BC355900E5A952 /* spark_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark_3.png; sourceTree = "<group>"; };
+		2CA46A5A17BC355900E5A952 /* teslaItem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem1.png; sourceTree = "<group>"; };
+		2CA46A5B17BC355900E5A952 /* teslaItem10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem10.png; sourceTree = "<group>"; };
+		2CA46A5C17BC355900E5A952 /* teslaItem11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem11.png; sourceTree = "<group>"; };
+		2CA46A5D17BC355900E5A952 /* teslaItem12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem12.png; sourceTree = "<group>"; };
+		2CA46A5E17BC355900E5A952 /* teslaItem13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem13.png; sourceTree = "<group>"; };
+		2CA46A5F17BC355900E5A952 /* teslaItem14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem14.png; sourceTree = "<group>"; };
+		2CA46A6017BC355900E5A952 /* teslaItem15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem15.png; sourceTree = "<group>"; };
+		2CA46A6117BC355900E5A952 /* teslaItem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem2.png; sourceTree = "<group>"; };
+		2CA46A6217BC355900E5A952 /* teslaItem3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem3.png; sourceTree = "<group>"; };
+		2CA46A6317BC355900E5A952 /* teslaItem4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem4.png; sourceTree = "<group>"; };
+		2CA46A6417BC355900E5A952 /* teslaItem5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem5.png; sourceTree = "<group>"; };
+		2CA46A6517BC355900E5A952 /* teslaItem6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem6.png; sourceTree = "<group>"; };
+		2CA46A6617BC355900E5A952 /* teslaItem7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem7.png; sourceTree = "<group>"; };
+		2CA46A6717BC355900E5A952 /* teslaItem8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem8.png; sourceTree = "<group>"; };
+		2CA46A6817BC355900E5A952 /* teslaItem9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem9.png; sourceTree = "<group>"; };
+		2CA46A6917BC355900E5A952 /* teslaItem.swf */ = {isa = PBXFileReference; lastKnownFileType = file; path = teslaItem.swf; sourceTree = "<group>"; };
+		2CA46A8717BCFA2400E5A952 /* FinishLine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FinishLine.cpp; path = Classes/FinishLine.cpp; sourceTree = "<group>"; };
+		2CA46A8817BCFA2900E5A952 /* FinishLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FinishLine.h; path = Classes/FinishLine.h; sourceTree = "<group>"; };
+		2CA46A8C17BCFD7E00E5A952 /* storeHouseBkg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeHouseBkg.png; sourceTree = "<group>"; };
+		2CA46A8D17BCFD7E00E5A952 /* storeHouseBkgFill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeHouseBkgFill.png; sourceTree = "<group>"; };
+		2CA46A8E17BCFD7E00E5A952 /* storeHouseBkgWalls.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storeHouseBkgWalls.png; sourceTree = "<group>"; };
+		2CA46A8F17BCFD7E00E5A952 /* wallLight_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallLight_1.png; sourceTree = "<group>"; };
+		2CA46A9017BCFD7E00E5A952 /* wallLight_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallLight_2.png; sourceTree = "<group>"; };
 		2CA4D27C16E392B3000E4380 /* LevelCompleteMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteMenu.h; path = Classes/LevelCompleteMenu.h; sourceTree = "<group>"; };
 		2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelCompleteWindow.cpp; path = Classes/LevelCompleteWindow.cpp; sourceTree = "<group>"; };
 		2CA4D28116E51E02000E4380 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
@@ -966,6 +1037,8 @@
 		2C78E86B1689084500CFA337 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CA46A8A17BCFD7A00E5A952 /* rooms */,
+				2CA46A4917BC355300E5A952 /* mapObjects */,
 				2CA46A3317BA823F00E5A952 /* selectLevel */,
 				2CA469F417BA67F100E5A952 /* levelCompleteWindow */,
 				2CA46A0617BA67FD00E5A952 /* mainMenu */,
@@ -2017,6 +2090,88 @@
 			path = Resources/selectLevel;
 			sourceTree = "<group>";
 		};
+		2CA46A4917BC355300E5A952 /* mapObjects */ = {
+			isa = PBXGroup;
+			children = (
+				2CA46A4A17BC355900E5A952 /* box.png */,
+				2CA46A4B17BC355900E5A952 /* finish.png */,
+				2CA46A4C17BC355900E5A952 /* finishLight.png */,
+				2CA46A4D17BC355900E5A952 /* maulBall.png */,
+				2CA46A4E17BC355900E5A952 /* maulBase.png */,
+				2CA46A4F17BC355900E5A952 /* maulRope.png */,
+				2CA46A5017BC355900E5A952 /* pushBtn_1.png */,
+				2CA46A5117BC355900E5A952 /* pushBtn_2.png */,
+				2CA46A5217BC355900E5A952 /* saw.png */,
+				2CA46A5317BC355900E5A952 /* sawBkg.png */,
+				2CA46A5417BC355900E5A952 /* tesla */,
+			);
+			name = mapObjects;
+			path = Resources/mapObjects;
+			sourceTree = "<group>";
+		};
+		2CA46A5417BC355900E5A952 /* tesla */ = {
+			isa = PBXGroup;
+			children = (
+				2CA46A5517BC355900E5A952 /* spark_1.png */,
+				2CA46A5617BC355900E5A952 /* spark_2.png */,
+				2CA46A5717BC355900E5A952 /* spark_3.png */,
+				2CA46A5817BC355900E5A952 /* teslaItem */,
+				2CA46A6917BC355900E5A952 /* teslaItem.swf */,
+			);
+			path = tesla;
+			sourceTree = "<group>";
+		};
+		2CA46A5817BC355900E5A952 /* teslaItem */ = {
+			isa = PBXGroup;
+			children = (
+				2CA46A5917BC355900E5A952 /* stage */,
+			);
+			path = teslaItem;
+			sourceTree = "<group>";
+		};
+		2CA46A5917BC355900E5A952 /* stage */ = {
+			isa = PBXGroup;
+			children = (
+				2CA46A5A17BC355900E5A952 /* teslaItem1.png */,
+				2CA46A5B17BC355900E5A952 /* teslaItem10.png */,
+				2CA46A5C17BC355900E5A952 /* teslaItem11.png */,
+				2CA46A5D17BC355900E5A952 /* teslaItem12.png */,
+				2CA46A5E17BC355900E5A952 /* teslaItem13.png */,
+				2CA46A5F17BC355900E5A952 /* teslaItem14.png */,
+				2CA46A6017BC355900E5A952 /* teslaItem15.png */,
+				2CA46A6117BC355900E5A952 /* teslaItem2.png */,
+				2CA46A6217BC355900E5A952 /* teslaItem3.png */,
+				2CA46A6317BC355900E5A952 /* teslaItem4.png */,
+				2CA46A6417BC355900E5A952 /* teslaItem5.png */,
+				2CA46A6517BC355900E5A952 /* teslaItem6.png */,
+				2CA46A6617BC355900E5A952 /* teslaItem7.png */,
+				2CA46A6717BC355900E5A952 /* teslaItem8.png */,
+				2CA46A6817BC355900E5A952 /* teslaItem9.png */,
+			);
+			path = stage;
+			sourceTree = "<group>";
+		};
+		2CA46A8A17BCFD7A00E5A952 /* rooms */ = {
+			isa = PBXGroup;
+			children = (
+				2CA46A8B17BCFD7E00E5A952 /* storeHouse */,
+			);
+			name = rooms;
+			path = Resources/rooms;
+			sourceTree = "<group>";
+		};
+		2CA46A8B17BCFD7E00E5A952 /* storeHouse */ = {
+			isa = PBXGroup;
+			children = (
+				2CA46A8C17BCFD7E00E5A952 /* storeHouseBkg.png */,
+				2CA46A8D17BCFD7E00E5A952 /* storeHouseBkgFill.png */,
+				2CA46A8E17BCFD7E00E5A952 /* storeHouseBkgWalls.png */,
+				2CA46A8F17BCFD7E00E5A952 /* wallLight_1.png */,
+				2CA46A9017BCFD7E00E5A952 /* wallLight_2.png */,
+			);
+			path = storeHouse;
+			sourceTree = "<group>";
+		};
 		2CA4D27B16E3928A000E4380 /* menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -2076,6 +2231,8 @@
 				2CCA9D2716DA110F00603D1D /* MapView.h */,
 				2CA469EE17B96E7600E5A952 /* MapObject.h */,
 				2CA46A4017BB74D200E5A952 /* World.h */,
+				2CA46A8717BCFA2400E5A952 /* FinishLine.cpp */,
+				2CA46A8817BCFA2900E5A952 /* FinishLine.h */,
 			);
 			name = map;
 			sourceTree = "<group>";
@@ -2262,6 +2419,40 @@
 				2CA46A3D17BA824200E5A952 /* selBkgLevel.png in Resources */,
 				2CA46A3E17BA824200E5A952 /* selMenuBkg.png in Resources */,
 				2CA46A3F17BA824200E5A952 /* selLevImBkg.png in Resources */,
+				2CA46A6A17BC355900E5A952 /* box.png in Resources */,
+				2CA46A6B17BC355900E5A952 /* finish.png in Resources */,
+				2CA46A6C17BC355900E5A952 /* finishLight.png in Resources */,
+				2CA46A6D17BC355900E5A952 /* maulBall.png in Resources */,
+				2CA46A6E17BC355900E5A952 /* maulBase.png in Resources */,
+				2CA46A6F17BC355900E5A952 /* maulRope.png in Resources */,
+				2CA46A7017BC355900E5A952 /* pushBtn_1.png in Resources */,
+				2CA46A7117BC355900E5A952 /* pushBtn_2.png in Resources */,
+				2CA46A7217BC355900E5A952 /* saw.png in Resources */,
+				2CA46A7317BC355900E5A952 /* sawBkg.png in Resources */,
+				2CA46A7417BC355900E5A952 /* spark_1.png in Resources */,
+				2CA46A7517BC355900E5A952 /* spark_2.png in Resources */,
+				2CA46A7617BC355900E5A952 /* spark_3.png in Resources */,
+				2CA46A7717BC355900E5A952 /* teslaItem1.png in Resources */,
+				2CA46A7817BC355900E5A952 /* teslaItem10.png in Resources */,
+				2CA46A7917BC355900E5A952 /* teslaItem11.png in Resources */,
+				2CA46A7A17BC355900E5A952 /* teslaItem12.png in Resources */,
+				2CA46A7B17BC355900E5A952 /* teslaItem13.png in Resources */,
+				2CA46A7C17BC355900E5A952 /* teslaItem14.png in Resources */,
+				2CA46A7D17BC355900E5A952 /* teslaItem15.png in Resources */,
+				2CA46A7E17BC355900E5A952 /* teslaItem2.png in Resources */,
+				2CA46A7F17BC355900E5A952 /* teslaItem3.png in Resources */,
+				2CA46A8017BC355900E5A952 /* teslaItem4.png in Resources */,
+				2CA46A8117BC355900E5A952 /* teslaItem5.png in Resources */,
+				2CA46A8217BC355900E5A952 /* teslaItem6.png in Resources */,
+				2CA46A8317BC355900E5A952 /* teslaItem7.png in Resources */,
+				2CA46A8417BC355900E5A952 /* teslaItem8.png in Resources */,
+				2CA46A8517BC355900E5A952 /* teslaItem9.png in Resources */,
+				2CA46A8617BC355900E5A952 /* teslaItem.swf in Resources */,
+				2CA46A9117BCFD7E00E5A952 /* storeHouseBkg.png in Resources */,
+				2CA46A9217BCFD7E00E5A952 /* storeHouseBkgFill.png in Resources */,
+				2CA46A9317BCFD7E00E5A952 /* storeHouseBkgWalls.png in Resources */,
+				2CA46A9417BCFD7E00E5A952 /* wallLight_1.png in Resources */,
+				2CA46A9517BCFD7E00E5A952 /* wallLight_2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2464,6 +2655,7 @@
 				2CA469E917B909DA00E5A952 /* MovingObstacle.cpp in Sources */,
 				2CA469EC17B934E000E5A952 /* Door.cpp in Sources */,
 				2CA46A4817BBB14B00E5A952 /* ButtonObstacle.cpp in Sources */,
+				2CA46A8917BCFA2E00E5A952 /* FinishLine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

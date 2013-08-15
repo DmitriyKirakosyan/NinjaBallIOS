@@ -15,10 +15,14 @@
 
 using namespace cocos2d;
 
-const char* Obstacle::YELLOW_MONSTER_IMG = "yellowMonster.png";
-const char* Obstacle::RABBIT_MONSTER_IMG = "rabbitMonster.png";
-const char* Obstacle::BLUE_PORTAL_MONSTER_IMG = "bluePortalMonster.png";
-const char* Obstacle::RED_RABBIT_MONSTER_IMG = "redRabbitMonster.png";
+const char* Obstacle::WALL_IMG = "box.png";
+const char* Obstacle::SAW_BKG_IMG = "sawBkg.png";
+const char* Obstacle::SAW_IMG = "saw.png";
+const char* Obstacle::PUSH_BTN_ON_IMG = "pushBtn_2.png";
+const char* Obstacle::PUSH_BTN_OFF_IMG = "pushBtn_1.png";
+const char* Obstacle::FINISH_IMG = "finish.png";
+const char* Obstacle::FINISH_LIGHT_IMG = "finishLight.png";
+const char* Obstacle::MAULBALL_IMG = "maulBall.png";
 
 
 const char* Obstacle::WALKING_MINKER = "walking_wall";
@@ -94,7 +98,7 @@ Obstacle* Obstacle::createFromJSON(Json::Value obstacleJson)
 Obstacle* Obstacle::createWall(Json::Value wallJson)
 {
     Obstacle* result = new Obstacle(getItemId(wallJson));
-    result->initWithFile(YELLOW_MONSTER_IMG);
+    result->initWithFile(WALL_IMG);
     result->setPosition(getItemPosition(wallJson));
     return result;
 }
@@ -116,7 +120,6 @@ Obstacle* Obstacle::createButton(Json::Value buttonJson)
 {
     int targetId = buttonJson.get("targetId", 0).asInt();
     ButtonObstacle* result = new ButtonObstacle(getItemId(buttonJson), targetId);
-    result->initWithFile(RED_RABBIT_MONSTER_IMG);
     result->setPosition(getItemPosition(buttonJson));
     return result;
 }
@@ -124,7 +127,6 @@ Obstacle* Obstacle::createButton(Json::Value buttonJson)
 Obstacle* Obstacle::createDoor(Json::Value doorJson)
 {
     Door* result = new Door(getItemId(doorJson));
-    result->initWithFile(BLUE_PORTAL_MONSTER_IMG);
     result->setPosition(getItemPosition(doorJson));
     int state = doorJson.get("state", 0).asInt();
     if (state != 0) result->on();

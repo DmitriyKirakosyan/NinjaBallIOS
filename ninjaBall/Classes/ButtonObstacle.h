@@ -20,6 +20,7 @@ public:
     ButtonObstacle(const int id, const int switchableId):Obstacle(id)
     {
         _switchableId = switchableId;
+        this->initWithFile(Obstacle::PUSH_BTN_OFF_IMG);
     }
     
     void addSwitchable(SwitchableObject* switchableObject)
@@ -27,9 +28,15 @@ public:
         _switchableObject = switchableObject;
     }
     
+    //switchable
+    void on();
+    void off();
+    inline bool isOn() { return _isOn; }
+    
     void interactWithWorld(World world);
     
 private:
+    bool _isOn;
     int _switchableId;
     SwitchableObject* _switchableObject;
     

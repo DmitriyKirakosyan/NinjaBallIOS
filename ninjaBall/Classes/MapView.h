@@ -14,6 +14,7 @@
 
 class ObstaclesController;
 class Ninja;
+class FinishLine;
 
 class MapView : public cocos2d::CCLayer, public World
 {
@@ -45,7 +46,7 @@ public:
   
 private:
     ObstaclesController* _obstacles;
-    cocos2d::CCSprite* _finishLine;
+    FinishLine* _finishLine;
     Ninja* _ninja;
 };
 

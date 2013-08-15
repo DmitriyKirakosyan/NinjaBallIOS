@@ -17,7 +17,7 @@ class Door : public Obstacle
 public:
     Door(const int id): Obstacle(id)
     {
-        cocos2d::CCSprite::initWithFile(Obstacle::YELLOW_MONSTER_IMG);
+        cocos2d::CCSprite::initWithFile(Obstacle::MAULBALL_IMG);
         _opened = false;
     }
     

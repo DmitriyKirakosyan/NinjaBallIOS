@@ -43,10 +43,14 @@ public:
     virtual bool isOn() { return true; }
     
 protected:
-    static const char* YELLOW_MONSTER_IMG;
-    static const char* RABBIT_MONSTER_IMG;
-    static const char* RED_RABBIT_MONSTER_IMG;
-    static const char* BLUE_PORTAL_MONSTER_IMG;
+    static const char* SAW_IMG;
+    static const char* SAW_BKG_IMG;
+    static const char* PUSH_BTN_ON_IMG;
+    static const char* PUSH_BTN_OFF_IMG;
+    static const char* WALL_IMG;
+    static const char* FINISH_LIGHT_IMG;
+    static const char* FINISH_IMG;
+    static const char* MAULBALL_IMG;
     
 private:
     int _id;
