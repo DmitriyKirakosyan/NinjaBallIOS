@@ -24,6 +24,10 @@ void ButtonObstacle::interactWithWorld(World world)
     {
         if (!_isOn) this->on();
     }
+//    else
+//    {
+//        if (_isOn) this->off();
+//    }
 }
 
 void ButtonObstacle::on()

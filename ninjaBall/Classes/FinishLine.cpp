@@ -29,8 +29,5 @@ bool FinishLine::init()
     leftBall->runAction(CCRepeatForever::create(CCRotateBy::create(1, 180)));
     rightBall->runAction(CCRepeatForever::create(CCRotateBy::create(1, 180)));
     
-    //TODO debug
-    this->setScale(1.5);
-    
     return true;
 }
