@@ -25,6 +25,7 @@ GameScene::GameScene()
     CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
     
     cache->addSpriteFramesWithFile("doorAnim.plist");
+    cache->addSpriteFramesWithFile("teslaItem.plist");
 }
 
 GameScene::~GameScene()

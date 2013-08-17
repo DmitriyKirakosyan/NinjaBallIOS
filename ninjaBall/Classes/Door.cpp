@@ -35,6 +35,12 @@ Door::Door(const int id):Obstacle(id)
     _animate->retain();
 }
 
+Door::~Door()
+{
+    this->stopAllActions();
+    _animate->release();
+}
+
 
 
 void Door::on()

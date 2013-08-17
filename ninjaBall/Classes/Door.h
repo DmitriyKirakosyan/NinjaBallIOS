@@ -16,7 +16,7 @@ class Door : public Obstacle
 {
 public:
     Door(const int id);
-    ~Door() { _animate->release(); }
+    ~Door();
     //switchable
     void on();
     void off();

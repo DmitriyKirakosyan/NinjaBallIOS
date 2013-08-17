@@ -13,6 +13,8 @@
 #include "Door.h"
 #include "World.h"
 #include "Maul.h"
+#include "TeslaItem.h"
+#include "MovingSaw.h"
 
 using namespace cocos2d;
 
@@ -32,12 +34,8 @@ const char* Obstacle::MACE = "mace";
 const char* Obstacle::DOOR = "door";
 const char* Obstacle::BUTTON = "button";
 const char* Obstacle::MAUL = "maul";
+const char* Obstacle::TESLA = "tesla";
 
-
-bool Obstacle::checkHeroDamage(Ninja *hero)
-{
-    return false;
-}
 
 void Obstacle::interactWithWorld(World world)
 {
@@ -87,6 +85,10 @@ Obstacle* Obstacle::createFromJSON(Json::Value obstacleJson)
     {
         result = createMaul(obstacleJson);
     }
+    else if (std::strcmp(type_c, TESLA) == 0)
+    {
+        result = createTesla(obstacleJson);
+    }
     
     else
     {
@@ -111,7 +113,7 @@ Obstacle* Obstacle::createWall(Json::Value wallJson)
 
 Obstacle* Obstacle::createWallMinker(Json::Value minkerJson)
 {
-    MovingObstacle* result = new MovingObstacle(getItemId(minkerJson));
+    MovingSaw* result = new MovingSaw(getItemId(minkerJson));
     result->setPosition(getItemPosition(minkerJson));
     
     Json::Value walkPath = minkerJson.get("walk_path", "");
@@ -144,6 +146,19 @@ Obstacle* Obstacle::createMaul(Json::Value maulJson)
     float rotationSpeed = 1.0f / (float)maulJson.get("rotationSpeed", 1).asDouble();
     Maul* result = new Maul(getItemId(maulJson), rotationSpeed);
     result->setPosition(getItemPosition(maulJson));
+    return result;
+}
+
+Obstacle* Obstacle::createTesla(Json::Value teslaJson)
+{
+    int friendId = teslaJson.get("friend", 0).asInt();
+    TeslaItem* result = new TeslaItem(getItemId(teslaJson), friendId);
+    result->setPosition(getItemPosition(teslaJson));
+    Json::Value walkPath = teslaJson.get("walk_path", "");
+    for (int i = 0; i < walkPath.size(); ++i) {
+        result->addMovePoint(ccp(walkPath[i].get("x", 0).asDouble() * Settings::VIRTUAL_WIDTH,
+                                 walkPath[i].get("y", 0).asDouble() * Settings::VIRTUAL_HEIGHT));
+    }
     return result;
 }
 

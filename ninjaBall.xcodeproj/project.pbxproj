@@ -306,18 +306,6 @@
 		2CA46A9417BCFD7E00E5A952 /* wallLight_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A8F17BCFD7E00E5A952 /* wallLight_1.png */; };
 		2CA46A9517BCFD7E00E5A952 /* wallLight_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A9017BCFD7E00E5A952 /* wallLight_2.png */; };
 		2CA46A9817BD027600E5A952 /* Maul.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46A9617BD026F00E5A952 /* Maul.cpp */; };
-		2CA46AD117BD1A1500E5A952 /* door1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A9B17BD1A1500E5A952 /* door1.png */; };
-		2CA46AD217BD1A1500E5A952 /* door10.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A9C17BD1A1500E5A952 /* door10.png */; };
-		2CA46AD317BD1A1500E5A952 /* door2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A9D17BD1A1500E5A952 /* door2.png */; };
-		2CA46AD417BD1A1500E5A952 /* door3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A9E17BD1A1500E5A952 /* door3.png */; };
-		2CA46AD517BD1A1500E5A952 /* door4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46A9F17BD1A1500E5A952 /* door4.png */; };
-		2CA46AD617BD1A1500E5A952 /* door5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AA017BD1A1500E5A952 /* door5.png */; };
-		2CA46AD717BD1A1500E5A952 /* door6.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AA117BD1A1500E5A952 /* door6.png */; };
-		2CA46AD817BD1A1500E5A952 /* door7.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AA217BD1A1500E5A952 /* door7.png */; };
-		2CA46AD917BD1A1500E5A952 /* door8.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AA317BD1A1500E5A952 /* door8.png */; };
-		2CA46ADA17BD1A1500E5A952 /* door9.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AA417BD1A1500E5A952 /* door9.png */; };
-		2CA46ADB17BD1A1500E5A952 /* zDoc.zwd in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AA517BD1A1500E5A952 /* zDoc.zwd */; };
-		2CA46ADF17BD1A1500E5A952 /* door.swf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AA917BD1A1500E5A952 /* door.swf */; };
 		2CA46AE017BD1A1500E5A952 /* gate1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AAC17BD1A1500E5A952 /* gate1.png */; };
 		2CA46AE117BD1A1500E5A952 /* gate10.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AAD17BD1A1500E5A952 /* gate10.png */; };
 		2CA46AE217BD1A1500E5A952 /* gate2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AAE17BD1A1500E5A952 /* gate2.png */; };
@@ -335,25 +323,12 @@
 		2CA46AEE17BD1A1500E5A952 /* sparks1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46ABC17BD1A1500E5A952 /* sparks1.png */; };
 		2CA46AEF17BD1A1500E5A952 /* sparks2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46ABD17BD1A1500E5A952 /* sparks2.png */; };
 		2CA46AF017BD1A1500E5A952 /* sparks3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46ABE17BD1A1500E5A952 /* sparks3.png */; };
-		2CA46AF117BD1A1500E5A952 /* sparks.swf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46ABF17BD1A1500E5A952 /* sparks.swf */; };
-		2CA46AF217BD1A1500E5A952 /* teslaItem1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AC117BD1A1500E5A952 /* teslaItem1.png */; };
-		2CA46AF317BD1A1500E5A952 /* teslaItem10.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AC217BD1A1500E5A952 /* teslaItem10.png */; };
-		2CA46AF417BD1A1500E5A952 /* teslaItem11.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AC317BD1A1500E5A952 /* teslaItem11.png */; };
-		2CA46AF517BD1A1500E5A952 /* teslaItem12.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AC417BD1A1500E5A952 /* teslaItem12.png */; };
-		2CA46AF617BD1A1500E5A952 /* teslaItem13.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AC517BD1A1500E5A952 /* teslaItem13.png */; };
-		2CA46AF717BD1A1500E5A952 /* teslaItem14.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AC617BD1A1500E5A952 /* teslaItem14.png */; };
-		2CA46AF817BD1A1500E5A952 /* teslaItem15.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AC717BD1A1500E5A952 /* teslaItem15.png */; };
-		2CA46AF917BD1A1500E5A952 /* teslaItem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AC817BD1A1500E5A952 /* teslaItem2.png */; };
-		2CA46AFA17BD1A1500E5A952 /* teslaItem3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AC917BD1A1500E5A952 /* teslaItem3.png */; };
-		2CA46AFB17BD1A1500E5A952 /* teslaItem4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46ACA17BD1A1500E5A952 /* teslaItem4.png */; };
-		2CA46AFC17BD1A1500E5A952 /* teslaItem5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46ACB17BD1A1500E5A952 /* teslaItem5.png */; };
-		2CA46AFD17BD1A1500E5A952 /* teslaItem6.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46ACC17BD1A1500E5A952 /* teslaItem6.png */; };
-		2CA46AFE17BD1A1500E5A952 /* teslaItem7.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46ACD17BD1A1500E5A952 /* teslaItem7.png */; };
-		2CA46AFF17BD1A1500E5A952 /* teslaItem8.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46ACE17BD1A1500E5A952 /* teslaItem8.png */; };
-		2CA46B0017BD1A1500E5A952 /* teslaItem9.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46ACF17BD1A1500E5A952 /* teslaItem9.png */; };
-		2CA46B0117BD1A1500E5A952 /* teslaItem.swf in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46AD017BD1A1500E5A952 /* teslaItem.swf */; };
 		2CA46B0417BD1B4700E5A952 /* doorAnim.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46B0217BD1B4700E5A952 /* doorAnim.plist */; };
 		2CA46B0517BD1B4700E5A952 /* doorAnim.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46B0317BD1B4700E5A952 /* doorAnim.png */; };
+		2CA46B0917BFC7E900E5A952 /* TeslaItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46B0717BFC7DE00E5A952 /* TeslaItem.cpp */; };
+		2CA46B0C17BFD2C600E5A952 /* MovingSaw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46B0A17BFD2B900E5A952 /* MovingSaw.cpp */; };
+		2CA46B0F17BFEBC400E5A952 /* teslaItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46B0D17BFEBC400E5A952 /* teslaItem.plist */; };
+		2CA46B1017BFEBC400E5A952 /* teslaItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46B0E17BFEBC400E5A952 /* teslaItem.png */; };
 		2CA4D27E16E394C4000E4380 /* LevelCompleteWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */; };
 		2CA4D29116E51E02000E4380 /* json_internalarray.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28A16E51E02000E4380 /* json_internalarray.inl */; };
 		2CA4D29216E51E02000E4380 /* json_internalmap.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28B16E51E02000E4380 /* json_internalmap.inl */; };
@@ -934,18 +909,6 @@
 		2CA46A9017BCFD7E00E5A952 /* wallLight_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wallLight_2.png; sourceTree = "<group>"; };
 		2CA46A9617BD026F00E5A952 /* Maul.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Maul.cpp; sourceTree = "<group>"; };
 		2CA46A9717BD027200E5A952 /* Maul.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Maul.h; sourceTree = "<group>"; };
-		2CA46A9B17BD1A1500E5A952 /* door1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door1.png; sourceTree = "<group>"; };
-		2CA46A9C17BD1A1500E5A952 /* door10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door10.png; sourceTree = "<group>"; };
-		2CA46A9D17BD1A1500E5A952 /* door2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door2.png; sourceTree = "<group>"; };
-		2CA46A9E17BD1A1500E5A952 /* door3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door3.png; sourceTree = "<group>"; };
-		2CA46A9F17BD1A1500E5A952 /* door4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door4.png; sourceTree = "<group>"; };
-		2CA46AA017BD1A1500E5A952 /* door5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door5.png; sourceTree = "<group>"; };
-		2CA46AA117BD1A1500E5A952 /* door6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door6.png; sourceTree = "<group>"; };
-		2CA46AA217BD1A1500E5A952 /* door7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door7.png; sourceTree = "<group>"; };
-		2CA46AA317BD1A1500E5A952 /* door8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door8.png; sourceTree = "<group>"; };
-		2CA46AA417BD1A1500E5A952 /* door9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door9.png; sourceTree = "<group>"; };
-		2CA46AA517BD1A1500E5A952 /* zDoc.zwd */ = {isa = PBXFileReference; lastKnownFileType = file; path = zDoc.zwd; sourceTree = "<group>"; };
-		2CA46AA917BD1A1500E5A952 /* door.swf */ = {isa = PBXFileReference; lastKnownFileType = file; path = door.swf; sourceTree = "<group>"; };
 		2CA46AAC17BD1A1500E5A952 /* gate1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gate1.png; sourceTree = "<group>"; };
 		2CA46AAD17BD1A1500E5A952 /* gate10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gate10.png; sourceTree = "<group>"; };
 		2CA46AAE17BD1A1500E5A952 /* gate2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gate2.png; sourceTree = "<group>"; };
@@ -963,26 +926,15 @@
 		2CA46ABC17BD1A1500E5A952 /* sparks1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sparks1.png; sourceTree = "<group>"; };
 		2CA46ABD17BD1A1500E5A952 /* sparks2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sparks2.png; sourceTree = "<group>"; };
 		2CA46ABE17BD1A1500E5A952 /* sparks3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sparks3.png; sourceTree = "<group>"; };
-		2CA46ABF17BD1A1500E5A952 /* sparks.swf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sparks.swf; sourceTree = "<group>"; };
-		2CA46AC117BD1A1500E5A952 /* teslaItem1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem1.png; sourceTree = "<group>"; };
-		2CA46AC217BD1A1500E5A952 /* teslaItem10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem10.png; sourceTree = "<group>"; };
-		2CA46AC317BD1A1500E5A952 /* teslaItem11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem11.png; sourceTree = "<group>"; };
-		2CA46AC417BD1A1500E5A952 /* teslaItem12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem12.png; sourceTree = "<group>"; };
-		2CA46AC517BD1A1500E5A952 /* teslaItem13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem13.png; sourceTree = "<group>"; };
-		2CA46AC617BD1A1500E5A952 /* teslaItem14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem14.png; sourceTree = "<group>"; };
-		2CA46AC717BD1A1500E5A952 /* teslaItem15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem15.png; sourceTree = "<group>"; };
-		2CA46AC817BD1A1500E5A952 /* teslaItem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem2.png; sourceTree = "<group>"; };
-		2CA46AC917BD1A1500E5A952 /* teslaItem3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem3.png; sourceTree = "<group>"; };
-		2CA46ACA17BD1A1500E5A952 /* teslaItem4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem4.png; sourceTree = "<group>"; };
-		2CA46ACB17BD1A1500E5A952 /* teslaItem5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem5.png; sourceTree = "<group>"; };
-		2CA46ACC17BD1A1500E5A952 /* teslaItem6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem6.png; sourceTree = "<group>"; };
-		2CA46ACD17BD1A1500E5A952 /* teslaItem7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem7.png; sourceTree = "<group>"; };
-		2CA46ACE17BD1A1500E5A952 /* teslaItem8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem8.png; sourceTree = "<group>"; };
-		2CA46ACF17BD1A1500E5A952 /* teslaItem9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem9.png; sourceTree = "<group>"; };
-		2CA46AD017BD1A1500E5A952 /* teslaItem.swf */ = {isa = PBXFileReference; lastKnownFileType = file; path = teslaItem.swf; sourceTree = "<group>"; };
 		2CA46B0217BD1B4700E5A952 /* doorAnim.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = doorAnim.plist; sourceTree = "<group>"; };
 		2CA46B0317BD1B4700E5A952 /* doorAnim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doorAnim.png; sourceTree = "<group>"; };
 		2CA46B0617BF8E2700E5A952 /* Initializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Initializer.h; path = Classes/Initializer.h; sourceTree = "<group>"; };
+		2CA46B0717BFC7DE00E5A952 /* TeslaItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TeslaItem.cpp; path = Classes/TeslaItem.cpp; sourceTree = "<group>"; };
+		2CA46B0817BFC7E400E5A952 /* TeslaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeslaItem.h; path = Classes/TeslaItem.h; sourceTree = "<group>"; };
+		2CA46B0A17BFD2B900E5A952 /* MovingSaw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MovingSaw.cpp; path = Classes/MovingSaw.cpp; sourceTree = "<group>"; };
+		2CA46B0B17BFD2BE00E5A952 /* MovingSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovingSaw.h; path = Classes/MovingSaw.h; sourceTree = "<group>"; };
+		2CA46B0D17BFEBC400E5A952 /* teslaItem.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = teslaItem.plist; sourceTree = "<group>"; };
+		2CA46B0E17BFEBC400E5A952 /* teslaItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem.png; sourceTree = "<group>"; };
 		2CA4D27C16E392B3000E4380 /* LevelCompleteMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteMenu.h; path = Classes/LevelCompleteMenu.h; sourceTree = "<group>"; };
 		2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelCompleteWindow.cpp; path = Classes/LevelCompleteWindow.cpp; sourceTree = "<group>"; };
 		2CA4D28116E51E02000E4380 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
@@ -2069,6 +2021,8 @@
 		2CA469E617B908F500E5A952 /* obstacle */ = {
 			isa = PBXGroup;
 			children = (
+				2CA46B0A17BFD2B900E5A952 /* MovingSaw.cpp */,
+				2CA46B0B17BFD2BE00E5A952 /* MovingSaw.h */,
 				2CCA9D0616D66D4400603D1D /* Obstacle.cpp */,
 				2CCA9D0716D66D4400603D1D /* Obstacle.h */,
 				2CA469E717B909DA00E5A952 /* MovingObstacle.cpp */,
@@ -2081,6 +2035,8 @@
 				2CA46A4717BBB14900E5A952 /* ButtonObstacle.h */,
 				2CA46A9617BD026F00E5A952 /* Maul.cpp */,
 				2CA46A9717BD027200E5A952 /* Maul.h */,
+				2CA46B0717BFC7DE00E5A952 /* TeslaItem.cpp */,
+				2CA46B0817BFC7E400E5A952 /* TeslaItem.h */,
 			);
 			name = obstacle;
 			sourceTree = "<group>";
@@ -2201,7 +2157,6 @@
 			isa = PBXGroup;
 			children = (
 				2CA46A9A17BD1A1500E5A952 /* door */,
-				2CA46AA917BD1A1500E5A952 /* door.swf */,
 			);
 			path = door;
 			sourceTree = "<group>";
@@ -2211,17 +2166,6 @@
 			children = (
 				2CA46B0217BD1B4700E5A952 /* doorAnim.plist */,
 				2CA46B0317BD1B4700E5A952 /* doorAnim.png */,
-				2CA46A9B17BD1A1500E5A952 /* door1.png */,
-				2CA46A9C17BD1A1500E5A952 /* door10.png */,
-				2CA46A9D17BD1A1500E5A952 /* door2.png */,
-				2CA46A9E17BD1A1500E5A952 /* door3.png */,
-				2CA46A9F17BD1A1500E5A952 /* door4.png */,
-				2CA46AA017BD1A1500E5A952 /* door5.png */,
-				2CA46AA117BD1A1500E5A952 /* door6.png */,
-				2CA46AA217BD1A1500E5A952 /* door7.png */,
-				2CA46AA317BD1A1500E5A952 /* door8.png */,
-				2CA46AA417BD1A1500E5A952 /* door9.png */,
-				2CA46AA517BD1A1500E5A952 /* zDoc.zwd */,
 			);
 			path = door;
 			sourceTree = "<group>";
@@ -2259,9 +2203,7 @@
 				2CA46AB917BD1A1500E5A952 /* spark_2.png */,
 				2CA46ABA17BD1A1500E5A952 /* spark_3.png */,
 				2CA46ABB17BD1A1500E5A952 /* sparks */,
-				2CA46ABF17BD1A1500E5A952 /* sparks.swf */,
 				2CA46AC017BD1A1500E5A952 /* teslaItem */,
-				2CA46AD017BD1A1500E5A952 /* teslaItem.swf */,
 			);
 			path = tesla;
 			sourceTree = "<group>";
@@ -2279,21 +2221,8 @@
 		2CA46AC017BD1A1500E5A952 /* teslaItem */ = {
 			isa = PBXGroup;
 			children = (
-				2CA46AC117BD1A1500E5A952 /* teslaItem1.png */,
-				2CA46AC217BD1A1500E5A952 /* teslaItem10.png */,
-				2CA46AC317BD1A1500E5A952 /* teslaItem11.png */,
-				2CA46AC417BD1A1500E5A952 /* teslaItem12.png */,
-				2CA46AC517BD1A1500E5A952 /* teslaItem13.png */,
-				2CA46AC617BD1A1500E5A952 /* teslaItem14.png */,
-				2CA46AC717BD1A1500E5A952 /* teslaItem15.png */,
-				2CA46AC817BD1A1500E5A952 /* teslaItem2.png */,
-				2CA46AC917BD1A1500E5A952 /* teslaItem3.png */,
-				2CA46ACA17BD1A1500E5A952 /* teslaItem4.png */,
-				2CA46ACB17BD1A1500E5A952 /* teslaItem5.png */,
-				2CA46ACC17BD1A1500E5A952 /* teslaItem6.png */,
-				2CA46ACD17BD1A1500E5A952 /* teslaItem7.png */,
-				2CA46ACE17BD1A1500E5A952 /* teslaItem8.png */,
-				2CA46ACF17BD1A1500E5A952 /* teslaItem9.png */,
+				2CA46B0D17BFEBC400E5A952 /* teslaItem.plist */,
+				2CA46B0E17BFEBC400E5A952 /* teslaItem.png */,
 			);
 			path = teslaItem;
 			sourceTree = "<group>";
@@ -2560,18 +2489,6 @@
 				2CA46A9317BCFD7E00E5A952 /* storeHouseBkgWalls.png in Resources */,
 				2CA46A9417BCFD7E00E5A952 /* wallLight_1.png in Resources */,
 				2CA46A9517BCFD7E00E5A952 /* wallLight_2.png in Resources */,
-				2CA46AD117BD1A1500E5A952 /* door1.png in Resources */,
-				2CA46AD217BD1A1500E5A952 /* door10.png in Resources */,
-				2CA46AD317BD1A1500E5A952 /* door2.png in Resources */,
-				2CA46AD417BD1A1500E5A952 /* door3.png in Resources */,
-				2CA46AD517BD1A1500E5A952 /* door4.png in Resources */,
-				2CA46AD617BD1A1500E5A952 /* door5.png in Resources */,
-				2CA46AD717BD1A1500E5A952 /* door6.png in Resources */,
-				2CA46AD817BD1A1500E5A952 /* door7.png in Resources */,
-				2CA46AD917BD1A1500E5A952 /* door8.png in Resources */,
-				2CA46ADA17BD1A1500E5A952 /* door9.png in Resources */,
-				2CA46ADB17BD1A1500E5A952 /* zDoc.zwd in Resources */,
-				2CA46ADF17BD1A1500E5A952 /* door.swf in Resources */,
 				2CA46AE017BD1A1500E5A952 /* gate1.png in Resources */,
 				2CA46AE117BD1A1500E5A952 /* gate10.png in Resources */,
 				2CA46AE217BD1A1500E5A952 /* gate2.png in Resources */,
@@ -2589,25 +2506,10 @@
 				2CA46AEE17BD1A1500E5A952 /* sparks1.png in Resources */,
 				2CA46AEF17BD1A1500E5A952 /* sparks2.png in Resources */,
 				2CA46AF017BD1A1500E5A952 /* sparks3.png in Resources */,
-				2CA46AF117BD1A1500E5A952 /* sparks.swf in Resources */,
-				2CA46AF217BD1A1500E5A952 /* teslaItem1.png in Resources */,
-				2CA46AF317BD1A1500E5A952 /* teslaItem10.png in Resources */,
-				2CA46AF417BD1A1500E5A952 /* teslaItem11.png in Resources */,
-				2CA46AF517BD1A1500E5A952 /* teslaItem12.png in Resources */,
-				2CA46AF617BD1A1500E5A952 /* teslaItem13.png in Resources */,
-				2CA46AF717BD1A1500E5A952 /* teslaItem14.png in Resources */,
-				2CA46AF817BD1A1500E5A952 /* teslaItem15.png in Resources */,
-				2CA46AF917BD1A1500E5A952 /* teslaItem2.png in Resources */,
-				2CA46AFA17BD1A1500E5A952 /* teslaItem3.png in Resources */,
-				2CA46AFB17BD1A1500E5A952 /* teslaItem4.png in Resources */,
-				2CA46AFC17BD1A1500E5A952 /* teslaItem5.png in Resources */,
-				2CA46AFD17BD1A1500E5A952 /* teslaItem6.png in Resources */,
-				2CA46AFE17BD1A1500E5A952 /* teslaItem7.png in Resources */,
-				2CA46AFF17BD1A1500E5A952 /* teslaItem8.png in Resources */,
-				2CA46B0017BD1A1500E5A952 /* teslaItem9.png in Resources */,
-				2CA46B0117BD1A1500E5A952 /* teslaItem.swf in Resources */,
 				2CA46B0417BD1B4700E5A952 /* doorAnim.plist in Resources */,
 				2CA46B0517BD1B4700E5A952 /* doorAnim.png in Resources */,
+				2CA46B0F17BFEBC400E5A952 /* teslaItem.plist in Resources */,
+				2CA46B1017BFEBC400E5A952 /* teslaItem.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2812,6 +2714,8 @@
 				2CA46A4817BBB14B00E5A952 /* ButtonObstacle.cpp in Sources */,
 				2CA46A8917BCFA2E00E5A952 /* FinishLine.cpp in Sources */,
 				2CA46A9817BD027600E5A952 /* Maul.cpp in Sources */,
+				2CA46B0917BFC7E900E5A952 /* TeslaItem.cpp in Sources */,
+				2CA46B0C17BFD2C600E5A952 /* MovingSaw.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,7 @@ public:
     static const char* BUTTON;
     static const char* MACE;
     static const char* MAUL;
+    static const char* TESLA;
     
     Obstacle(const int id) {
         _id = id;
@@ -33,7 +34,7 @@ public:
     inline const int getId() { return _id; }
 
     virtual bool checkHit(cocos2d::CCSprite* mapObject);
-    virtual bool checkHeroDamage(Ninja* hero);
+    virtual inline bool checkHeroDamage(Ninja* hero) { return false; }
     virtual void interactWithWorld(World world);
     
     static Obstacle* createFromJSON(Json::Value obstacleJson);
@@ -62,6 +63,7 @@ private:
     static Obstacle* createMace(Json::Value miceJson);
     static Obstacle* createWall(Json::Value wallJson);
     static Obstacle* createMaul(Json::Value maulJson);
+    static Obstacle* createTesla(Json::Value teslaJson);
     
     static cocos2d::CCPoint getItemPosition(Json::Value itemJson);
     static int getItemId(Json::Value itemJson);
