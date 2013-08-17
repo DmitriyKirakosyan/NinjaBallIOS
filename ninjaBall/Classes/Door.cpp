@@ -14,23 +14,12 @@ using namespace cocos2d;
 
 Door::Door(const int id):Obstacle(id)
 {
-    //cocos2d::CCSprite::initWithFile(Obstacle::MAULBALL_IMG);
-    
     _opened = false;
-    
-    //CCSpriteBatchNode* spritebatch = CCSpriteBatchNode::create("doorAnim.png");
 
     CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
-    cache->addSpriteFramesWithFile("doorAnim.plist");
     
     this->initWithSpriteFrameName("door1.png");
-    //this->setBatchNode(spritebatch);
    
-//    spritebatch->addChild(this);
-//    CCSprite* childSprite = CCSprite::createWithSpriteFrameName("door1.png");
-//
-//    this->addChild(spritebatch);
-
     CCArray* animFrames = CCArray::createWithCapacity(10);
     
     char str[100] = {0};

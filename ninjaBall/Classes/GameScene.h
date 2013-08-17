@@ -20,7 +20,8 @@ class WindowManager;
 class GameScene : public cocos2d::CCScene
 {
 public:
-    
+    GameScene();
+    ~GameScene();    
     
     static GameScene* create(const char* levelName);
     

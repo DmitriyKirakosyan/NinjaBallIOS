@@ -20,6 +20,20 @@
 
 using namespace cocos2d;
 
+GameScene::GameScene()
+{
+    CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
+    
+    cache->addSpriteFramesWithFile("doorAnim.plist");
+}
+
+GameScene::~GameScene()
+{
+    CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
+    
+    cache->removeSpriteFrames();
+}
+
 GameScene* GameScene::create(const char *levelName)
 {
     GameScene *pRet = new GameScene();

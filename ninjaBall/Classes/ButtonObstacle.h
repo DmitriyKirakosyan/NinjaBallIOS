@@ -19,7 +19,9 @@ class ButtonObstacle : public Obstacle
 public:
     ButtonObstacle(const int id, const int switchableId):Obstacle(id)
     {
+        _isOn = false;
         _switchableId = switchableId;
+        _switchableObject = NULL;
         this->initWithFile(Obstacle::PUSH_BTN_OFF_IMG);
     }
     

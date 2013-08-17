@@ -982,6 +982,7 @@
 		2CA46AD017BD1A1500E5A952 /* teslaItem.swf */ = {isa = PBXFileReference; lastKnownFileType = file; path = teslaItem.swf; sourceTree = "<group>"; };
 		2CA46B0217BD1B4700E5A952 /* doorAnim.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = doorAnim.plist; sourceTree = "<group>"; };
 		2CA46B0317BD1B4700E5A952 /* doorAnim.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doorAnim.png; sourceTree = "<group>"; };
+		2CA46B0617BF8E2700E5A952 /* Initializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Initializer.h; path = Classes/Initializer.h; sourceTree = "<group>"; };
 		2CA4D27C16E392B3000E4380 /* LevelCompleteMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteMenu.h; path = Classes/LevelCompleteMenu.h; sourceTree = "<group>"; };
 		2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelCompleteWindow.cpp; path = Classes/LevelCompleteWindow.cpp; sourceTree = "<group>"; };
 		2CA4D28116E51E02000E4380 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
@@ -1936,6 +1937,7 @@
 		2C78EAF61689084800CFA337 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				2CA46B0617BF8E2700E5A952 /* Initializer.h */,
 				2CA4696C17B3EF9700E5A952 /* scene */,
 				2CCA9D2B16DA516300603D1D /* window */,
 				2CA320A416CBC5B700E2A55A /* game */,
