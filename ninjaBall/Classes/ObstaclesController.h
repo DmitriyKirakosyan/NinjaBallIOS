@@ -16,6 +16,7 @@
 
 class Ninja;
 class World;
+class TeslaInteraction;
 
 class ObstaclesController
 {
@@ -32,6 +33,8 @@ public:
 private:
     cocos2d::CCArray* _obstacles;
     cocos2d::CCLayer* _mapLayer;
+    
+    TeslaInteraction* _teslaInteraction;
     
     World _world;
     

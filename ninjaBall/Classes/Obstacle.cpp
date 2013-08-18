@@ -134,7 +134,7 @@ Obstacle* Obstacle::createButton(Json::Value buttonJson)
 
 Obstacle* Obstacle::createDoor(Json::Value doorJson)
 {
-    Door* result = new Door(getItemId(doorJson));
+    Obstacle* result = new Door(getItemId(doorJson));
     result->setPosition(getItemPosition(doorJson));
     int state = doorJson.get("state", 0).asInt();
     if (state != 0) result->on();

@@ -22,6 +22,8 @@ public:
     void off();
     inline bool isOn() { return _opened; }
     
+    const char* getType() { return Obstacle::DOOR; }
+    
     bool checkHit(cocos2d::CCSprite* object);
     inline bool checkHeroDamage(Ninja* ninja) { return false; }
     

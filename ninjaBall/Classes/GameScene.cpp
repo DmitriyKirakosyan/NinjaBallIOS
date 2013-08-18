@@ -26,6 +26,7 @@ GameScene::GameScene()
     
     cache->addSpriteFramesWithFile("doorAnim.plist");
     cache->addSpriteFramesWithFile("teslaItem.plist");
+    cache->addSpriteFramesWithFile("sparks.plist");
 }
 
 GameScene::~GameScene()

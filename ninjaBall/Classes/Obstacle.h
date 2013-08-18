@@ -37,6 +37,8 @@ public:
     virtual inline bool checkHeroDamage(Ninja* hero) { return false; }
     virtual void interactWithWorld(World world);
     
+    inline virtual const char* getType() { return WALL; }
+    
     static Obstacle* createFromJSON(Json::Value obstacleJson);
     
     //switchable

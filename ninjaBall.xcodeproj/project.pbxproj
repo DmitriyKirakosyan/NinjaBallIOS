@@ -329,6 +329,10 @@
 		2CA46B0C17BFD2C600E5A952 /* MovingSaw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46B0A17BFD2B900E5A952 /* MovingSaw.cpp */; };
 		2CA46B0F17BFEBC400E5A952 /* teslaItem.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46B0D17BFEBC400E5A952 /* teslaItem.plist */; };
 		2CA46B1017BFEBC400E5A952 /* teslaItem.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46B0E17BFEBC400E5A952 /* teslaItem.png */; };
+		2CA46B1417C015D200E5A952 /* TeslaInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46B1217C015D200E5A952 /* TeslaInteraction.cpp */; };
+		2CA46B1717C1049200E5A952 /* TeslaSpark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46B1517C1049000E5A952 /* TeslaSpark.cpp */; };
+		2CA46B1A17C11B8B00E5A952 /* sparks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46B1817C11B8B00E5A952 /* sparks.plist */; };
+		2CA46B1B17C11B8B00E5A952 /* sparks.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CA46B1917C11B8B00E5A952 /* sparks.png */; };
 		2CA4D27E16E394C4000E4380 /* LevelCompleteWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */; };
 		2CA4D29116E51E02000E4380 /* json_internalarray.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28A16E51E02000E4380 /* json_internalarray.inl */; };
 		2CA4D29216E51E02000E4380 /* json_internalmap.inl in Resources */ = {isa = PBXBuildFile; fileRef = 2CA4D28B16E51E02000E4380 /* json_internalmap.inl */; };
@@ -935,6 +939,12 @@
 		2CA46B0B17BFD2BE00E5A952 /* MovingSaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovingSaw.h; path = Classes/MovingSaw.h; sourceTree = "<group>"; };
 		2CA46B0D17BFEBC400E5A952 /* teslaItem.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = teslaItem.plist; sourceTree = "<group>"; };
 		2CA46B0E17BFEBC400E5A952 /* teslaItem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teslaItem.png; sourceTree = "<group>"; };
+		2CA46B1217C015D200E5A952 /* TeslaInteraction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TeslaInteraction.cpp; path = Classes/TeslaInteraction.cpp; sourceTree = "<group>"; };
+		2CA46B1317C015D200E5A952 /* TeslaInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeslaInteraction.h; path = Classes/TeslaInteraction.h; sourceTree = "<group>"; };
+		2CA46B1517C1049000E5A952 /* TeslaSpark.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TeslaSpark.cpp; path = Classes/TeslaSpark.cpp; sourceTree = "<group>"; };
+		2CA46B1617C1049100E5A952 /* TeslaSpark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeslaSpark.h; path = Classes/TeslaSpark.h; sourceTree = "<group>"; };
+		2CA46B1817C11B8B00E5A952 /* sparks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sparks.plist; sourceTree = "<group>"; };
+		2CA46B1917C11B8B00E5A952 /* sparks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sparks.png; sourceTree = "<group>"; };
 		2CA4D27C16E392B3000E4380 /* LevelCompleteMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteMenu.h; path = Classes/LevelCompleteMenu.h; sourceTree = "<group>"; };
 		2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelCompleteWindow.cpp; path = Classes/LevelCompleteWindow.cpp; sourceTree = "<group>"; };
 		2CA4D28116E51E02000E4380 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
@@ -2021,6 +2031,7 @@
 		2CA469E617B908F500E5A952 /* obstacle */ = {
 			isa = PBXGroup;
 			children = (
+				2CA46B1117C0154700E5A952 /* interaction */,
 				2CA46B0A17BFD2B900E5A952 /* MovingSaw.cpp */,
 				2CA46B0B17BFD2BE00E5A952 /* MovingSaw.h */,
 				2CCA9D0616D66D4400603D1D /* Obstacle.cpp */,
@@ -2211,6 +2222,8 @@
 		2CA46ABB17BD1A1500E5A952 /* sparks */ = {
 			isa = PBXGroup;
 			children = (
+				2CA46B1817C11B8B00E5A952 /* sparks.plist */,
+				2CA46B1917C11B8B00E5A952 /* sparks.png */,
 				2CA46ABC17BD1A1500E5A952 /* sparks1.png */,
 				2CA46ABD17BD1A1500E5A952 /* sparks2.png */,
 				2CA46ABE17BD1A1500E5A952 /* sparks3.png */,
@@ -2225,6 +2238,17 @@
 				2CA46B0E17BFEBC400E5A952 /* teslaItem.png */,
 			);
 			path = teslaItem;
+			sourceTree = "<group>";
+		};
+		2CA46B1117C0154700E5A952 /* interaction */ = {
+			isa = PBXGroup;
+			children = (
+				2CA46B1217C015D200E5A952 /* TeslaInteraction.cpp */,
+				2CA46B1317C015D200E5A952 /* TeslaInteraction.h */,
+				2CA46B1517C1049000E5A952 /* TeslaSpark.cpp */,
+				2CA46B1617C1049100E5A952 /* TeslaSpark.h */,
+			);
+			name = interaction;
 			sourceTree = "<group>";
 		};
 		2CA4D27B16E3928A000E4380 /* menu */ = {
@@ -2510,6 +2534,8 @@
 				2CA46B0517BD1B4700E5A952 /* doorAnim.png in Resources */,
 				2CA46B0F17BFEBC400E5A952 /* teslaItem.plist in Resources */,
 				2CA46B1017BFEBC400E5A952 /* teslaItem.png in Resources */,
+				2CA46B1A17C11B8B00E5A952 /* sparks.plist in Resources */,
+				2CA46B1B17C11B8B00E5A952 /* sparks.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2716,6 +2742,8 @@
 				2CA46A9817BD027600E5A952 /* Maul.cpp in Sources */,
 				2CA46B0917BFC7E900E5A952 /* TeslaItem.cpp in Sources */,
 				2CA46B0C17BFD2C600E5A952 /* MovingSaw.cpp in Sources */,
+				2CA46B1417C015D200E5A952 /* TeslaInteraction.cpp in Sources */,
+				2CA46B1717C1049200E5A952 /* TeslaSpark.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

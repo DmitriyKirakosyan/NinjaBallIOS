@@ -17,6 +17,8 @@ public:
     TeslaItem(const int id, const int friendId);
     ~TeslaItem();
     
+    const char* getType() { return Obstacle::TESLA; }
+    
     inline bool checkHit(cocos2d::CCSprite* object) { return false; }
     bool checkHeroDamage(Ninja* ninja);
     
