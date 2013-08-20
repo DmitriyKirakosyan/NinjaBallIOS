@@ -36,6 +36,7 @@ void ButtonObstacle::on()
     _isOn = true;
     this->initWithFile(Obstacle::PUSH_BTN_ON_IMG);
 
+
     if (_switchableObject != NULL)
     {
         if (!_switchableObject->isOn()) _switchableObject->on();

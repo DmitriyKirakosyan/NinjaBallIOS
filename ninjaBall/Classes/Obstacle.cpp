@@ -15,6 +15,7 @@
 #include "Maul.h"
 #include "TeslaItem.h"
 #include "MovingSaw.h"
+#include "Wall.h"
 
 using namespace cocos2d;
 
@@ -35,6 +36,7 @@ const char* Obstacle::DOOR = "door";
 const char* Obstacle::BUTTON = "button";
 const char* Obstacle::MAUL = "maul";
 const char* Obstacle::TESLA = "tesla";
+const char* Obstacle::NOTYPE = "no_type";
 
 
 void Obstacle::interactWithWorld(World world)
@@ -55,14 +57,17 @@ bool Obstacle::checkHit(cocos2d::CCSprite *mapObject)
     return objectRect.intersectsRect(obstacleRect);
 }
 
-bool Obstacle::checkHitWithPoint(CCPoint point)
+bool Obstacle::checkHitWithPoint(cocos2d::CCPoint point)
 {
-    CCRect obstacleRect = this->getTextureRect();
-    obstacleRect.origin = ccp(this->getPosition().x - this->getContentSize().width/2,
-                              this->getPosition().y - this->getContentSize().height/2);
+    float width = this->getContentSize().width;
+    float height = this->getContentSize().height;
+    cocos2d::CCRect obstacleRect = cocos2d::CCRect(this->getPosition().x - width/2,
+                                                   this->getPosition().y - height/2,
+                                                   width, height);
     
     return obstacleRect.containsPoint(point);
 }
+
 
 Obstacle* Obstacle::createFromJSON(Json::Value obstacleJson)
 {
@@ -111,8 +116,7 @@ Obstacle* Obstacle::createFromJSON(Json::Value obstacleJson)
 
 Obstacle* Obstacle::createWall(Json::Value wallJson)
 {
-    Obstacle* result = new Obstacle(getItemId(wallJson));
-    result->initWithFile(WALL_IMG);
+    Obstacle* result = new Wall(getItemId(wallJson));
     result->setPosition(getItemPosition(wallJson));
     return result;
 }

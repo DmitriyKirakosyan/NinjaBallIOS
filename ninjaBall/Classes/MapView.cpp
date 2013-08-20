@@ -84,7 +84,7 @@ CCPoint MapView::restrictPath(CCPoint startPoint, CCPoint endPoint)
     int i;
     for (i = 0; i < stepsNum; ++i) {
         pointOnLine = ccpLerp(startPoint, endPoint, (i+1) / (float)stepsNum);
-        if (_obstacles->testHitWithPoint(pointOnLine))
+        if (_obstacles->isPointPathless(pointOnLine))
         {
             break;
         }

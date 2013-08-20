@@ -28,6 +28,8 @@ public:
     bool testHit(cocos2d::CCSprite* object);
     bool testHitWithPoint(cocos2d::CCPoint point);
     bool testDamage(Ninja* ninja);
+    
+    bool isPointPathless(cocos2d::CCPoint point);
 
     void createFromJSON(Json::Value jsonValue);
     void clear();

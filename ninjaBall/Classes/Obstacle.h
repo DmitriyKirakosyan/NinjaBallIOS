@@ -26,19 +26,22 @@ public:
     static const char* MACE;
     static const char* MAUL;
     static const char* TESLA;
+    static const char* NOTYPE;
     
     Obstacle(const int id) {
         _id = id;
     }
     
     inline const int getId() { return _id; }
+    
+    virtual bool pathless() { return false; }
 
     virtual bool checkHit(cocos2d::CCSprite* mapObject);
     virtual bool checkHitWithPoint(cocos2d::CCPoint point);
-    virtual inline bool checkHeroDamage(Ninja* hero) { return false; }
+    virtual bool checkHeroDamage(Ninja* hero) { return false; }
     virtual void interactWithWorld(World world);
     
-    inline virtual const char* getType() { return WALL; }
+    virtual const char* getType() { return NOTYPE; }
     
     static Obstacle* createFromJSON(Json::Value obstacleJson);
     

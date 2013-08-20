@@ -416,6 +416,7 @@
 		2C1E1E2017C2D7F100ED3A93 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ninjaBall/libs/cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		2C1E1E2417C363E400ED3A93 /* ninja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ninja.png; sourceTree = "<group>"; };
 		2C1E1E2517C363E400ED3A93 /* track.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = track.png; sourceTree = "<group>"; };
+		2C1E1E2817C3F84800ED3A93 /* Wall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Wall.h; path = Classes/Wall.h; sourceTree = "<group>"; };
 		2C2C7D9E17C2AAE800055882 /* Export.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Export.h; sourceTree = "<group>"; };
 		2C2C7D9F17C2AAE800055882 /* SimpleAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine.h; sourceTree = "<group>"; };
 		2C2C7DA117C2AAE800055882 /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
@@ -2100,6 +2101,7 @@
 				2CA46A9717BD027200E5A952 /* Maul.h */,
 				2CA46B0717BFC7DE00E5A952 /* TeslaItem.cpp */,
 				2CA46B0817BFC7E400E5A952 /* TeslaItem.h */,
+				2C1E1E2817C3F84800ED3A93 /* Wall.h */,
 			);
 			name = obstacle;
 			sourceTree = "<group>";

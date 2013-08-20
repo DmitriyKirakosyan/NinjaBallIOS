@@ -18,8 +18,6 @@ class MovingSaw : public MovingObstacle
 public:
     MovingSaw(const int id);
     
-    virtual inline bool checkHit(cocos2d::CCSprite* object) { return false; }
-    
     virtual bool checkHeroDamage(Ninja* ninja);
 };
 

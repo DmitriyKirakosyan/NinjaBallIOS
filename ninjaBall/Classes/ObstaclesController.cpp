@@ -62,11 +62,9 @@ void ObstaclesController::clear()
 bool ObstaclesController::testHit(CCSprite* object)
 {
     CCObject* item;
-    Obstacle* obstacle;
     CCARRAY_FOREACH(_obstacles, item)
     {
-        obstacle = (Obstacle*) item;
-        if (obstacle->checkHit(object))
+        if (((Obstacle*)item)->checkHit(object))
         {
             return true;
         }
@@ -77,16 +75,28 @@ bool ObstaclesController::testHit(CCSprite* object)
 bool ObstaclesController::testHitWithPoint(CCPoint point)
 {
     CCObject* item;
-    Obstacle* obstacle;
     CCARRAY_FOREACH(_obstacles, item)
     {
-        obstacle = (Obstacle*) item;
-        if (obstacle->checkHitWithPoint(point))
+        if (((Obstacle*) item)->checkHitWithPoint(point))
         {
             return true;
         }
     }
     return false;
+}
+
+bool ObstaclesController::isPointPathless(CCPoint point)
+{
+    CCObject* item;
+    CCARRAY_FOREACH(_obstacles, item)
+    {
+        if (((Obstacle*)item)->pathless() &&
+            ((Obstacle*)item)->checkHitWithPoint(point))
+        {
+            return true;
+        }
+    }
+    return false;    
 }
 
 bool ObstaclesController::testDamage(Ninja* ninja)
