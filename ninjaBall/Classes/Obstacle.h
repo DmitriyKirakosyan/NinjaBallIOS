@@ -34,6 +34,7 @@ public:
     inline const int getId() { return _id; }
 
     virtual bool checkHit(cocos2d::CCSprite* mapObject);
+    virtual bool checkHitWithPoint(cocos2d::CCPoint point);
     virtual inline bool checkHeroDamage(Ninja* hero) { return false; }
     virtual void interactWithWorld(World world);
     

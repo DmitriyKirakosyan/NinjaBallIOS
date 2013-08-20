@@ -28,6 +28,12 @@ public:
     void createLevel(const char* fileName);
     
     /**
+     ограничивает путь стенами и возвращает точку,
+     наиболее близкую к endPoint и ограниченную стеной
+     */
+    cocos2d::CCPoint restrictPath(cocos2d::CCPoint startPoint, cocos2d::CCPoint endPoint);
+    
+    /**
      Очищает сцену от объектов карты
      */
     void clear();

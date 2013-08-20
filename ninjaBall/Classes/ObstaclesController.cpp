@@ -74,6 +74,21 @@ bool ObstaclesController::testHit(CCSprite* object)
     return false;
 }
 
+bool ObstaclesController::testHitWithPoint(CCPoint point)
+{
+    CCObject* item;
+    Obstacle* obstacle;
+    CCARRAY_FOREACH(_obstacles, item)
+    {
+        obstacle = (Obstacle*) item;
+        if (obstacle->checkHitWithPoint(point))
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 bool ObstaclesController::testDamage(Ninja* ninja)
 {
     CCObject* item;

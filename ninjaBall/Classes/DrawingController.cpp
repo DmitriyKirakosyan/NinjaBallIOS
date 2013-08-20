@@ -16,11 +16,8 @@ DrawingController::DrawingController(CCLayer* drawingLayer):PATH_DISTANCE(60)
     _pathParts = NULL;
 }
 
-std::vector<CCPoint*> DrawingController::drawPathToPoint(CCPoint point)
+CCPoint DrawingController::getLastPoint()
 {
-    
-    std::vector<CCPoint*> result;
-
     CCPoint lastPoint;
     if (_pathParts != NULL && _pathParts->count() > 0)
     {
@@ -29,15 +26,25 @@ std::vector<CCPoint*> DrawingController::drawPathToPoint(CCPoint point)
     else if (_startPoint.x != -1 && _startPoint.y != -1)
     {
         lastPoint = _startPoint;
-        _pathParts = new CCArray();
     }
     else
     {
-        CCLOGERROR("[ERROR] cant find last point!");
-        return result;
+        CCAssert(lastPoint.x != -1 || lastPoint.y != -1, "last point not found");
+    }
+    return lastPoint;
+}
+
+std::vector<CCPoint*> DrawingController::drawPathToPoint(CCPoint point)
+{
+    
+    std::vector<CCPoint*> result;
+
+    CCPoint lastPoint = this->getLastPoint();
+    if (_pathParts == NULL)
+    {
+        _pathParts = new CCArray();
     }
     
-    //CCArray* result = CCArray::create();
     CCPoint* pPartPoint;
     
     CCPoint partPoint;
@@ -54,8 +61,7 @@ std::vector<CCPoint*> DrawingController::drawPathToPoint(CCPoint point)
         pPartPoint = new CCPoint();
         pPartPoint->x = partPoint.x;
         pPartPoint->y = partPoint.y;
-        //pPartPoint->autorelease();
-        result.push_back(pPartPoint);//->addObject(pPartPoint);
+        result.push_back(pPartPoint);
     }
     
     return result;

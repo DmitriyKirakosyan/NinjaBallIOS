@@ -196,8 +196,14 @@ void GameSceneLayer::ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* e
     CCSize ninjaSize = _ninja->getContentSize();
     
     //if location under ninja
-    if (location.x > ninjaPoint.x - ninjaSize.width/2 && location.x < ninjaPoint.x + ninjaSize.width/2 &&
-        location.y > ninjaPoint.y - ninjaSize.height/2 && location.y < ninjaPoint.y + ninjaSize.height/2)
+    CCRect ninjaRect = _ninja->getTextureRect();
+    float nWidth = _ninja->getContentSize().width * _ninja->getScaleX();
+    float nHeight = _ninja->getContentSize().height * _ninja->getScaleY();
+    ninjaRect = CCRect(_ninja->getPosition().x - nWidth/2, _ninja->getPosition().y - nHeight/2,
+                       nWidth, nHeight);
+    
+    if (ninjaRect.containsPoint(location))//(location.x > ninjaPoint.x - ninjaSize.width/2 && location.x < ninjaPoint.x + ninjaSize.width/2 &&
+        //location.y > ninjaPoint.y - ninjaSize.height/2 && location.y < ninjaPoint.y + ninjaSize.height/2)
     {
         _drawingController->setStartPoint(location);
         _isDrawing = true;
@@ -222,26 +228,15 @@ void GameSceneLayer::ccTouchesMoved(cocos2d::CCSet* touches, cocos2d::CCEvent* e
     }
     if (_isDrawing)
     {
-//        if (_touchPoints == NULL)
-//        {
-//            _touchPoints = new std::vector<CCPoint*>();
-//        }
-
-        CCPoint* touchPoint = new CCPoint();
-        touchPoint->setPoint(location.x, location.y);
-        //_touchPoints->push_back(touchPoint);
-        std::vector<CCPoint*> partPoints = _drawingController->drawPathToPoint(location);
-        //if (partPoints != NULL && partPoints->count() > 0)
-        //{
+        //CCPoint* touchPoint = new CCPoint();
+        //touchPoint->setPoint(location.x, location.y);
+        CCPoint prevPoint = _drawingController->getLastPoint();
+        CCPoint endPoint = _mapView->restrictPath(prevPoint, location);
+        std::vector<CCPoint*> partPoints = _drawingController->drawPathToPoint(endPoint);
         for (int i = 0; i < partPoints.size(); ++i)
-            //CCObject* item;
-            //CCARRAY_FOREACH(partPoints, item)
-            //{
-                _ninja->addWalkingPoint(ccp( partPoints[i]->x, partPoints[i]->y));
-            //}
-            //partPoints->removeAllObjects();
-        //}
-        
+        {
+            _ninja->addWalkingPoint(ccp( partPoints[i]->x, partPoints[i]->y));
+        }
     }
 }
 

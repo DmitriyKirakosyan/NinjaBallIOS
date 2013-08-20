@@ -34,6 +34,8 @@ public:
      */
     void removeOldestPathPartFromScreen();
     
+    cocos2d::CCPoint getLastPoint();
+    
     /**
      Рисует путь от последней до заданной точки
      @arg point

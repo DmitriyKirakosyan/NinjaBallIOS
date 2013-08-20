@@ -51,11 +51,17 @@ bool Obstacle::checkHit(cocos2d::CCSprite *mapObject)
     CCRect obstacleRect = this->getTextureRect();
     obstacleRect.origin = ccp(this->getPosition().x - this->getContentSize().width/2,
                               this->getPosition().y - this->getContentSize().height/2);
-    if (objectRect.intersectsRect(obstacleRect))
-    {
-        return true;
-    }
-    return false;
+    
+    return objectRect.intersectsRect(obstacleRect);
+}
+
+bool Obstacle::checkHitWithPoint(CCPoint point)
+{
+    CCRect obstacleRect = this->getTextureRect();
+    obstacleRect.origin = ccp(this->getPosition().x - this->getContentSize().width/2,
+                              this->getPosition().y - this->getContentSize().height/2);
+    
+    return obstacleRect.containsPoint(point);
 }
 
 Obstacle* Obstacle::createFromJSON(Json::Value obstacleJson)

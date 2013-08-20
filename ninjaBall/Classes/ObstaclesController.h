@@ -26,7 +26,9 @@ public:
     void interact(Ninja* ninja);
     
     bool testHit(cocos2d::CCSprite* object);
+    bool testHitWithPoint(cocos2d::CCPoint point);
     bool testDamage(Ninja* ninja);
+
     void createFromJSON(Json::Value jsonValue);
     void clear();
   

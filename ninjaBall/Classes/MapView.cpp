@@ -76,3 +76,30 @@ bool MapView::isNinjaWin(CCSprite* ninja)
                               _finishLine->getPosition().y - _finishLine->getContentSize().height/2);
     return (ninjaRect.intersectsRect(finishRect));
 }
+
+CCPoint MapView::restrictPath(CCPoint startPoint, CCPoint endPoint)
+{
+    int stepsNum = (int) startPoint.getDistance(endPoint) / 5.0f;
+    CCPoint pointOnLine;
+    int i;
+    for (i = 0; i < stepsNum; ++i) {
+        pointOnLine = ccpLerp(startPoint, endPoint, (i+1) / (float)stepsNum);
+        if (_obstacles->testHitWithPoint(pointOnLine))
+        {
+            break;
+        }
+    }
+    
+    CCPoint result;
+    if (i < stepsNum)
+    {
+        if (i > 2)
+        {
+            result = ccpLerp(startPoint, endPoint, (i-2) / stepsNum);
+        }
+        else result = startPoint;
+    }
+    else result = endPoint;
+    
+    return result;
+}
