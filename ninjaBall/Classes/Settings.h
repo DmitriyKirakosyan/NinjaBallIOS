@@ -19,6 +19,9 @@ public:
     static const int VIRTUAL_WIDTH = 1136;
     static const int VIRTUAL_HEIGHT = 640;
     
+    static const int VIRTUAL_GAME_WIDTH = 1072;
+    static const int VIRTUAL_GAME_HEIGHT = 578;
+    
     static float FULL_VIRTUAL_WIDTH;
     static float FULL_VIRTUAL_HEIGHT;
     

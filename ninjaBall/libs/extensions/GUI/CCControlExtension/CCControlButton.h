@@ -93,6 +93,8 @@ protected:
     /* Override setter to affect a background sprite too */
     virtual GLubyte getOpacity(void);
     virtual void setOpacity(GLubyte var);
+	virtual const ccColor3B& getColor(void);
+	virtual void setColor(const ccColor3B&);
     
     /** Flag to know if the button is currently pushed.  */
 protected:
@@ -121,20 +123,14 @@ public:
 public:
     virtual bool init();
     virtual bool initWithLabelAndBackgroundSprite(CCNode* label, CCScale9Sprite* backgroundSprite);
-    //@deprecated: This interface will be deprecated sooner or later.
-    CC_DEPRECATED_ATTRIBUTE static CCControlButton* buttonWithLabelAndBackgroundSprite(CCNode* label, CCScale9Sprite* backgroundSprite);
+    
     static CCControlButton* create(CCNode* label, CCScale9Sprite* backgroundSprite);
     
     virtual bool initWithTitleAndFontNameAndFontSize(std::string title, const char * fontName, float fontSize);
-    //@deprecated: This interface will be deprecated sooner or later.
-    CC_DEPRECATED_ATTRIBUTE static CCControlButton* buttonWithTitleAndFontNameAndFontSize(std::string title, const char * fontName, float fontSize);
 
     static CCControlButton* create(std::string title, const char * fontName, float fontSize);
     
     virtual bool initWithBackgroundSprite(CCScale9Sprite* sprite);
-
-    //@deprecated: This interface will be deprecated sooner or later.
-    CC_DEPRECATED_ATTRIBUTE static CCControlButton* buttonWithBackgroundSprite(CCScale9Sprite* sprite);
 
     static CCControlButton* create(CCScale9Sprite* sprite);
     
@@ -245,7 +241,6 @@ public:
      */
     virtual void setBackgroundSpriteFrameForState(CCSpriteFrame * spriteFrame, CCControlState state);
 
-    CC_DEPRECATED_ATTRIBUTE static CCControlButton * node();
     static CCControlButton* create();
 };
 

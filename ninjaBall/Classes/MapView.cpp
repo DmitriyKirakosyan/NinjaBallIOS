@@ -33,11 +33,12 @@ void MapView::createLevel(const char *fileName)
     Json::Value root;   // will contains the root value after parsing.
     Json::Reader reader;
     CCFileUtils* fileUtils = CCFileUtils::sharedFileUtils();
-    const char *pszPath = fileUtils->fullPathFromRelativePath(fileName);
-    std::ifstream jsonFile(pszPath);
+    std::string pszPath = fileUtils->fullPathForFilename(fileName);
+    std::ifstream jsonFile(pszPath.c_str());
     
     bool parsingSuccessful = reader.parse(jsonFile, root);
-    CCAssert(parsingSuccessful, "parse problem" + reader.getFormatedErrorMessages());
+    //TODO need to copy string with format
+    CCAssert(parsingSuccessful, "parse problem");// + reader.getFormatedErrorMessages());
 
     Json::Value ninjaValue = root.get("ninja", "");
     float ninjaX = ninjaValue.get("x", 0).asDouble() * Settings::VIRTUAL_WIDTH;

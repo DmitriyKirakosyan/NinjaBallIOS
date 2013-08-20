@@ -16,9 +16,11 @@ DrawingController::DrawingController(CCLayer* drawingLayer):PATH_DISTANCE(60)
     _pathParts = NULL;
 }
 
-CCArray* DrawingController::drawPathToPoint(CCPoint point)
+std::vector<CCPoint*> DrawingController::drawPathToPoint(CCPoint point)
 {
     
+    std::vector<CCPoint*> result;
+
     CCPoint lastPoint;
     if (_pathParts != NULL && _pathParts->count() > 0)
     {
@@ -32,10 +34,10 @@ CCArray* DrawingController::drawPathToPoint(CCPoint point)
     else
     {
         CCLOGERROR("[ERROR] cant find last point!");
-        return NULL;
+        return result;
     }
     
-    CCArray* result = CCArray::create();
+    //CCArray* result = CCArray::create();
     CCPoint* pPartPoint;
     
     CCPoint partPoint;
@@ -44,6 +46,7 @@ CCArray* DrawingController::drawPathToPoint(CCPoint point)
     for (int i = PATH_DISTANCE; i < lineLength; i+= PATH_DISTANCE) {
         partPoint = ccpLerp(lastPoint, point, (float)i / lineLength);
         pathPart = this->createPathPart(partPoint);
+        pathPart->setRotation(-90 - CC_RADIANS_TO_DEGREES(ccpToAngle(ccpSub(partPoint, point))));
         _pathParts->addObject(pathPart);
         _drawingContainer->addChild(pathPart, 0);
         
@@ -51,8 +54,8 @@ CCArray* DrawingController::drawPathToPoint(CCPoint point)
         pPartPoint = new CCPoint();
         pPartPoint->x = partPoint.x;
         pPartPoint->y = partPoint.y;
-        pPartPoint->autorelease();
-        result->addObject(pPartPoint);
+        //pPartPoint->autorelease();
+        result.push_back(pPartPoint);//->addObject(pPartPoint);
     }
     
     return result;
@@ -115,7 +118,7 @@ void DrawingController::setStartPoint(CCPoint point)
 
 CCSprite* DrawingController::createPathPart(CCPoint point)
 {
-    CCSprite* result = CCSprite::create("footprint.png");
+    CCSprite* result = CCSprite::create("track.png");
     result->setPosition(point);
     return result;
 }

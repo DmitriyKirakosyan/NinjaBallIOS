@@ -36,6 +36,12 @@ bool MainScene::init()
         return false;
     }
 
+    CCSize visibleSize = CCDirector::sharedDirector()->getVisibleSize();
+    CCPoint origin = CCDirector::sharedDirector()->getVisibleOrigin();
+    
+    CCLog("visible size : %f, %f", visibleSize.width, visibleSize.height);
+    CCLog("visible origin : %f, %f", origin.x, origin.y);
+
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
     //    you may modify it.

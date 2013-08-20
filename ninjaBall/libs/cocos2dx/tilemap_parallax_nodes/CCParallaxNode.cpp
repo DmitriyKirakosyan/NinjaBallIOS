@@ -35,6 +35,7 @@ class CCPointObject : CCObject
     CC_SYNTHESIZE(CCPoint, m_tOffset, Offset)
     CC_SYNTHESIZE(CCNode *,m_pChild, Child)    // weak ref
 
+public:
     static CCPointObject * pointWithCCPoint(CCPoint ratio, CCPoint offset)
     {
         CCPointObject *pRet = new CCPointObject();
@@ -65,11 +66,6 @@ CCParallaxNode::~CCParallaxNode()
     }
 }
 
-CCParallaxNode * CCParallaxNode::node()
-{
-    return CCParallaxNode::create();
-}
-
 CCParallaxNode * CCParallaxNode::create()
 {
     CCParallaxNode *pRet = new CCParallaxNode();
@@ -91,7 +87,7 @@ void CCParallaxNode::addChild(CCNode *child, unsigned int z, const CCPoint& rati
     obj->setChild(child);
     ccArrayAppendObjectWithResize(m_pParallaxArray, (CCObject*)obj);
 
-    CCPoint pos = m_tPosition;
+    CCPoint pos = m_obPosition;
     pos.x = pos.x * ratio.x + offset.x;
     pos.y = pos.y * ratio.y + offset.y;
     child->setPosition(pos);
@@ -118,7 +114,7 @@ void CCParallaxNode::removeAllChildrenWithCleanup(bool cleanup)
 }
 CCPoint CCParallaxNode::absolutePosition()
 {
-    CCPoint ret = m_tPosition;
+    CCPoint ret = m_obPosition;
     CCNode *cn = this;
     while (cn->getParent() != NULL)
     {

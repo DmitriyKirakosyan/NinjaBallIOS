@@ -12,12 +12,11 @@ using namespace cocos2d;
 
 void Ninja::addWalkingPoint(CCPoint point)
 {
-    if (_walkingPoints == NULL) { _walkingPoints = new CCArray(); }
+    if (_walkingPoints == NULL) { _walkingPoints = new std::vector<CCPoint*>(); }
     CCPoint* pPoint = new CCPoint();
     pPoint->x = point.x;
     pPoint->y = point.y;
-    pPoint->autorelease();
-    _walkingPoints->addObject(pPoint);
+    _walkingPoints->push_back(pPoint);
     if (!_isWalking)
     {
         this->goWalk();
@@ -28,7 +27,9 @@ void Ninja::stopWalk()
 {
     if (_walkingPoints != NULL)
     {
-        _walkingPoints->removeAllObjects();
+        while (_walkingPoints->size() > 0) _walkingPoints->pop_back();
+        delete _walkingPoints;
+        _walkingPoints = NULL;
     }
     _isWalking = false;
     this->stopAllActions();
@@ -36,7 +37,7 @@ void Ninja::stopWalk()
 
 void Ninja::goWalk()
 {
-    if (_walkingPoints == NULL || _walkingPoints->count() == 0)
+    if (_walkingPoints == NULL || _walkingPoints->size() == 0)
     {
         CCLOGERROR("not enougth walking points!");
         return;
@@ -44,10 +45,17 @@ void Ninja::goWalk()
     
     _isWalking = true;
 
-    CCPoint* firstPoint = (CCPoint*) _walkingPoints->objectAtIndex(0);
+    CCPoint* firstPoint = _walkingPoints->at(0);
     _currentWalkPoint = ccp(firstPoint->x, firstPoint->y);
+
+    float rotateAngle = -90 - CC_RADIANS_TO_DEGREES(ccpToAngle(ccpSub(this->getPosition(), _currentWalkPoint)));
+    
+    
+    this->runAction(CCRotateTo::create(.4, rotateAngle));
+    //this->rotateTo(_currentWalkPoint.x, _currentWalkPoint.y);
 	
-    _walkingPoints->removeObject(firstPoint);
+    
+    _walkingPoints->erase(_walkingPoints->begin());// removeObject(firstPoint);
 
     CCMoveTo* moveAction = CCMoveTo::create(.5, ccp(_currentWalkPoint.x, _currentWalkPoint.y));
     CCCallFuncN* callback = CCCallFuncN::create(_callbackTarget, _onMoveToPointCompleteFunc);
@@ -57,5 +65,5 @@ void Ninja::goWalk()
 
 bool Ninja::canWalk()
 {
-    return _walkingPoints != NULL && _walkingPoints->count() > 0;
+    return _walkingPoints != NULL && _walkingPoints->size() > 0;
 }

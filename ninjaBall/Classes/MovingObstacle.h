@@ -29,7 +29,7 @@ private:
     void onMoveToPointComplete(cocos2d::CCNode* sender);
     
     bool _isMoving;
-    cocos2d::CCArray* _movingPath;
+    std::vector<cocos2d::CCPoint*>* _movingPath;
     cocos2d::CCPoint _currentTargetPoint;
     
 

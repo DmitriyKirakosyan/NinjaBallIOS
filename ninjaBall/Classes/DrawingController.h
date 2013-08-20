@@ -39,7 +39,7 @@ public:
      @arg point
      @return массив построенных точек пути
      */
-    cocos2d::CCArray* drawPathToPoint(cocos2d::CCPoint point);
+    std::vector<cocos2d::CCPoint*> drawPathToPoint(cocos2d::CCPoint point);
     
     void stopDraw();
     
@@ -52,7 +52,7 @@ private:
     const float PATH_DISTANCE;
     
     cocos2d::CCArray* _pathParts;
-    cocos2d::CCArray* _pathPartsCollector;
+    //cocos2d::CCArray* _pathPartsCollector;
     cocos2d::CCLayer* _drawingContainer;
     
     cocos2d::CCPoint _startPoint;

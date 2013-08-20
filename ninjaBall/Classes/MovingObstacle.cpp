@@ -32,17 +32,17 @@ void MovingObstacle::setLinearMoving(CCPoint point1, CCPoint point2)
     CCPoint* pPoint;
     if (_movingPath == NULL)
     {
-        _movingPath = new CCArray();
+        _movingPath = new std::vector<CCPoint*>();
         pPoint = new CCPoint();
         pPoint->x = point1.x;
         pPoint->y = point1.y;
-        pPoint->autorelease();
-        _movingPath->addObject(pPoint);
+        _movingPath->push_back(pPoint);//addObject(pPoint);
         pPoint = new CCPoint();
         pPoint->x = point2.x;
         pPoint->y = point2.y;
-        pPoint->autorelease();
-        _movingPath->addObject(pPoint);
+        _movingPath->push_back(pPoint);
+        
+        //TODO memory leak here. need to release pPoint after use
         
         if (!_isMoving) { this->moveToPoint(point1); }
     }
@@ -54,13 +54,14 @@ void MovingObstacle::setLinearMoving(CCPoint point1, CCPoint point2)
 
 void MovingObstacle::addMovePoint(CCPoint point)
 {
-    if (_movingPath == NULL) { _movingPath = new CCArray(); }
+    if (_movingPath == NULL) { _movingPath = new std::vector<CCPoint*>(); }
     CCPoint* pPoint = new CCPoint();
     pPoint->x = point.x;
     pPoint->y = point.y;
-    pPoint->autorelease();
-    _movingPath->addObject(pPoint);
+    _movingPath->push_back(pPoint);
     if (!_isMoving) { this->moveToPoint(point); }
+    
+    //TODO memory leaks with point
 }
 
 void MovingObstacle::moveToPoint(CCPoint point)
@@ -77,22 +78,21 @@ void MovingObstacle::moveToPoint(CCPoint point)
 void MovingObstacle::onMoveToPointComplete(CCNode* sender)
 {
     bool movingContinue = false;
-    if (_movingPath != NULL && _movingPath->count() > 0)
+    
+    CCPoint* pPoint;
+    if (_movingPath != NULL && _movingPath->size() > 0)
     {
-        CCObject* item;
-        CCPoint* pPoint;
-        CCARRAY_FOREACH(_movingPath, item)
-        {
-            pPoint = (CCPoint*) item;
+        for (int i = 0; i < _movingPath->size(); ++i) {
+            pPoint = _movingPath->at(i);
             if (_currentTargetPoint.x == pPoint->x && _currentTargetPoint.y == pPoint->y)
             {
-                const unsigned int index = _movingPath->indexOfObject(item);
-                const unsigned int nextIndex = (index < _movingPath->count()-1) ? index + 1 : 0;
-                pPoint = (CCPoint*) _movingPath->objectAtIndex(nextIndex);
+                const unsigned int nextIndex = (i < _movingPath->size()-1) ? i + 1 : 0;
+                pPoint = _movingPath->at(nextIndex);
                 moveToPoint(ccp(pPoint->x, pPoint->y));
                 movingContinue = true;
                 break;
             }
+           
         }
     }
     if (!movingContinue) { _isMoving = false; }

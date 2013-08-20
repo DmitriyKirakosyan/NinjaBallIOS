@@ -9,9 +9,9 @@
 #ifndef __ninjaBall__Ninja__
 #define __ninjaBall__Ninja__
 
-#include "cocos2d.h"
+#include "MapObject.h"
 
-class Ninja : public cocos2d::CCSprite
+class Ninja : public MapObject
 {
 public:
     Ninja(cocos2d::SEL_CallFuncN onMoveToPointCompleteFunc, CCObject* callbackTarget)
@@ -25,6 +25,7 @@ public:
         }
         _onMoveToPointCompleteFunc = onMoveToPointCompleteFunc;
         _callbackTarget = callbackTarget;
+        this->initWithFile("ninja.png");
     }
     
     void addWalkingPoint(cocos2d::CCPoint point);
@@ -40,7 +41,7 @@ public:
 private:
     bool _isWalking;
     
-    cocos2d::CCArray* _walkingPoints;
+    std::vector<cocos2d::CCPoint*>* _walkingPoints;
     
     cocos2d::CCPoint _currentWalkPoint;
     

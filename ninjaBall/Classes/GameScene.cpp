@@ -85,7 +85,7 @@ void GameSceneLayer::start(const char* levelName)
 {
     
     _isDrawing = false;
-    _touchPoints = NULL;
+//    _touchPoints = NULL;
     this->setTouchEnabled(true);
 
     float backScaleX = Settings::FULL_VIRTUAL_WIDTH / Settings::VIRTUAL_WIDTH;
@@ -98,7 +98,6 @@ void GameSceneLayer::start(const char* levelName)
     this->addChild(back);
     
     _ninja = new Ninja(callfuncN_selector(GameSceneLayer::onNinjaMoveToPointComplete), this);
-    _ninja->initWithFile("ninja.png");
 
     _windowManager = new WindowManager(this, new GameWindowFactory(this));
     _drawingController = new DrawingController(this);
@@ -223,23 +222,25 @@ void GameSceneLayer::ccTouchesMoved(cocos2d::CCSet* touches, cocos2d::CCEvent* e
     }
     if (_isDrawing)
     {
-        if (_touchPoints == NULL)
-        {
-            _touchPoints = new CCArray();
-        }
+//        if (_touchPoints == NULL)
+//        {
+//            _touchPoints = new std::vector<CCPoint*>();
+//        }
+
         CCPoint* touchPoint = new CCPoint();
         touchPoint->setPoint(location.x, location.y);
-        _touchPoints->addObject(touchPoint);
-        CCArray* partPoints = _drawingController->drawPathToPoint(location);
-        if (partPoints != NULL && partPoints->count() > 0)
-        {
-            CCObject* item;
-            CCARRAY_FOREACH(partPoints, item)
-            {
-                _ninja->addWalkingPoint(ccp( ((CCPoint*)item)->x, ((CCPoint*)item)->y));
-            }
-            partPoints->removeAllObjects();
-        }
+        //_touchPoints->push_back(touchPoint);
+        std::vector<CCPoint*> partPoints = _drawingController->drawPathToPoint(location);
+        //if (partPoints != NULL && partPoints->count() > 0)
+        //{
+        for (int i = 0; i < partPoints.size(); ++i)
+            //CCObject* item;
+            //CCARRAY_FOREACH(partPoints, item)
+            //{
+                _ninja->addWalkingPoint(ccp( partPoints[i]->x, partPoints[i]->y));
+            //}
+            //partPoints->removeAllObjects();
+        //}
         
     }
 }

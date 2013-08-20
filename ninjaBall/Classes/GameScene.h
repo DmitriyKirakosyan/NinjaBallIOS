@@ -66,7 +66,11 @@ private:
     
     Ninja* _ninja;
     
-    cocos2d::CCArray* _touchPoints;
+    
+    //std::vector<cocos2d::CCPoint*>* _touchPoints;
+    //cocos2d::CCPointArray* _touchPoints;
+    
+    //cocos2d::CCArray* _touchPoints;
     
     WindowManager* _windowManager;
     
