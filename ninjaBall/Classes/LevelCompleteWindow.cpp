@@ -15,9 +15,9 @@ using namespace cocos2d;
 
 LevelCompleteWindow::LevelCompleteWindow(LevelCompleteMenu* levelCompleteMenu): _levelCompleteMenu(levelCompleteMenu)
 {
-    this->initWithFile("LevelCompleteBkg.png");
+    this->initWithFile("levelCompleteWindow/LevelCompleteBkg.png");
     
-    CCSprite* rollCircle = CCSprite::create("ShineStar.png");
+    CCSprite* rollCircle = CCSprite::create("levelCompleteWindow/shineStar.png");
     rollCircle->setPosition(ccp(InterfacePositions::LEVEL_COMPLETE_CIRCLE_X,
                                 InterfacePositions::LEVEL_COMPLETE_CIRCLE_Y));
     rollCircle->runAction(CCRepeatForever::create(CCRotateBy::create(1, 10)));
@@ -39,7 +39,7 @@ LevelCompleteWindow::LevelCompleteWindow(LevelCompleteMenu* levelCompleteMenu): 
                                             "ReplayLvlBtn_2.png",
                                             this, menu_selector(LevelCompleteWindow::menuReplayCallback) );
     cocos2d::CCMenuItemImage *pNextItem =
-                    CCMenuItemImage::create("NextLvlBtn_1.png",
+                    CCMenuItemImage::create("levelCompleteWindow/nextLvlBtn_1.png",
                                             "NextLvlBtn_2.png",
                                             this, menu_selector(LevelCompleteWindow::menuNextCallback) );
     

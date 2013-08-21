@@ -56,9 +56,9 @@ bool MainScene::init()
 
     
     CCFileUtils* fileUtils = CCFileUtils::sharedFileUtils();
-    std::string fullFilePath = fileUtils->fullPathForFilename("mainMenuBkg.png");
+    std::string fullFilePath = fileUtils->fullPathForFilename("mainMenu/mainMenuBkg.png");
     CCLog("file path : %s", fullFilePath.c_str());
-    CCSprite* background = CCSprite::create("mainMenuBkg.png");
+    CCSprite* background = CCSprite::create("mainMenu/mainMenuBkg.png");
     background->setPosition(ccp(Settings::VIRTUAL_WIDTH/2, Settings::VIRTUAL_HEIGHT/2));
     this->addChild(background);
     
