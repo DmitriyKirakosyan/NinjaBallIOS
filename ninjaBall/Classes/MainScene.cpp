@@ -55,9 +55,14 @@ bool MainScene::init()
     pCloseItem->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width - 20, 20) );
 
     
+    CCFileUtils* fileUtils = CCFileUtils::sharedFileUtils();
+    std::string fullFilePath = fileUtils->fullPathForFilename("mainMenuBkg.png");
+    CCLog("file path : %s", fullFilePath.c_str());
     CCSprite* background = CCSprite::create("mainMenuBkg.png");
     background->setPosition(ccp(Settings::VIRTUAL_WIDTH/2, Settings::VIRTUAL_HEIGHT/2));
     this->addChild(background);
+    
+
     
     CCMenuItemImage* pPlayBtn = CCMenuItemImage::create("startBtn_1.png", "startBtn_2.png",
                                                         this, menu_selector(MainScene::playCallback));

@@ -30,7 +30,7 @@ public:
     
     inline int getAvailableLevelsNum() { return _availableLevelsNum; }
     
-    const int LEVELS_NUM = 3;
+    static const int LEVELS_NUM = 3;
     const char* LEVELS[3];
     
     
