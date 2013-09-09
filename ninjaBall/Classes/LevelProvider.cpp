@@ -23,9 +23,9 @@ LevelProvider::LevelProvider()
     CCLog("stored value : %d", storedValue);
     
     _availableLevelsNum = storedValue == 0 ? 1 : storedValue;
-    LEVELS[0] = "level_1.json";
-    LEVELS[1] = "level_2.json";
-    LEVELS[2] = "level_3.json";
+    LEVELS[0] = "json/level_1.json";
+    LEVELS[1] = "json/level_2.json";
+    LEVELS[2] = "json/level_3.json";
 }
 
 

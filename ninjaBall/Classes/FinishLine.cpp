@@ -16,10 +16,10 @@ bool FinishLine::init()
 
     if (!CCSprite::init()) return false;
     
-    this->initWithFile("finish.png");
+    this->initWithFile("mapObjects/finish.png");
         
-    CCSprite* leftBall = CCSprite::create("finishLight.png");
-    CCSprite* rightBall = CCSprite::create("finishLight.png");
+    CCSprite* leftBall = CCSprite::create("mapObjects/finishLight.png");
+    CCSprite* rightBall = CCSprite::create("mapObjects/finishLight.png");
     leftBall->setPosition(ccp(leftBall->getContentSize().width/2-5,
                               leftBall->getContentSize().height/2-5));
     rightBall->setPosition(ccp(this->getContentSize().width - rightBall->getContentSize().width/2 + 5,

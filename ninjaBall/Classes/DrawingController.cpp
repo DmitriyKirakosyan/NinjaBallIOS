@@ -124,7 +124,7 @@ void DrawingController::setStartPoint(CCPoint point)
 
 CCSprite* DrawingController::createPathPart(CCPoint point)
 {
-    CCSprite* result = CCSprite::create("track.png");
+    CCSprite* result = CCSprite::create("ninja/track.png");
     result->setPosition(point);
     return result;
 }

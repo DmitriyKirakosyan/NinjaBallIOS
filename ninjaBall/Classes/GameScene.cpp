@@ -17,6 +17,7 @@
 #include "ScreenHelper.h"
 #include "MainScene.h"
 #include "LevelProvider.h"
+#include "LevelCompleteWindowParams.h"
 
 using namespace cocos2d;
 
@@ -24,9 +25,9 @@ GameScene::GameScene()
 {
     CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
     
-    cache->addSpriteFramesWithFile("doorAnim.plist");
-    cache->addSpriteFramesWithFile("teslaItem.plist");
-    cache->addSpriteFramesWithFile("sparks.plist");
+    cache->addSpriteFramesWithFile("mapObjects/door/doorAnim.plist");
+    cache->addSpriteFramesWithFile("mapObjects/tesla/teslaItem.plist");
+    cache->addSpriteFramesWithFile("mapObjects/tesla/sparks.plist");
 }
 
 GameScene::~GameScene()
@@ -91,7 +92,7 @@ void GameSceneLayer::start(const char* levelName)
     float backScaleX = Settings::FULL_VIRTUAL_WIDTH / Settings::VIRTUAL_WIDTH;
     float backScaleY = Settings::FULL_VIRTUAL_HEIGHT / Settings::VIRTUAL_HEIGHT;
     
-    CCSprite* back = CCSprite::create("storeHouseBkg.png");
+    CCSprite* back = CCSprite::create("rooms/storeHouse/storeHouseBkg.png");
     back->setPosition(ccp(Settings::VIRTUAL_WIDTH/2, Settings::VIRTUAL_HEIGHT/2));
     back->setScaleX(backScaleX);
     back->setScaleY(backScaleY);
@@ -110,6 +111,7 @@ void GameSceneLayer::start(const char* levelName)
 
 void GameSceneLayer::startLevel(const char* levelName)
 {
+    _secondsLeft = 0;
     _currentLevelName = levelName;
     _mapView->createLevel(levelName);
     this->schedule(schedule_selector(GameSceneLayer::update));
@@ -149,6 +151,7 @@ void GameSceneLayer::returnToMainMenu()
 
 void GameSceneLayer::update(float dt)
 {
+    _secondsLeft += dt;
     if (_mapView->getObstaclesController()->testDamage(_ninja))
     {
         if (_ninja->getOpacity() == 255)
@@ -172,7 +175,8 @@ void GameSceneLayer::update(float dt)
         _mapView->clear();
         this->unschedule(schedule_selector(GameSceneLayer::update));
         LevelProvider::getInstance()->completeLevel(_currentLevelName.c_str());
-        _windowManager->showWindow(GameWindowFactory::LEVEL_COMPLETE_WINDOW);
+        LevelCompleteWindowParams params = LevelCompleteWindowParams(_secondsLeft);
+        _windowManager->showWindow(GameWindowFactory::LEVEL_COMPLETE_WINDOW, params);
     }
 }
 
@@ -202,8 +206,7 @@ void GameSceneLayer::ccTouchesBegan(cocos2d::CCSet* touches, cocos2d::CCEvent* e
     ninjaRect = CCRect(_ninja->getPosition().x - nWidth/2, _ninja->getPosition().y - nHeight/2,
                        nWidth, nHeight);
     
-    if (ninjaRect.containsPoint(location))//(location.x > ninjaPoint.x - ninjaSize.width/2 && location.x < ninjaPoint.x + ninjaSize.width/2 &&
-        //location.y > ninjaPoint.y - ninjaSize.height/2 && location.y < ninjaPoint.y + ninjaSize.height/2)
+    if (ninjaRect.containsPoint(location))
     {
         _drawingController->setStartPoint(location);
         _isDrawing = true;

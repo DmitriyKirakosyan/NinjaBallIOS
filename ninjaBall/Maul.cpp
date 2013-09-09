@@ -15,10 +15,10 @@ Maul::Maul(const int id, float rotationSpeed):
 Obstacle(id),
 _rotationSpeed(rotationSpeed)
 {
-    this->initWithFile("maulBase.png");
+    this->initWithFile(Obstacle::MAULBASE_IMG);
     
-    CCSprite* rope = CCSprite::create("maulRope.png");
-    CCSprite* ball = CCSprite::create("maulBall.png");
+    CCSprite* rope = CCSprite::create(Obstacle::MAULROPE_IMG);
+    CCSprite* ball = CCSprite::create(Obstacle::MAULBALL_IMG);
     rope->setPosition(ccp(this->getContentSize().width/2,
                       this->getContentSize().height/2 - rope->getContentSize().height/2));
     ball->setPosition(ccp(this->getContentSize().width/2,

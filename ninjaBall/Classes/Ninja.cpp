@@ -57,7 +57,7 @@ void Ninja::goWalk()
     
     _walkingPoints->erase(_walkingPoints->begin());// removeObject(firstPoint);
 
-    CCMoveTo* moveAction = CCMoveTo::create(.5, ccp(_currentWalkPoint.x, _currentWalkPoint.y));
+    CCMoveTo* moveAction = CCMoveTo::create(.2, ccp(_currentWalkPoint.x, _currentWalkPoint.y));
     CCCallFuncN* callback = CCCallFuncN::create(_callbackTarget, _onMoveToPointCompleteFunc);
     CCFiniteTimeAction* action = CCSequence::create(moveAction, callback, NULL);
     this->runAction(action);

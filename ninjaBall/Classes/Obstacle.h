@@ -59,6 +59,9 @@ protected:
     static const char* FINISH_LIGHT_IMG;
     static const char* FINISH_IMG;
     static const char* MAULBALL_IMG;
+    static const char* MAULBASE_IMG;
+    static const char* MAULROPE_IMG;
+    
     
 private:
     int _id;

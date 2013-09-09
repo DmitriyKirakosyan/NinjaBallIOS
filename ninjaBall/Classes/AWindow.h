@@ -11,6 +11,8 @@
 
 #include "cocos2d.h"
 
+class AWindowParams;
+
 class AWindow : public cocos2d::CCSprite
 {
 public:
@@ -28,6 +30,8 @@ public:
     {
         _readyToClose = false;
     }
+    
+    virtual void open(AWindowParams& windowParams) = 0;
     
     /**
      Когда окно готово к закрытию, функция возвращает true

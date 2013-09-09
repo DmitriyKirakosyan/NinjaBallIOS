@@ -64,11 +64,11 @@ bool MainScene::init()
     
 
     
-    CCMenuItemImage* pPlayBtn = CCMenuItemImage::create("startBtn_1.png", "startBtn_2.png",
+    CCMenuItemImage* pPlayBtn = CCMenuItemImage::create("mainMenu/startBtn_1.png", "mainMenu/startBtn_2.png",
                                                         this, menu_selector(MainScene::playCallback));
-    CCMenuItemImage* pOptionsBtn = CCMenuItemImage::create("optionsBtn_1.png", "optionsBtn_2.png",
+    CCMenuItemImage* pOptionsBtn = CCMenuItemImage::create("mainMenu/optionsBtn_1.png", "mainMenu/optionsBtn_2.png",
                                                            this, menu_selector(MainScene::optionsCallback));
-    CCMenuItemImage* pCreditsBtn = CCMenuItemImage::create("aboutBtn_1.png", "aboutBtn_2.png",
+    CCMenuItemImage* pCreditsBtn = CCMenuItemImage::create("mainMenu/aboutBtn_1.png", "mainMenu/aboutBtn_2.png",
                                                            this, menu_selector(MainScene::creditsCallback));
     
     pPlayBtn->setPosition( ccp(InterfacePositions::MENU_PLAY_BTN_X, InterfacePositions::MENU_PLAY_BTN_Y));
@@ -91,7 +91,6 @@ void MainScene::tweenNode(CCNode  * menuItem) {
 void MainScene::playCallback(CCObject* pSender)
 {
     CCScene* scene = SelectLevelScene::scene();
-    //GameScene* gameScene = GameScene::create();
     CCDirector::sharedDirector()->replaceScene(scene);
 }
 

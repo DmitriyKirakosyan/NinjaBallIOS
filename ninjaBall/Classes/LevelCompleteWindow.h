@@ -24,9 +24,16 @@ public:
     void menuNextCallback(cocos2d::CCObject* pSender);
     void menuReplayCallback(cocos2d::CCObject* pSender);
     
+    void open(AWindowParams& params);
+    void close();
+    
 private:
     
+    static const int STARS_NUM = 3;
+    
     LevelCompleteMenu* _levelCompleteMenu;
+    
+    cocos2d::CCArray* _stars;
 };
 
 #endif

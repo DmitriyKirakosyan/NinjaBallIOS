@@ -116,7 +116,7 @@ bool ObstaclesController::testDamage(Ninja* ninja)
 
 void ObstaclesController::createFromJSON(Json::Value jsonValue)
 {
-    this->clear();
+    //this->clear();
     Obstacle* obstacle;
     Json::Value mapItem;
     for (int i = 0; i < jsonValue.size(); ++i) {

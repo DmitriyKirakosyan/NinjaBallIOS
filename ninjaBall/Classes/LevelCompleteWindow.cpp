@@ -10,11 +10,14 @@
 #include "LevelCompleteMenu.h"
 #include "Settings.h"
 #include "InterfacePositions.h"
+#include "AWindowParams.h"
+#include "LevelCompleteWindowParams.h"
 
 using namespace cocos2d;
 
 LevelCompleteWindow::LevelCompleteWindow(LevelCompleteMenu* levelCompleteMenu): _levelCompleteMenu(levelCompleteMenu)
 {
+    _stars = NULL;
     this->initWithFile("levelCompleteWindow/LevelCompleteBkg.png");
     
     CCSprite* rollCircle = CCSprite::create("levelCompleteWindow/shineStar.png");
@@ -31,16 +34,16 @@ LevelCompleteWindow::LevelCompleteWindow(LevelCompleteMenu* levelCompleteMenu): 
     
     
     cocos2d::CCMenuItemImage *pCloseItem =
-                    CCMenuItemImage::create("BackToMainBtn_1.png",
-                                            "BackToMainBtn_2.png",
+                    CCMenuItemImage::create("levelCompleteWindow/BackToMainBtn_1.png",
+                                            "levelCompleteWindow/BackToMainBtn_2.png",
                                             this, menu_selector(LevelCompleteWindow::menuCloseCallback) );
     cocos2d::CCMenuItemImage *pReplayItem =
-                    CCMenuItemImage::create("ReplayLvlBtn_1.png",
-                                            "ReplayLvlBtn_2.png",
+                    CCMenuItemImage::create("levelCompleteWindow/ReplayLvlBtn_1.png",
+                                            "levelCompleteWindow/ReplayLvlBtn_2.png",
                                             this, menu_selector(LevelCompleteWindow::menuReplayCallback) );
     cocos2d::CCMenuItemImage *pNextItem =
                     CCMenuItemImage::create("levelCompleteWindow/nextLvlBtn_1.png",
-                                            "NextLvlBtn_2.png",
+                                            "levelCompleteWindow/NextLvlBtn_2.png",
                                             this, menu_selector(LevelCompleteWindow::menuNextCallback) );
     
     CCSize windowSize = this->getContentSize();
@@ -66,6 +69,51 @@ LevelCompleteWindow::LevelCompleteWindow(LevelCompleteMenu* levelCompleteMenu): 
         pNextItem->setEnabled(false);
     }
     
+}
+
+void LevelCompleteWindow::open(AWindowParams& params)
+{
+    CCAssert(params.getType() == AWindowParams::LEVEL_COMPLETE_PARAMS, "wrong params for level complete level window");
+    LevelCompleteWindowParams levCmpParams = (LevelCompleteWindowParams&) params;
+
+    _stars = new CCArray();
+    float lineWidth = this->getContentSize().width - 200;
+    float cellWidth = lineWidth / STARS_NUM;
+    int goldNum = arc4random() % 4;
+    CCLog("gold num : %d", goldNum);
+    for (int i = 0; i < STARS_NUM; ++i)
+    {
+        
+        CCSprite* star;
+        if (i < goldNum)
+        {
+            star = CCSprite::create("levelCompleteWindow/star_2.png");
+            star->setScale(0.9);
+            star->runAction(CCEaseElasticOut::create(CCScaleTo::create(1.7, 1)));
+        }
+        else
+        {
+            star = CCSprite::create("levelCompleteWindow/star_1.png");
+        }
+
+        star->setPosition(ccp(100 + i * cellWidth, 267));
+        this->addChild(star);
+    }
+}
+
+void LevelCompleteWindow::close()
+{
+    AWindow::close();
+    if (_stars != NULL) {
+        CCObject* star;
+        CCARRAY_FOREACH(_stars, star)
+        {
+            this->removeChild((CCSprite*)star, true);
+        }
+        _stars->removeAllObjects();
+        delete _stars;
+        _stars = NULL;
+    }
 }
 
 void LevelCompleteWindow::menuCloseCallback(cocos2d::CCObject *pSender)

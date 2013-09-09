@@ -25,8 +25,8 @@ public:
         }
         _onMoveToPointCompleteFunc = onMoveToPointCompleteFunc;
         _callbackTarget = callbackTarget;
-        this->initWithFile("ninja.png");
-        this->setScale(2);
+        this->initWithFile("ninja/ninja.png");
+        this->setScale(2);        
     }
     
     void addWalkingPoint(cocos2d::CCPoint point);

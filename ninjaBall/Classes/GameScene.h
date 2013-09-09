@@ -65,6 +65,7 @@ private:
     std::string _currentLevelName;
     
     Ninja* _ninja;
+    float _secondsLeft;
     
     
     //std::vector<cocos2d::CCPoint*>* _touchPoints;

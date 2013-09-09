@@ -53,21 +53,21 @@ bool SelectLevelScene::init()
     float backScaleY = Settings::FULL_VIRTUAL_HEIGHT / Settings::VIRTUAL_HEIGHT;
     
     
-    CCSprite* imposedBkg = CCSprite::create("selLevImBkg.png");
+    CCSprite* imposedBkg = CCSprite::create("selectLevel/selLevImBkg.png");
     imposedBkg->setPosition(ccp(screenSize.width/2, screenSize.height/2));
     imposedBkg->setScaleX(backScaleX);
     imposedBkg->setScaleY(backScaleY);
 
-    CCSprite* selectMenuBkg = CCSprite::create("selMenuBkg.png");
+    CCSprite* selectMenuBkg = CCSprite::create("selectLevel/selMenuBkg.png");
     selectMenuBkg->setPosition(ccp(screenSize.width/2, screenSize.height/2));
     selectMenuBkg->setScaleX(backScaleX);
     selectMenuBkg->setScaleY(backScaleY);
     
-    CCSprite* rollCircle = CCSprite::create("selLevCircle.png");
+    CCSprite* rollCircle = CCSprite::create("selectLevel/selLevCircle.png");
     rollCircle->setPosition(ccp(screenSize.width/2, screenSize.height/2));
     rollCircle->runAction(CCRepeatForever::create(CCRotateBy::create(1, 10)));
     
-    CCSprite* selBkgLevel = CCSprite::create("selBkgLevel.png");
+    CCSprite* selBkgLevel = CCSprite::create("selectLevel/selBkgLevel.png");
     selBkgLevel->setPosition(ccp(screenSize.width/2, screenSize.height/2));
     
     this->addChild(selectMenuBkg);
@@ -98,7 +98,7 @@ bool SelectLevelScene::init()
     CCMenuItemImage* levelBtn;
     int levelsNum = LevelProvider::getInstance()->LEVELS_NUM;
     for (int i = 0; i < levelsNum; ++i) {
-        levelBtn = CCMenuItemImage::create("levelItem.png", "levelItem.png", "lockedLevelItem.png",
+        levelBtn = CCMenuItemImage::create("selectLevel/levelItem.png", "selectLevel/levelItem.png", "selectLevel/lockedLevelItem.png",
                                            this, menu_selector(SelectLevelScene::levelSelectCallback));
         itemX = startX + i * xOffset;
         itemY = InterfacePositions::LEVEL_SELECT_ITEM_Y_START +

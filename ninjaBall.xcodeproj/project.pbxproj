@@ -230,13 +230,9 @@
 		2CCA9D2816DA110F00603D1D /* MapView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D2616DA110F00603D1D /* MapView.cpp */; };
 		2CCA9D2E16DA517900603D1D /* WindowManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D2C16DA517800603D1D /* WindowManager.cpp */; };
 		2CCA9D3716DA631F00603D1D /* GameWindowFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D3516DA631F00603D1D /* GameWindowFactory.cpp */; };
-		2CE3D59417C4EE9F00F1BFEE /* background in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D57C17C4EE9F00F1BFEE /* background */; };
-		2CE3D59517C4EE9F00F1BFEE /* Buttons in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D57D17C4EE9F00F1BFEE /* Buttons */; };
 		2CE3D59617C4EE9F00F1BFEE /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D57E17C4EE9F00F1BFEE /* CloseNormal.png */; };
 		2CE3D59717C4EE9F00F1BFEE /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D57F17C4EE9F00F1BFEE /* CloseSelected.png */; };
 		2CE3D59817C4EE9F00F1BFEE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D58017C4EE9F00F1BFEE /* Default.png */; };
-		2CE3D59917C4EE9F00F1BFEE /* flags.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D58117C4EE9F00F1BFEE /* flags.png */; };
-		2CE3D59A17C4EE9F00F1BFEE /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D58217C4EE9F00F1BFEE /* footprint.png */; };
 		2CE3D59B17C4EE9F00F1BFEE /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D58317C4EE9F00F1BFEE /* Icon-72.png */; };
 		2CE3D59C17C4EE9F00F1BFEE /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D58417C4EE9F00F1BFEE /* Icon-Small-50.png */; };
 		2CE3D59D17C4EE9F00F1BFEE /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D58517C4EE9F00F1BFEE /* Icon-Small.png */; };
@@ -248,12 +244,10 @@
 		2CE3D5A317C4EE9F00F1BFEE /* levelCompleteWindow in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D58B17C4EE9F00F1BFEE /* levelCompleteWindow */; };
 		2CE3D5A417C4EE9F00F1BFEE /* mainMenu in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D58C17C4EE9F00F1BFEE /* mainMenu */; };
 		2CE3D5A517C4EE9F00F1BFEE /* mapObjects in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D58D17C4EE9F00F1BFEE /* mapObjects */; };
-		2CE3D5A617C4EE9F00F1BFEE /* monsters in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D58E17C4EE9F00F1BFEE /* monsters */; };
-		2CE3D5A717C4EE9F00F1BFEE /* Ninja in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D58F17C4EE9F00F1BFEE /* Ninja */; };
+		2CE3D5A717C4EE9F00F1BFEE /* ninja in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D58F17C4EE9F00F1BFEE /* ninja */; };
 		2CE3D5A817C4EE9F00F1BFEE /* rooms in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D59017C4EE9F00F1BFEE /* rooms */; };
 		2CE3D5A917C4EE9F00F1BFEE /* selectLevel in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D59117C4EE9F00F1BFEE /* selectLevel */; };
 		2CE3D5AA17C4EE9F00F1BFEE /* Text in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D59217C4EE9F00F1BFEE /* Text */; };
-		2CE3D5AB17C4EE9F00F1BFEE /* Text-Buttons in Resources */ = {isa = PBXBuildFile; fileRef = 2CE3D59317C4EE9F00F1BFEE /* Text-Buttons */; };
 		2CFD3EAE17C2AF46002DF8F5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C78E8601689084500CFA337 /* AudioToolbox.framework */; };
 		2CFD3EAF17C2AF46002DF8F5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C78E8621689084500CFA337 /* AVFoundation.framework */; };
 		2CFD3EB017C2AF46002DF8F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C78E8681689084500CFA337 /* CoreGraphics.framework */; };
@@ -687,6 +681,8 @@
 		2C2C800317C2AAE900055882 /* prime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prime.h; sourceTree = "<group>"; };
 		2C2C801317C2AAE900055882 /* libwebsockets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libwebsockets.h; sourceTree = "<group>"; };
 		2C2C801517C2AAE900055882 /* libwebsockets.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebsockets.a; sourceTree = "<group>"; };
+		2C62A3BB17C538E500A66514 /* AWindowParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWindowParams.h; path = Classes/AWindowParams.h; sourceTree = "<group>"; };
+		2C62A3BC17C5390B00A66514 /* LevelCompleteWindowParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteWindowParams.h; path = Classes/LevelCompleteWindowParams.h; sourceTree = "<group>"; };
 		2C78E8561689084500CFA337 /* ninjaBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ninjaBall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C78E85A1689084500CFA337 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2C78E85C1689084500CFA337 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -758,13 +754,9 @@
 		2CCA9D3616DA631F00603D1D /* GameWindowFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameWindowFactory.h; path = Classes/GameWindowFactory.h; sourceTree = "<group>"; };
 		2CCA9D3816DA737200603D1D /* AWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AWindow.h; path = Classes/AWindow.h; sourceTree = "<group>"; };
 		2CCA9D3A16DA7FC300603D1D /* LevelCompleteWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteWindow.h; path = Classes/LevelCompleteWindow.h; sourceTree = "<group>"; };
-		2CE3D57C17C4EE9F00F1BFEE /* background */ = {isa = PBXFileReference; lastKnownFileType = folder; path = background; sourceTree = "<group>"; };
-		2CE3D57D17C4EE9F00F1BFEE /* Buttons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Buttons; sourceTree = "<group>"; };
 		2CE3D57E17C4EE9F00F1BFEE /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		2CE3D57F17C4EE9F00F1BFEE /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
 		2CE3D58017C4EE9F00F1BFEE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		2CE3D58117C4EE9F00F1BFEE /* flags.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flags.png; sourceTree = "<group>"; };
-		2CE3D58217C4EE9F00F1BFEE /* footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footprint.png; sourceTree = "<group>"; };
 		2CE3D58317C4EE9F00F1BFEE /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		2CE3D58417C4EE9F00F1BFEE /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
 		2CE3D58517C4EE9F00F1BFEE /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
@@ -776,12 +768,10 @@
 		2CE3D58B17C4EE9F00F1BFEE /* levelCompleteWindow */ = {isa = PBXFileReference; lastKnownFileType = folder; path = levelCompleteWindow; sourceTree = "<group>"; };
 		2CE3D58C17C4EE9F00F1BFEE /* mainMenu */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mainMenu; sourceTree = "<group>"; };
 		2CE3D58D17C4EE9F00F1BFEE /* mapObjects */ = {isa = PBXFileReference; lastKnownFileType = folder; path = mapObjects; sourceTree = "<group>"; };
-		2CE3D58E17C4EE9F00F1BFEE /* monsters */ = {isa = PBXFileReference; lastKnownFileType = folder; path = monsters; sourceTree = "<group>"; };
-		2CE3D58F17C4EE9F00F1BFEE /* Ninja */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Ninja; sourceTree = "<group>"; };
+		2CE3D58F17C4EE9F00F1BFEE /* ninja */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ninja; sourceTree = "<group>"; };
 		2CE3D59017C4EE9F00F1BFEE /* rooms */ = {isa = PBXFileReference; lastKnownFileType = folder; path = rooms; sourceTree = "<group>"; };
 		2CE3D59117C4EE9F00F1BFEE /* selectLevel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = selectLevel; sourceTree = "<group>"; };
 		2CE3D59217C4EE9F00F1BFEE /* Text */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Text; sourceTree = "<group>"; };
-		2CE3D59317C4EE9F00F1BFEE /* Text-Buttons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Text-Buttons"; sourceTree = "<group>"; };
 		2CFD3EB617C2AF46002DF8F5 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		2CFD3EB717C2AF46002DF8F5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -1577,6 +1567,15 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		2C62A3BA17C538C600A66514 /* params */ = {
+			isa = PBXGroup;
+			children = (
+				2C62A3BB17C538E500A66514 /* AWindowParams.h */,
+				2C62A3BC17C5390B00A66514 /* LevelCompleteWindowParams.h */,
+			);
+			name = params;
+			sourceTree = "<group>";
+		};
 		2C78E84B1689084500CFA337 = {
 			isa = PBXGroup;
 			children = (
@@ -1780,6 +1779,7 @@
 		2CCA9D2B16DA516300603D1D /* window */ = {
 			isa = PBXGroup;
 			children = (
+				2C62A3BA17C538C600A66514 /* params */,
 				2CCA9D3916DA7F9700603D1D /* core */,
 				2CCA9D3A16DA7FC300603D1D /* LevelCompleteWindow.h */,
 				2CCA9D3516DA631F00603D1D /* GameWindowFactory.cpp */,
@@ -1803,13 +1803,9 @@
 		2CE3D44417C4EE3300F1BFEE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2CE3D57C17C4EE9F00F1BFEE /* background */,
-				2CE3D57D17C4EE9F00F1BFEE /* Buttons */,
 				2CE3D57E17C4EE9F00F1BFEE /* CloseNormal.png */,
 				2CE3D57F17C4EE9F00F1BFEE /* CloseSelected.png */,
 				2CE3D58017C4EE9F00F1BFEE /* Default.png */,
-				2CE3D58117C4EE9F00F1BFEE /* flags.png */,
-				2CE3D58217C4EE9F00F1BFEE /* footprint.png */,
 				2CE3D58317C4EE9F00F1BFEE /* Icon-72.png */,
 				2CE3D58417C4EE9F00F1BFEE /* Icon-Small-50.png */,
 				2CE3D58517C4EE9F00F1BFEE /* Icon-Small.png */,
@@ -1821,12 +1817,10 @@
 				2CE3D58B17C4EE9F00F1BFEE /* levelCompleteWindow */,
 				2CE3D58C17C4EE9F00F1BFEE /* mainMenu */,
 				2CE3D58D17C4EE9F00F1BFEE /* mapObjects */,
-				2CE3D58E17C4EE9F00F1BFEE /* monsters */,
-				2CE3D58F17C4EE9F00F1BFEE /* Ninja */,
+				2CE3D58F17C4EE9F00F1BFEE /* ninja */,
 				2CE3D59017C4EE9F00F1BFEE /* rooms */,
 				2CE3D59117C4EE9F00F1BFEE /* selectLevel */,
 				2CE3D59217C4EE9F00F1BFEE /* Text */,
-				2CE3D59317C4EE9F00F1BFEE /* Text-Buttons */,
 			);
 			name = Resources;
 			path = ninjaBall/Resources;
@@ -1907,13 +1901,9 @@
 				2C1E1E1A17C2D4F300ED3A93 /* json_internalmap.inl in Resources */,
 				2C1E1E1D17C2D4F300ED3A93 /* json_valueiterator.inl in Resources */,
 				2C1E1E1F17C2D4F300ED3A93 /* sconscript in Resources */,
-				2CE3D59417C4EE9F00F1BFEE /* background in Resources */,
-				2CE3D59517C4EE9F00F1BFEE /* Buttons in Resources */,
 				2CE3D59617C4EE9F00F1BFEE /* CloseNormal.png in Resources */,
 				2CE3D59717C4EE9F00F1BFEE /* CloseSelected.png in Resources */,
 				2CE3D59817C4EE9F00F1BFEE /* Default.png in Resources */,
-				2CE3D59917C4EE9F00F1BFEE /* flags.png in Resources */,
-				2CE3D59A17C4EE9F00F1BFEE /* footprint.png in Resources */,
 				2CE3D59B17C4EE9F00F1BFEE /* Icon-72.png in Resources */,
 				2CE3D59C17C4EE9F00F1BFEE /* Icon-Small-50.png in Resources */,
 				2CE3D59D17C4EE9F00F1BFEE /* Icon-Small.png in Resources */,
@@ -1925,12 +1915,10 @@
 				2CE3D5A317C4EE9F00F1BFEE /* levelCompleteWindow in Resources */,
 				2CE3D5A417C4EE9F00F1BFEE /* mainMenu in Resources */,
 				2CE3D5A517C4EE9F00F1BFEE /* mapObjects in Resources */,
-				2CE3D5A617C4EE9F00F1BFEE /* monsters in Resources */,
-				2CE3D5A717C4EE9F00F1BFEE /* Ninja in Resources */,
+				2CE3D5A717C4EE9F00F1BFEE /* ninja in Resources */,
 				2CE3D5A817C4EE9F00F1BFEE /* rooms in Resources */,
 				2CE3D5A917C4EE9F00F1BFEE /* selectLevel in Resources */,
 				2CE3D5AA17C4EE9F00F1BFEE /* Text in Resources */,
-				2CE3D5AB17C4EE9F00F1BFEE /* Text-Buttons in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

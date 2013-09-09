@@ -13,6 +13,7 @@
 
 class AWindowFactory;
 class AWindow;
+class AWindowParams;
 
 class WindowManager : public cocos2d::CCLayer
 {
@@ -20,6 +21,7 @@ public:
     WindowManager(cocos2d::CCLayer* layer, AWindowFactory* windowFactory);
     
     void showWindow(const char* windowName);
+    void showWindow(const char* windowName, AWindowParams& windowParams);
     
 private:
     

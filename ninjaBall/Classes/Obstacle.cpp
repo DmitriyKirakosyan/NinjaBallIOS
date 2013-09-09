@@ -19,14 +19,17 @@
 
 using namespace cocos2d;
 
-const char* Obstacle::WALL_IMG = "box.png";
-const char* Obstacle::SAW_BKG_IMG = "sawBkg.png";
-const char* Obstacle::SAW_IMG = "saw.png";
-const char* Obstacle::PUSH_BTN_ON_IMG = "pushBtn_2.png";
-const char* Obstacle::PUSH_BTN_OFF_IMG = "pushBtn_1.png";
-const char* Obstacle::FINISH_IMG = "finish.png";
-const char* Obstacle::FINISH_LIGHT_IMG = "finishLight.png";
-const char* Obstacle::MAULBALL_IMG = "maulBall.png";
+const char* Obstacle::WALL_IMG = "mapObjects/box.png";
+const char* Obstacle::SAW_BKG_IMG = "mapObjects/sawBkg.png";
+const char* Obstacle::SAW_IMG = "mapObjects/saw.png";
+const char* Obstacle::PUSH_BTN_ON_IMG = "mapObjects/pushBtn_2.png";
+const char* Obstacle::PUSH_BTN_OFF_IMG = "mapObjects/pushBtn_1.png";
+const char* Obstacle::FINISH_IMG = "mapObjects/finish.png";
+const char* Obstacle::FINISH_LIGHT_IMG = "mapObjects/finishLight.png";
+const char* Obstacle::MAULBALL_IMG = "mapObjects/maulBall.png";
+const char* Obstacle::MAULBASE_IMG = "mapObjects/maulBase.png";
+const char* Obstacle::MAULROPE_IMG = "mapObjects/maulRope.png";
+
 
 
 const char* Obstacle::WALKING_MINKER = "walking_wall";
