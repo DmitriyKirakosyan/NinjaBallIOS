@@ -36,7 +36,6 @@ public:
     static const int LEVEL_COMPLETE_REPLAY_Y = VIRTUAL_HEIGHT-504;
     static const int LEVEL_COMPLETE_TOMENU_X = 351;
     static const int LEVEL_COMPLETE_TOMENU_Y = VIRTUAL_HEIGHT-504;
-    static const int LEVEL_COMPLETE_STAR_X = 100;
     static const int LEVEL_COMPLETE_STAR_Y = VIRTUAL_HEIGHT-267;
     static const int LEVEL_COMPLETE_CUP_X = 82;
     static const int LEVEL_COMPLETE_CUP_Y = VIRTUAL_HEIGHT-129;

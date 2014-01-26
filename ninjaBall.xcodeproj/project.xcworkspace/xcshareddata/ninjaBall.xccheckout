@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B86E5DFE-F9D1-4D52-BDA0-A5F29035E40B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ninjaBall</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2B98D2EF-6BA9-4E97-AADC-5B32C529A555</key>
+		<string>ssh://github.com/DmitriyKirakosyan/NinjaBallIOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ninjaBall.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2B98D2EF-6BA9-4E97-AADC-5B32C529A555</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/DmitriyKirakosyan/NinjaBallIOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2B98D2EF-6BA9-4E97-AADC-5B32C529A555</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2B98D2EF-6BA9-4E97-AADC-5B32C529A555</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ninjaBall</string>
+		</dict>
+	</array>
+</dict>
+</plist>

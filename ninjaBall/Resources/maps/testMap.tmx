@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="29" tileheight="29">
+ <tileset firstgid="1" name="tileset" tilewidth="29" tileheight="29">
+  <image source="../Icon-Small.png" width="29" height="29"/>
+  <terraintypes>
+   <terrain name="op" tile="-1"/>
+  </terraintypes>
+ </tileset>
+ <tileset firstgid="2" name="saw" tilewidth="64" tileheight="64">
+  <image source="../mapObjects/sawBkg.png" width="64" height="64"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYBzFo3gUj+JRPIpJxADrnAGR
+  </data>
+ </layer>
+ <objectgroup name="saw" width="20" height="20">
+  <object name="saw" type="enemy" gid="2" x="90" y="432">
+   <properties>
+    <property name="cycled_path" value="true"/>
+    <property name="path_id" value="1"/>
+   </properties>
+  </object>
+  <object name="line" type="path" x="125" y="383">
+   <properties>
+    <property name="id" value="1"/>
+    <property name="sequence" value="1"/>
+   </properties>
+   <polyline points="0,0 -2,-232"/>
+  </object>
+  <object name="line" type="path" x="126" y="153">
+   <properties>
+    <property name="id" value="1"/>
+    <property name="sequence" value="2"/>
+   </properties>
+   <polyline points="0,0 158,178"/>
+  </object>
+  <object name="line" type="path" x="281" y="328">
+   <properties>
+    <property name="id" value="1"/>
+    <property name="sequence" value="3"/>
+   </properties>
+   <polyline points="0,0 -151,56"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="saw" width="20" height="20">
+  <object name="saw" type="enemy" gid="2" x="405" y="170">
+   <properties>
+    <property name="cycled_path" value="true"/>
+    <property name="path_id" value="2"/>
+   </properties>
+  </object>
+  <object name="line" type="path" x="434" y="136">
+   <properties>
+    <property name="id" value="2"/>
+    <property name="sequence" value="1"/>
+   </properties>
+   <polyline points="0,0 4,389"/>
+  </object>
+  <object name="line" type="path" x="434" y="518">
+   <properties>
+    <property name="id" value="2"/>
+    <property name="sequence" value="2"/>
+   </properties>
+   <polyline points="0,0 -2,-373"/>
+  </object>
+ </objectgroup>
+</map>

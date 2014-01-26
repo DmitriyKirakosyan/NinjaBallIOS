@@ -32,6 +32,9 @@ public:
     bool isPointPathless(cocos2d::CCPoint point);
 
     void createFromJSON(Json::Value jsonValue);
+    
+    void createFromTMX(cocos2d::CCTMXTiledMap* tileMap);
+    
     void clear();
   
 private:

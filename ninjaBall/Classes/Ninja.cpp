@@ -21,6 +21,7 @@ void Ninja::addWalkingPoint(CCPoint point)
     {
         this->goWalk();
     }
+    
 }
 
 void Ninja::stopWalk()
@@ -53,6 +54,7 @@ void Ninja::goWalk()
     
     this->runAction(CCRotateTo::create(.4, rotateAngle));
     //this->rotateTo(_currentWalkPoint.x, _currentWalkPoint.y);
+    
 	
     
     _walkingPoints->erase(_walkingPoints->begin());// removeObject(firstPoint);

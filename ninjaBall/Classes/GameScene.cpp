@@ -114,6 +114,7 @@ void GameSceneLayer::startLevel(const char* levelName)
     _secondsLeft = 0;
     _currentLevelName = levelName;
     _mapView->createLevel(levelName);
+    //_mapView->createLevelFromTMX(levelName);
     this->schedule(schedule_selector(GameSceneLayer::update));
 }
 

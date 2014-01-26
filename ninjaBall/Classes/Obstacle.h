@@ -10,11 +10,11 @@
 #define __ninjaBall__Obstacle__
 
 #include "cocos2d.h"
-#include "json.h"
 #include "SwitchableObject.h"
 
 class World;
 class Ninja;
+
 
 class Obstacle : public cocos2d::CCSprite, public SwitchableObject
 {
@@ -43,8 +43,6 @@ public:
     
     virtual const char* getType() { return NOTYPE; }
     
-    static Obstacle* createFromJSON(Json::Value obstacleJson);
-    
     //switchable
     virtual void on(){}
     virtual void off(){}
@@ -66,16 +64,6 @@ protected:
 private:
     int _id;
     
-    static Obstacle* createWallMinker(Json::Value minkerJson);
-    static Obstacle* createDoor(Json::Value doorJson);
-    static Obstacle* createButton(Json::Value buttonJson);
-    static Obstacle* createMace(Json::Value miceJson);
-    static Obstacle* createWall(Json::Value wallJson);
-    static Obstacle* createMaul(Json::Value maulJson);
-    static Obstacle* createTesla(Json::Value teslaJson);
-    
-    static cocos2d::CCPoint getItemPosition(Json::Value itemJson);
-    static int getItemId(Json::Value itemJson);
 };
 
 #endif /* defined(__ninjaBall__Obstacle__) */

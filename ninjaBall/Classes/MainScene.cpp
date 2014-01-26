@@ -47,12 +47,12 @@ bool MainScene::init()
     //    you may modify it.
 
     // add a "close" icon to exit the progress. it's an autorelease object
-    CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
-                                        "CloseNormal.png",
-                                        "CloseSelected.png",
-                                        this,
-                                        menu_selector(MainScene::menuCloseCallback) );
-    pCloseItem->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width - 20, 20) );
+//    CCMenuItemImage *pCloseItem = CCMenuItemImage::create(
+//                                        "CloseNormal.png",
+//                                        "CloseSelected.png",
+//                                        this,
+//                                        menu_selector(MainScene::menuCloseCallback) );
+//    pCloseItem->setPosition( ccp(CCDirector::sharedDirector()->getWinSize().width - 20, 20) );
 
     
     CCFileUtils* fileUtils = CCFileUtils::sharedFileUtils();
@@ -76,7 +76,7 @@ bool MainScene::init()
     pCreditsBtn->setPosition(ccp(InterfacePositions::MENU_ABOUT_BTN_X, InterfacePositions::MENU_ABOUT_BTN_Y));
 
 
-    CCMenu* pMenu = CCMenu::create(pCloseItem, pPlayBtn, pOptionsBtn, pCreditsBtn, NULL);
+    CCMenu* pMenu = CCMenu::create(pPlayBtn, pOptionsBtn, pCreditsBtn, NULL);
     pMenu->setPosition( CCPointZero );
     this->addChild(pMenu, 1);
     

@@ -224,6 +224,8 @@
 		2CA46B1417C015D200E5A952 /* TeslaInteraction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46B1217C015D200E5A952 /* TeslaInteraction.cpp */; };
 		2CA46B1717C1049200E5A952 /* TeslaSpark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA46B1517C1049000E5A952 /* TeslaSpark.cpp */; };
 		2CA4D27E16E394C4000E4380 /* LevelCompleteWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */; };
+		2CB80ED118959046004AD659 /* maps in Resources */ = {isa = PBXBuildFile; fileRef = 2CB80ED018959046004AD659 /* maps */; };
+		2CB80ED41895A3ED004AD659 /* JSONObjstacleFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB80ED21895A3ED004AD659 /* JSONObjstacleFactory.cpp */; };
 		2CCA9D0416D13E2A00603D1D /* Ninja.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D0216D13E2A00603D1D /* Ninja.cpp */; };
 		2CCA9D0816D66D4400603D1D /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D0616D66D4400603D1D /* Obstacle.cpp */; };
 		2CCA9D0B16D66FAD00603D1D /* ObstaclesController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA9D0916D66FAD00603D1D /* ObstaclesController.cpp */; };
@@ -739,6 +741,9 @@
 		2CA46B1617C1049100E5A952 /* TeslaSpark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeslaSpark.h; path = Classes/TeslaSpark.h; sourceTree = "<group>"; };
 		2CA4D27C16E392B3000E4380 /* LevelCompleteMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LevelCompleteMenu.h; path = Classes/LevelCompleteMenu.h; sourceTree = "<group>"; };
 		2CA4D27D16E394C4000E4380 /* LevelCompleteWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LevelCompleteWindow.cpp; path = Classes/LevelCompleteWindow.cpp; sourceTree = "<group>"; };
+		2CB80ED018959046004AD659 /* maps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = maps; sourceTree = "<group>"; };
+		2CB80ED21895A3ED004AD659 /* JSONObjstacleFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JSONObjstacleFactory.cpp; path = Classes/JSONObjstacleFactory.cpp; sourceTree = "<group>"; };
+		2CB80ED31895A3ED004AD659 /* JSONObjstacleFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONObjstacleFactory.h; path = Classes/JSONObjstacleFactory.h; sourceTree = "<group>"; };
 		2CCA9D0216D13E2A00603D1D /* Ninja.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Ninja.cpp; path = Classes/Ninja.cpp; sourceTree = "<group>"; };
 		2CCA9D0316D13E2A00603D1D /* Ninja.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ninja.h; path = Classes/Ninja.h; sourceTree = "<group>"; };
 		2CCA9D0616D66D4400603D1D /* Obstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Obstacle.cpp; path = Classes/Obstacle.cpp; sourceTree = "<group>"; };
@@ -1728,6 +1733,8 @@
 				2CA46B0717BFC7DE00E5A952 /* TeslaItem.cpp */,
 				2CA46B0817BFC7E400E5A952 /* TeslaItem.h */,
 				2C1E1E2817C3F84800ED3A93 /* Wall.h */,
+				2CB80ED21895A3ED004AD659 /* JSONObjstacleFactory.cpp */,
+				2CB80ED31895A3ED004AD659 /* JSONObjstacleFactory.h */,
 			);
 			name = obstacle;
 			sourceTree = "<group>";
@@ -1803,6 +1810,7 @@
 		2CE3D44417C4EE3300F1BFEE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2CB80ED018959046004AD659 /* maps */,
 				2CE3D57E17C4EE9F00F1BFEE /* CloseNormal.png */,
 				2CE3D57F17C4EE9F00F1BFEE /* CloseSelected.png */,
 				2CE3D58017C4EE9F00F1BFEE /* Default.png */,
@@ -1909,6 +1917,7 @@
 				2CE3D59D17C4EE9F00F1BFEE /* Icon-Small.png in Resources */,
 				2CE3D59E17C4EE9F00F1BFEE /* Icon-Small@2x.png in Resources */,
 				2CE3D59F17C4EE9F00F1BFEE /* Icon.png in Resources */,
+				2CB80ED118959046004AD659 /* maps in Resources */,
 				2CE3D5A017C4EE9F00F1BFEE /* Icon@2x.png in Resources */,
 				2CE3D5A117C4EE9F00F1BFEE /* iTunesArtwork in Resources */,
 				2CE3D5A217C4EE9F00F1BFEE /* json in Resources */,
@@ -2135,6 +2144,7 @@
 				2C2C841917C2AAEB00055882 /* cpSpaceQuery.c in Sources */,
 				2C2C841A17C2AAEB00055882 /* cpSpaceStep.c in Sources */,
 				2C2C841B17C2AAEB00055882 /* cpSpatialIndex.c in Sources */,
+				2CB80ED41895A3ED004AD659 /* JSONObjstacleFactory.cpp in Sources */,
 				2C2C841C17C2AAEB00055882 /* cpSweep1D.c in Sources */,
 				2C2C841D17C2AAEB00055882 /* cpVect.c in Sources */,
 				2C1E1E1B17C2D4F300ED3A93 /* json_reader.cpp in Sources */,

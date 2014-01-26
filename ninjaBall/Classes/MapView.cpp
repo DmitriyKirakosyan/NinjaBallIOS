@@ -59,6 +59,12 @@ void MapView::createLevel(const char *fileName)
 
 }
 
+void MapView::createLevelFromTMX(const char *fileName)
+{
+    CCTMXTiledMap* tileMap = CCTMXTiledMap::create(fileName);
+    _obstacles->createFromTMX(tileMap);
+}
+
 void MapView::clear()
 {
     _obstacles->clear();

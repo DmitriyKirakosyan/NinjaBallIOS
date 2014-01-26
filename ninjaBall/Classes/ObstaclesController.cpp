@@ -11,6 +11,7 @@
 #include "Settings.h"
 #include "TeslaInteraction.h"
 #include "TeslaItem.h"
+#include "JSONObjstacleFactory.h"
 
 using namespace cocos2d;
 
@@ -121,7 +122,7 @@ void ObstaclesController::createFromJSON(Json::Value jsonValue)
     Json::Value mapItem;
     for (int i = 0; i < jsonValue.size(); ++i) {
         mapItem = jsonValue[i];
-        obstacle = Obstacle::createFromJSON(mapItem);
+        obstacle = JSONObjstacleFactory::create(mapItem);
         if (_obstacles == NULL) { _obstacles = new CCArray(); }
         _obstacles->addObject(obstacle);
         if (std::strcmp(obstacle->getType(), Obstacle::TESLA) == 0)
@@ -129,5 +130,19 @@ void ObstaclesController::createFromJSON(Json::Value jsonValue)
             _teslaInteraction->addTeslaItem((TeslaItem*) obstacle);
         }
         _mapLayer->addChild(obstacle);
+    }
+}
+
+void ObstaclesController::createFromTMX(cocos2d::CCTMXTiledMap *tileMap)
+{
+    CCArray* objectGroups = tileMap->getObjectGroups();
+    
+    CCObject* item;
+    CCTMXObjectGroup* objectGroup;
+    CCARRAY_FOREACH(objectGroups, item)
+    {
+        objectGroup = (CCTMXObjectGroup*) item;
+        
+        CCLog("hzhz");
     }
 }

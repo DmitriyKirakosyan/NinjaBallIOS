@@ -16,6 +16,9 @@
 
 class Settings {
 public:
+    static const int TILED_MAP_WIDTH;
+    static const int TILED_MAP_HEIGHT;
+    
     static const int VIRTUAL_WIDTH = 1136;
     static const int VIRTUAL_HEIGHT = 640;
     

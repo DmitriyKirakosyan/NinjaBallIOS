@@ -18,7 +18,7 @@ using namespace cocos2d;
 LevelCompleteWindow::LevelCompleteWindow(LevelCompleteMenu* levelCompleteMenu): _levelCompleteMenu(levelCompleteMenu)
 {
     _stars = NULL;
-    this->initWithFile("levelCompleteWindow/LevelCompleteBkg.png");
+    this->initWithFile("levelCompleteWindow/levelCompleteBkg.png");
     
     CCSprite* rollCircle = CCSprite::create("levelCompleteWindow/shineStar.png");
     rollCircle->setPosition(ccp(InterfacePositions::LEVEL_COMPLETE_CIRCLE_X,
@@ -77,7 +77,7 @@ void LevelCompleteWindow::open(AWindowParams& params)
     LevelCompleteWindowParams levCmpParams = (LevelCompleteWindowParams&) params;
 
     _stars = new CCArray();
-    float lineWidth = this->getContentSize().width - 200;
+    float lineWidth = this->getContentSize().width - 100;
     float cellWidth = lineWidth / STARS_NUM;
     int goldNum = arc4random() % 4;
     CCLog("gold num : %d", goldNum);
@@ -96,7 +96,8 @@ void LevelCompleteWindow::open(AWindowParams& params)
             star = CCSprite::create("levelCompleteWindow/star_1.png");
         }
 
-        star->setPosition(ccp(100 + i * cellWidth, 267));
+        star->setPosition(ccp(50 + i * cellWidth + star->getContentSize().width/2,
+                              InterfacePositions::LEVEL_COMPLETE_STAR_Y));
         this->addChild(star);
     }
 }

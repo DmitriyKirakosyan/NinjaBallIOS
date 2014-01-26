@@ -27,6 +27,8 @@ public:
      */
     void createLevel(const char* fileName);
     
+    void createLevelFromTMX(const char* fileName);
+    
     /**
      ограничивает путь стенами и возвращает точку,
      наиболее близкую к endPoint и ограниченную стеной
