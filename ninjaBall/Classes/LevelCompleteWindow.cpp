@@ -18,9 +18,9 @@ using namespace cocos2d;
 LevelCompleteWindow::LevelCompleteWindow(LevelCompleteMenu* levelCompleteMenu): _levelCompleteMenu(levelCompleteMenu)
 {
     _stars = NULL;
-    this->initWithFile("levelCompleteWindow/levelCompleteBkg.png");
+    this->initWithFile("levelCompleteWindow/LevelCompleteBkg.png");
     
-    CCSprite* rollCircle = CCSprite::create("levelCompleteWindow/shineStar.png");
+    CCSprite* rollCircle = CCSprite::create("levelCompleteWindow/ShineStar.png");
     rollCircle->setPosition(ccp(InterfacePositions::LEVEL_COMPLETE_CIRCLE_X,
                                 InterfacePositions::LEVEL_COMPLETE_CIRCLE_Y));
     rollCircle->runAction(CCRepeatForever::create(CCRotateBy::create(1, 10)));
@@ -42,7 +42,7 @@ LevelCompleteWindow::LevelCompleteWindow(LevelCompleteMenu* levelCompleteMenu): 
                                             "levelCompleteWindow/ReplayLvlBtn_2.png",
                                             this, menu_selector(LevelCompleteWindow::menuReplayCallback) );
     cocos2d::CCMenuItemImage *pNextItem =
-                    CCMenuItemImage::create("levelCompleteWindow/nextLvlBtn_1.png",
+                    CCMenuItemImage::create("levelCompleteWindow/NextLvlBtn_1.png",
                                             "levelCompleteWindow/NextLvlBtn_2.png",
                                             this, menu_selector(LevelCompleteWindow::menuNextCallback) );
     
@@ -87,13 +87,13 @@ void LevelCompleteWindow::open(AWindowParams& params)
         CCSprite* star;
         if (i < goldNum)
         {
-            star = CCSprite::create("levelCompleteWindow/star_2.png");
+            star = CCSprite::create("levelCompleteWindow/Star_2.png");
             star->setScale(0.9);
             star->runAction(CCEaseElasticOut::create(CCScaleTo::create(1.7, 1)));
         }
         else
         {
-            star = CCSprite::create("levelCompleteWindow/star_1.png");
+            star = CCSprite::create("levelCompleteWindow/Star_1.png");
         }
 
         star->setPosition(ccp(50 + i * cellWidth + star->getContentSize().width/2,
