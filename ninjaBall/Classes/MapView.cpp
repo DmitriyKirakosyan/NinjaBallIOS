@@ -35,7 +35,8 @@ void MapView::createLevel(const char *fileName)
     CCFileUtils* fileUtils = CCFileUtils::sharedFileUtils();
     unsigned long* pSize = new unsigned long[10];
 
-    const char * path = fileUtils->fullPathFromRelativePath(fileName);
+    std::string strPath = fileUtils->fullPathForFilename(fileName);
+    const char* path = strPath.c_str();
     std::string fileData = std::string(reinterpret_cast<const char*>(fileUtils->getFileData(path, "r", pSize)));
     //std::ifstream jsonFile(pszPath.c_str());
 
