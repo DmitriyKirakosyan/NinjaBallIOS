@@ -97,6 +97,11 @@ public:
     inline void setTag(int nTag) { m_nTag = nTag; }
 
 public:
+    /** Allocates and initializes the action 
+    @deprecated: Please use create() instead. This interface will be deprecated sooner or later.
+    */
+    CC_DEPRECATED_ATTRIBUTE static CCAction* action();
+
     /** Create an action */
     static CCAction* create();
 protected:
@@ -179,6 +184,11 @@ public:
     }
 
 public:
+    /** creates the action 
+    @deprecated: Please use create(CCActionInterval* float) instead. This interface will be deprecated sooner or later.
+    */
+    CC_DEPRECATED_ATTRIBUTE static CCSpeed* actionWithAction(CCActionInterval *pAction, float fSpeed);
+    
     /** create the action */
     static CCSpeed* create(CCActionInterval* pAction, float fSpeed);
 protected:
@@ -222,6 +232,11 @@ public:
     virtual void stop(void);
 
 public:
+    /** creates the action with a set boundary,
+        It will work with no boundary if @param rect is equal to CCRectZero.
+    @deprecated: Please use create(CCNode*, const CCRect&) instead. This interface will be deprecated sooner or later.
+    */
+    CC_DEPRECATED_ATTRIBUTE static CCFollow* actionWithTarget(CCNode *pFollowedNode, const CCRect& rect = CCRectZero);
     /** creates the action with a set boundary,
     It will work with no boundary if @param rect is equal to CCRectZero.
     */

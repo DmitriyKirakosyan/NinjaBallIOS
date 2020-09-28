@@ -30,12 +30,17 @@ THE SOFTWARE.
 NS_CC_BEGIN
 // implementation of CCGridAction
 
-CCGridAction* CCGridAction::create(float duration, const CCSize& gridSize)
+CCGridAction* CCGridAction::actionWithSize(const ccGridSize& gridSize, float duration)
+{
+    return CCGridAction::create(gridSize, duration);
+}
+
+CCGridAction* CCGridAction::create(const ccGridSize& gridSize, float duration)
 {
     CCGridAction *pAction = new CCGridAction();
     if (pAction)
     {
-        if (pAction->initWithDuration(duration, gridSize))
+        if (pAction->initWithSize(gridSize, duration))
         {
             pAction->autorelease();
         }
@@ -48,7 +53,7 @@ CCGridAction* CCGridAction::create(float duration, const CCSize& gridSize)
     return pAction;
 }
 
-bool CCGridAction::initWithDuration(float duration, const CCSize& gridSize)
+bool CCGridAction::initWithSize(const ccGridSize& gridSize, float duration)
 {
     if (CCActionInterval::initWithDuration(duration))
     {
@@ -71,8 +76,8 @@ void CCGridAction::startWithTarget(CCNode *pTarget)
 
     if (targetGrid && targetGrid->getReuseGrid() > 0)
     {
-        if (targetGrid->isActive() && targetGrid->getGridSize().width == m_sGridSize.width
-            && targetGrid->getGridSize().height == m_sGridSize.height /*&& dynamic_cast<CCGridBase*>(targetGrid) != NULL*/)
+        if (targetGrid->isActive() && targetGrid->getGridSize().x == m_sGridSize.x
+            && targetGrid->getGridSize().y == m_sGridSize.y /*&& dynamic_cast<CCGridBase*>(targetGrid) != NULL*/)
         {
             targetGrid->reuse();
         }
@@ -123,7 +128,7 @@ CCObject* CCGridAction::copyWithZone(CCZone *pZone)
 
     CCActionInterval::copyWithZone(pZone);
 
-    pCopy->initWithDuration(m_fDuration, m_sGridSize);
+    pCopy->initWithSize(m_sGridSize, m_fDuration);
     
     CC_SAFE_DELETE(pNewZone);
     return pCopy;
@@ -136,22 +141,22 @@ CCGridBase* CCGrid3DAction::getGrid(void)
     return CCGrid3D::create(m_sGridSize);
 }
 
-ccVertex3F CCGrid3DAction::vertex(const CCPoint& position)
+ccVertex3F CCGrid3DAction::vertex(const ccGridSize& pos)
 {
     CCGrid3D *g = (CCGrid3D*)m_pTarget->getGrid();
-    return g->vertex(position);
+    return g->vertex(pos);
 }
 
-ccVertex3F CCGrid3DAction::originalVertex(const CCPoint& position)
+ccVertex3F CCGrid3DAction::originalVertex(const ccGridSize& pos)
 {
     CCGrid3D *g = (CCGrid3D*)m_pTarget->getGrid();
-    return g->originalVertex(position);
+    return g->originalVertex(pos);
 }
 
-void CCGrid3DAction::setVertex(const CCPoint& position, const ccVertex3F& vertex)
+void CCGrid3DAction::setVertex(const ccGridSize& pos, const ccVertex3F& vertex)
 {
     CCGrid3D *g = (CCGrid3D*)m_pTarget->getGrid();
-    g->setVertex(position, vertex);
+    g->setVertex(pos, vertex);
 }
 
 // implementation of TiledGrid3DAction
@@ -161,39 +166,30 @@ CCGridBase* CCTiledGrid3DAction::getGrid(void)
     return CCTiledGrid3D::create(m_sGridSize);
 }
 
-ccQuad3 CCTiledGrid3DAction::tile(const CCPoint& pos)
+ccQuad3 CCTiledGrid3DAction::tile(const ccGridSize& pos)
 {
     CCTiledGrid3D *g = (CCTiledGrid3D*)m_pTarget->getGrid();
     return g->tile(pos);
 }
 
-ccQuad3 CCTiledGrid3DAction::originalTile(const CCPoint& pos)
+ccQuad3 CCTiledGrid3DAction::originalTile(const ccGridSize& pos)
 {
     CCTiledGrid3D *g = (CCTiledGrid3D*)m_pTarget->getGrid();
     return g->originalTile(pos);
 }
 
-void CCTiledGrid3DAction::setTile(const CCPoint& pos, const ccQuad3& coords)
+void CCTiledGrid3DAction::setTile(const ccGridSize& pos, const ccQuad3& coords)
 {
     CCTiledGrid3D *g = (CCTiledGrid3D*)m_pTarget->getGrid();
     return g->setTile(pos, coords);
 }
 
-CCTiledGrid3DAction* CCTiledGrid3DAction::create(float duration, const CCSize& gridSize)
-{
-    CCTiledGrid3DAction* pRet = new CCTiledGrid3DAction();
-    if (pRet && pRet->initWithDuration(duration, gridSize))
-    {
-        pRet->autorelease();
-    }
-    else
-    {
-        CC_SAFE_DELETE(pRet);
-    }
-    return pRet;
-}
-
 // implementation CCAccelDeccelAmplitude
+
+CCAccelDeccelAmplitude* CCAccelDeccelAmplitude::actionWithAction(CCAction *pAction, float duration)
+{
+    return CCAccelDeccelAmplitude::create(pAction, duration);
+}
 
 CCAccelDeccelAmplitude* CCAccelDeccelAmplitude::create(CCAction *pAction, float duration)
 {
@@ -258,6 +254,11 @@ CCActionInterval* CCAccelDeccelAmplitude::reverse(void)
 
 // implementation of AccelAmplitude
 
+CCAccelAmplitude* CCAccelAmplitude::actionWithAction(CCAction *pAction, float duration)
+{
+    return CCAccelAmplitude::create(pAction, duration);
+}
+
 CCAccelAmplitude* CCAccelAmplitude::create(CCAction *pAction, float duration)
 {
     CCAccelAmplitude *pRet = new CCAccelAmplitude();
@@ -313,6 +314,11 @@ CCActionInterval* CCAccelAmplitude::reverse(void)
 }
 
 // DeccelAmplitude
+
+CCDeccelAmplitude* CCDeccelAmplitude::actionWithAction(CCAction *pAction, float duration)
+{
+    return CCDeccelAmplitude::create(pAction, duration);
+}
 
 CCDeccelAmplitude* CCDeccelAmplitude::create(CCAction *pAction, float duration)
 {
@@ -382,6 +388,11 @@ void CCStopGrid::startWithTarget(CCNode *pTarget)
     }
 }
 
+CCStopGrid* CCStopGrid::action(void)
+{
+    return CCStopGrid::create();
+}
+
 CCStopGrid* CCStopGrid::create(void)
 {
     CCStopGrid* pAction = new CCStopGrid();
@@ -390,6 +401,11 @@ CCStopGrid* CCStopGrid::create(void)
     return pAction;
 }
 // implementation of CCReuseGrid
+
+CCReuseGrid* CCReuseGrid::actionWithTimes(int times)
+{
+    return CCReuseGrid::create(times);
+}
 
 CCReuseGrid* CCReuseGrid::create(int times)
 {

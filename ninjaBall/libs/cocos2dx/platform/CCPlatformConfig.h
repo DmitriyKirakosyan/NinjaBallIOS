@@ -43,77 +43,58 @@ Config of cocos2d-x project, per target platform.
 #define CC_PLATFORM_BADA               6
 #define CC_PLATFORM_BLACKBERRY         7
 #define CC_PLATFORM_MAC                8
-#define CC_PLATFORM_NACL               9
-#define CC_PLATFORM_EMSCRIPTEN        10
-#define CC_PLATFORM_TIZEN             11
 
 // Determine target platform by compile environment macro.
 #define CC_TARGET_PLATFORM             CC_PLATFORM_UNKNOWN
 
-// mac
-#if defined(CC_TARGET_OS_MAC)
-#undef  CC_TARGET_PLATFORM
-#define CC_TARGET_PLATFORM         CC_PLATFORM_MAC
-#endif
-
 // iphone
-#if defined(CC_TARGET_OS_IPHONE)
+#if ! CC_TARGET_PLATFORM && (defined(TARGET_OS_IPHONE) || defined(TARGET_IPHONE_SIMULATOR))
     #undef  CC_TARGET_PLATFORM
     #define CC_TARGET_PLATFORM         CC_PLATFORM_IOS
+    #define CC_SUPPORT_PVRTC
 #endif
 
 // android
-#if defined(ANDROID)
+#if ! CC_TARGET_PLATFORM && defined(ANDROID)
     #undef  CC_TARGET_PLATFORM
     #define CC_TARGET_PLATFORM         CC_PLATFORM_ANDROID
 #endif
 
 // win32
-#if defined(WIN32) && defined(_WINDOWS)
+#if ! CC_TARGET_PLATFORM && (defined(WIN32) && defined(_WINDOWS))
     #undef  CC_TARGET_PLATFORM
     #define CC_TARGET_PLATFORM         CC_PLATFORM_WIN32
 #endif
 
 // linux
-#if defined(LINUX)
+#if ! CC_TARGET_PLATFORM && defined(LINUX)
     #undef  CC_TARGET_PLATFORM
     #define CC_TARGET_PLATFORM         CC_PLATFORM_LINUX
 #endif
 
 // marmalade
-#if defined(MARMALADE)
+#if ! CC_TARGET_PLATFORM && defined(MARMALADE)
 #undef  CC_TARGET_PLATFORM
 #define CC_TARGET_PLATFORM         CC_PLATFORM_MARMALADE
 #endif
 
 // bada
-#if defined(SHP)
+#if ! CC_TARGET_PLATFORM && defined(SHP)
 #undef  CC_TARGET_PLATFORM
 #define CC_TARGET_PLATFORM         CC_PLATFORM_BADA
 #endif
 
 // qnx
-#if defined(__QNX__)
+#if ! CC_TARGET_PLATFORM && defined(__QNX__)
     #undef  CC_TARGET_PLATFORM
     #define CC_TARGET_PLATFORM     CC_PLATFORM_BLACKBERRY
 #endif
 
-// native client
-#if defined(__native_client__)
+// mac
+#if ! CC_TARGET_PLATFORM && defined(TARGET_OS_MAC)
     #undef  CC_TARGET_PLATFORM
-    #define CC_TARGET_PLATFORM     CC_PLATFORM_NACL
-#endif
-
-// Emscripten
-#if defined(EMSCRIPTEN)
-    #undef  CC_TARGET_PLATFORM
-    #define CC_TARGET_PLATFORM     CC_PLATFORM_EMSCRIPTEN
-#endif
-
-// tizen
-#if defined(TIZEN)
-    #undef  CC_TARGET_PLATFORM
-    #define CC_TARGET_PLATFORM     CC_PLATFORM_TIZEN
+    #define CC_TARGET_PLATFORM         CC_PLATFORM_MAC
+    //#define CC_SUPPORT_PVRTC
 #endif
 
 //////////////////////////////////////////////////////////////////////////

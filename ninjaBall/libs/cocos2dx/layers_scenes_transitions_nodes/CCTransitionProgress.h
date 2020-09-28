@@ -42,6 +42,7 @@ class CCRenderTexture;
 class CC_DLL CCTransitionProgress : public CCTransitionScene
 {
 public:
+    CC_DEPRECATED_ATTRIBUTE static CCTransitionProgress* transitionWithDuration(float t, CCScene* scene);
     static CCTransitionProgress* create(float t, CCScene* scene);
 
     CCTransitionProgress();
@@ -63,6 +64,7 @@ protected:
 class CC_DLL CCTransitionProgressRadialCCW : public CCTransitionProgress
 {
 public:
+    CC_DEPRECATED_ATTRIBUTE static CCTransitionProgressRadialCCW* transitionWithDuration(float t, CCScene* scene);
     static CCTransitionProgressRadialCCW* create(float t, CCScene* scene);
 protected:
     virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture);
@@ -76,6 +78,7 @@ protected:
 class CC_DLL CCTransitionProgressRadialCW : public CCTransitionProgress
 {
 public:
+    CC_DEPRECATED_ATTRIBUTE static CCTransitionProgressRadialCW* transitionWithDuration(float t, CCScene* scene);
     static CCTransitionProgressRadialCW* create(float t, CCScene* scene);
 protected:
     virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture);
@@ -88,7 +91,7 @@ protected:
 class CC_DLL CCTransitionProgressHorizontal : public CCTransitionProgress
 {
 public:
-
+    CC_DEPRECATED_ATTRIBUTE static CCTransitionProgressHorizontal* transitionWithDuration(float t, CCScene* scene);
     static CCTransitionProgressHorizontal* create(float t, CCScene* scene);
 protected:
     virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture);
@@ -98,7 +101,7 @@ protected:
 class CC_DLL CCTransitionProgressVertical : public CCTransitionProgress
 {
 public:
-
+    CC_DEPRECATED_ATTRIBUTE static CCTransitionProgressVertical* transitionWithDuration(float t, CCScene* scene);
     static CCTransitionProgressVertical* create(float t, CCScene* scene);
 protected:
     virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture);
@@ -108,7 +111,7 @@ protected:
 class CC_DLL CCTransitionProgressInOut : public CCTransitionProgress
 {
 public:
-
+    CC_DEPRECATED_ATTRIBUTE static CCTransitionProgressInOut* transitionWithDuration(float t, CCScene* scene);
     static CCTransitionProgressInOut* create(float t, CCScene* scene);
 protected:
     virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture);
@@ -119,7 +122,7 @@ protected:
 class CC_DLL CCTransitionProgressOutIn : public CCTransitionProgress
 {
 public:
-
+    CC_DEPRECATED_ATTRIBUTE static CCTransitionProgressOutIn* transitionWithDuration(float t, CCScene* scene);
     static CCTransitionProgressOutIn* create(float t, CCScene* scene);
 protected:
     virtual CCProgressTimer* progressTimerNodeWithRenderTexture(CCRenderTexture* texture);

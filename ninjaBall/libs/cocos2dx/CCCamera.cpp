@@ -27,7 +27,7 @@ THE SOFTWARE.
 #include "cocoa/CCString.h"
 #include "CCGL.h"
 
-#include "draw_nodes/CCDrawingPrimitives.h"
+#include "CCDrawingPrimitives.h"
 #include "CCDirector.h"
 #include "kazmath/GL/matrix.h"
 

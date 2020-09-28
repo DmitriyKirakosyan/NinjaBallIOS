@@ -7,7 +7,7 @@
 //
 
 #include "LevelProvider.h"
-#include <iostream.h>
+//#include <iostream.h>
 #include "cocos2d.h"
 
 using namespace cocos2d;

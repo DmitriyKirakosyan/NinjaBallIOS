@@ -28,6 +28,8 @@ public:
     void createLevel(const char* fileName);
     
     void createLevelFromTMX(const char* fileName);
+
+    float distanceBetween(cocos2d::CCPoint p1, cocos2d::CCPoint p2);
     
     /**
      ограничивает путь стенами и возвращает точку,

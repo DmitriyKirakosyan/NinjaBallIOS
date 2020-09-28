@@ -48,6 +48,11 @@ CCAction::~CCAction()
     CCLOGINFO("cocos2d: deallocing");
 }
 
+CCAction * CCAction::action()
+{
+    return CCAction::create();
+}
+
 CCAction* CCAction::create()
 {
     CCAction * pRet = new CCAction();
@@ -122,6 +127,11 @@ CCFiniteTimeAction *CCFiniteTimeAction::reverse()
 CCSpeed::~CCSpeed()
 {
     CC_SAFE_RELEASE(m_pInnerAction);
+}
+
+CCSpeed * CCSpeed::actionWithAction(CCActionInterval *pAction, float fSpeed)
+{
+    return CCSpeed::create(pAction, fSpeed);
 }
 
 CCSpeed* CCSpeed::create(CCActionInterval* pAction, float fSpeed)
@@ -209,6 +219,11 @@ void CCSpeed::setInnerAction(CCActionInterval *pAction)
 CCFollow::~CCFollow()
 {
     CC_SAFE_RELEASE(m_pobFollowedNode);
+}
+
+CCFollow *CCFollow::actionWithTarget(CCNode *pFollowedNode, const CCRect& rect/* = CCRectZero*/)
+{
+    return CCFollow::create(pFollowedNode, rect);
 }
 
 CCFollow* CCFollow::create(CCNode *pFollowedNode, const CCRect& rect/* = CCRectZero*/)

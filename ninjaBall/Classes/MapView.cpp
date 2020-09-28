@@ -34,7 +34,9 @@ void MapView::createLevel(const char *fileName)
     Json::Reader reader;
     CCFileUtils* fileUtils = CCFileUtils::sharedFileUtils();
     unsigned long* pSize = new unsigned long[10];
-    std::string fileData = std::string(reinterpret_cast<const char*>(fileUtils->getFileData(fileName, "r", pSize)));
+
+    const char * path = fileUtils->fullPathFromRelativePath(fileName);
+    std::string fileData = std::string(reinterpret_cast<const char*>(fileUtils->getFileData(path, "r", pSize)));
     //std::ifstream jsonFile(pszPath.c_str());
 
     //CCLog("file full path : %s", pszPath.c_str());
@@ -89,7 +91,7 @@ bool MapView::isNinjaWin(CCSprite* ninja)
 
 CCPoint MapView::restrictPath(CCPoint startPoint, CCPoint endPoint)
 {
-    int stepsNum = (int) startPoint.getDistance(endPoint) / 5.0f;
+    int stepsNum = (int) distanceBetween(startPoint, endPoint) / 5.0f;
     CCPoint pointOnLine;
     int i;
     for (i = 0; i < stepsNum; ++i) {
@@ -112,4 +114,9 @@ CCPoint MapView::restrictPath(CCPoint startPoint, CCPoint endPoint)
     else result = endPoint;
     
     return result;
+}
+
+float MapView::distanceBetween(CCPoint p1, CCPoint p2)
+{
+    return sqrt(pow(p2.x-p1.x,2)+pow(p2.y-p1.y,2));
 }

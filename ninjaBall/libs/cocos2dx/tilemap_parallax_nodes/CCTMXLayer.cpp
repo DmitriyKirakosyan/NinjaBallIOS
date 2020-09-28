@@ -38,6 +38,10 @@ NS_CC_BEGIN
 
 
 // CCTMXLayer - init & alloc & dealloc
+CCTMXLayer * CCTMXLayer::layerWithTilesetInfo(CCTMXTilesetInfo *tilesetInfo, CCTMXLayerInfo *layerInfo, CCTMXMapInfo *mapInfo)
+{
+    return CCTMXLayer::create(tilesetInfo, layerInfo, mapInfo);
+}
 
 CCTMXLayer * CCTMXLayer::create(CCTMXTilesetInfo *tilesetInfo, CCTMXLayerInfo *layerInfo, CCTMXMapInfo *mapInfo)
 {
@@ -244,7 +248,7 @@ void CCTMXLayer::setupTileSprite(CCSprite* sprite, CCPoint pos, unsigned int gid
 
     //issue 1264, flip can be undone as well
     sprite->setFlipX(false);
-    sprite->setFlipY(false);
+    sprite->setFlipX(false);
     sprite->setRotation(0.0f);
     sprite->setAnchorPoint(ccp(0,0));
 
@@ -302,14 +306,12 @@ CCSprite* CCTMXLayer::reusedTileWithRect(CCRect rect)
     }
     else
     {
-        // XXX HACK: Needed because if "batch node" is nil,
-		// then the Sprite'squad will be reset
-        m_pReusedTile->setBatchNode(NULL);
-        
-		// Re-init the sprite
-        m_pReusedTile->setTextureRect(rect, false, rect.size);
-        
-		// restore the batch node
+        // XXX: should not be re-init. Potential memory leak. Not following best practices
+        // XXX: it shall call directory  [setRect:rect]
+        m_pReusedTile->initWithTexture(m_pobTextureAtlas->getTexture(), rect, false);
+
+        // Since initWithTexture resets the batchNode, we need to re add it.
+        // but should be removed once initWithTexture is not called again
         m_pReusedTile->setBatchNode(this);
     }
 
@@ -393,7 +395,7 @@ CCSprite * CCTMXLayer::insertTileForGID(unsigned int gid, const CCPoint& pos)
     unsigned int indexForZ = atlasIndexForNewZ(z);
 
     // Optimization: add the quad without adding a child
-    this->insertQuadFromSprite(tile, indexForZ);
+    this->addQuadFromSprite(tile, indexForZ);
 
     // insert it into the local atlasindex array
     ccCArrayInsertValueAtIndex(m_pAtlasIndexArray, (void*)z, indexForZ);
@@ -457,7 +459,7 @@ CCSprite * CCTMXLayer::appendTileForGID(unsigned int gid, const CCPoint& pos)
     unsigned int indexForZ = m_pAtlasIndexArray->num;
 
     // don't add it using the "standard" way.
-    insertQuadFromSprite(tile, indexForZ);
+    addQuadFromSprite(tile, indexForZ);
 
     // append should be after addQuadFromSprite since it modifies the quantity values
     ccCArrayInsertValueAtIndex(m_pAtlasIndexArray, (void*)z, indexForZ);

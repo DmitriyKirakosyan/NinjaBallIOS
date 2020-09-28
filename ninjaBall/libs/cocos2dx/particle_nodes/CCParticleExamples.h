@@ -43,9 +43,10 @@ public:
     virtual ~CCParticleFire(){}
     bool init(){ return initWithTotalParticles(250); }
     virtual bool initWithTotalParticles(unsigned int numberOfParticles);
+    //@deprecated: This interface will be deprecated sooner or later.
+    CC_DEPRECATED_ATTRIBUTE static CCParticleFire* node();
     
     static CCParticleFire* create();
-    static CCParticleFire* createWithTotalParticles(unsigned int numberOfParticles);
 };
 
 //! @brief A fireworks particle system
@@ -56,9 +57,10 @@ public:
     virtual ~CCParticleFireworks(){}
     bool init(){ return initWithTotalParticles(1500); }
     virtual bool initWithTotalParticles(unsigned int numberOfParticles);
+    //@deprecated: This interface will be deprecated sooner or later.
+    CC_DEPRECATED_ATTRIBUTE static CCParticleFireworks* node();
     
     static CCParticleFireworks* create();
-    static CCParticleFireworks* createWithTotalParticles(unsigned int numberOfParticles);
 };
 
 //! @brief A sun particle system
@@ -69,9 +71,10 @@ public:
     virtual ~CCParticleSun(){}
     bool init(){ return initWithTotalParticles(350); }
     virtual bool initWithTotalParticles(unsigned int numberOfParticles);
+    //@deprecated: This interface will be deprecated sooner or later.
+    CC_DEPRECATED_ATTRIBUTE static CCParticleSun* node();
     
     static CCParticleSun* create();
-    static CCParticleSun* createWithTotalParticles(unsigned int numberOfParticles);
 };
 
 //! @brief A galaxy particle system
@@ -82,9 +85,10 @@ public:
     virtual ~CCParticleGalaxy(){}
     bool init(){ return initWithTotalParticles(200); }
     virtual bool initWithTotalParticles(unsigned int numberOfParticles);
+    //@deprecated: This interface will be deprecated sooner or later.
+    CC_DEPRECATED_ATTRIBUTE static CCParticleGalaxy* node();
     
     static CCParticleGalaxy* create();
-    static CCParticleGalaxy* createWithTotalParticles(unsigned int numberOfParticles);
 };
 
 //! @brief A flower particle system
@@ -95,9 +99,10 @@ public:
     virtual ~CCParticleFlower(){}
     bool init(){ return initWithTotalParticles(250); }
     virtual bool initWithTotalParticles(unsigned int numberOfParticles);
+    //@deprecated: This interface will be deprecated sooner or later.
+    CC_DEPRECATED_ATTRIBUTE static CCParticleFlower* node();
     
     static CCParticleFlower* create();
-    static CCParticleFlower* createWithTotalParticles(unsigned int numberOfParticles);
 };
 
 //! @brief A meteor particle system
@@ -108,9 +113,8 @@ public:
     virtual ~CCParticleMeteor(){}
     bool init(){ return initWithTotalParticles(150); }
     virtual bool initWithTotalParticles(unsigned int numberOfParticles);
-
+    CC_DEPRECATED_ATTRIBUTE static CCParticleMeteor * node();
     static CCParticleMeteor * create();
-    static CCParticleMeteor* createWithTotalParticles(unsigned int numberOfParticles);
 };
 
 //! @brief An spiral particle system
@@ -121,9 +125,10 @@ public:
     virtual ~CCParticleSpiral(){}
     bool init(){ return initWithTotalParticles(500); }
     virtual bool initWithTotalParticles(unsigned int numberOfParticles);
+    //@deprecated: This interface will be deprecated sooner or later.
+    CC_DEPRECATED_ATTRIBUTE static CCParticleSpiral* node();
     
     static CCParticleSpiral* create();
-    static CCParticleSpiral* createWithTotalParticles(unsigned int numberOfParticles);
 };
 
 //! @brief An explosion particle system
@@ -134,9 +139,10 @@ public:
     virtual ~CCParticleExplosion(){}
     bool init(){ return initWithTotalParticles(700); }
     virtual bool initWithTotalParticles(unsigned int numberOfParticles);
+    //@deprecated: This interface will be deprecated sooner or later.
+    CC_DEPRECATED_ATTRIBUTE static CCParticleExplosion* node();
     
     static CCParticleExplosion* create();
-    static CCParticleExplosion* createWithTotalParticles(unsigned int numberOfParticles);
 };
 
 //! @brief An smoke particle system
@@ -147,9 +153,10 @@ public:
     virtual ~CCParticleSmoke(){}
     bool init(){ return initWithTotalParticles(200); }
     virtual bool initWithTotalParticles(unsigned int numberOfParticles);
+    //@deprecated: This interface will be deprecated sooner or later.
+    CC_DEPRECATED_ATTRIBUTE static CCParticleSmoke* node();
     
     static CCParticleSmoke* create();
-    static CCParticleSmoke* createWithTotalParticles(unsigned int numberOfParticles);
 };
 
 //! @brief An snow particle system
@@ -160,9 +167,10 @@ public:
     virtual ~CCParticleSnow(){}
     bool init(){ return initWithTotalParticles(700); }
     virtual bool initWithTotalParticles(unsigned int numberOfParticles);
+    //@deprecated: This interface will be deprecated sooner or later.
+    CC_DEPRECATED_ATTRIBUTE static CCParticleSnow* node();
     
     static CCParticleSnow* create();
-    static CCParticleSnow* createWithTotalParticles(unsigned int numberOfParticles);
 };
 
 //! @brief A rain particle system
@@ -173,9 +181,10 @@ public:
     virtual ~CCParticleRain(){}
     bool init(){ return initWithTotalParticles(1000); }
     virtual bool initWithTotalParticles(unsigned int numberOfParticles);
+    //@deprecated: This interface will be deprecated sooner or later.
+    CC_DEPRECATED_ATTRIBUTE static CCParticleRain* node();
     
     static CCParticleRain* create();
-    static CCParticleRain* createWithTotalParticles(unsigned int numberOfParticles);
 };
 
 // end of particle_nodes group

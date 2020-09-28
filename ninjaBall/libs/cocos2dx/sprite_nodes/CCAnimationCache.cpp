@@ -153,7 +153,7 @@ void CCAnimationCache::parseVersion2(CCDictionary* animations)
         const char* name = pElement->getStrKey();
         CCDictionary* animationDict = (CCDictionary*)pElement->getObject();
 
-        const CCString* loops = animationDict->valueForKey("loops");
+        int loops = animationDict->valueForKey("loops")->intValue();
         bool restoreOriginalFrame = animationDict->valueForKey("restoreOriginalFrame")->boolValue();
 
         CCArray* frameArray = (CCArray*)animationDict->objectForKey("frames");
@@ -193,7 +193,7 @@ void CCAnimationCache::parseVersion2(CCDictionary* animations)
 
         float delayPerUnit = animationDict->valueForKey("delayPerUnit")->floatValue();
         CCAnimation *animation = new CCAnimation();
-        animation->initWithAnimationFrames(array, delayPerUnit, 0 != loops->length() ? loops->intValue() : 1);
+        animation->initWithAnimationFrames(array, delayPerUnit, loops);
         array->release();
 
         animation->setRestoreOriginalFrame(restoreOriginalFrame);
@@ -244,8 +244,8 @@ void CCAnimationCache::addAnimationsWithFile(const char* plist)
 {
     CCAssert( plist, "Invalid texture file name");
 
-    std::string path = CCFileUtils::sharedFileUtils()->fullPathForFilename(plist);
-    CCDictionary* dict = CCDictionary::createWithContentsOfFile(path.c_str());
+    const char* path = CCFileUtils::sharedFileUtils()->fullPathFromRelativePath(plist);
+    CCDictionary* dict = CCDictionary::createWithContentsOfFile(path);
 
     CCAssert( dict, "CCAnimationCache: File could not be found");
 

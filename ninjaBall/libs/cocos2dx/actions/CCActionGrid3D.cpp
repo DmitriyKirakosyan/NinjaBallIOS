@@ -31,13 +31,18 @@ THE SOFTWARE.
 NS_CC_BEGIN
 // implementation of CCWaves3D
 
-CCWaves3D* CCWaves3D::create(float duration, const CCSize& gridSize, unsigned int waves, float amplitude)
+CCWaves3D* CCWaves3D::actionWithWaves(int wav, float amp, const ccGridSize& gridSize, float duration)
+{
+    return CCWaves3D::create(wav, amp, gridSize, duration);
+}
+
+CCWaves3D* CCWaves3D::create(int wav, float amp, const ccGridSize& gridSize, float duration)
 {
     CCWaves3D *pAction = new CCWaves3D();
 
     if (pAction)
     {
-        if (pAction->initWithDuration(duration, gridSize, waves, amplitude))
+        if (pAction->initWithWaves(wav, amp, gridSize, duration))
         {
             pAction->autorelease();
         }
@@ -50,12 +55,12 @@ CCWaves3D* CCWaves3D::create(float duration, const CCSize& gridSize, unsigned in
     return pAction;    
 }
 
-bool CCWaves3D::initWithDuration(float duration, const CCSize& gridSize, unsigned int waves, float amplitude)
+bool CCWaves3D::initWithWaves(int wav, float amp, const ccGridSize& gridSize, float duration)
 {
-    if (CCGrid3DAction::initWithDuration(duration, gridSize))
+    if (CCGrid3DAction::initWithSize(gridSize, duration))
     {
-        m_nWaves = waves;
-        m_fAmplitude = amplitude;
+        m_nWaves = wav;
+        m_fAmplitude = amp;
         m_fAmplitudeRate = 1.0f;
 
         return true;
@@ -82,7 +87,7 @@ CCObject* CCWaves3D::copyWithZone(CCZone *pZone)
     CCGrid3DAction::copyWithZone(pZone);
 
 
-    pCopy->initWithDuration(m_fDuration, m_sGridSize, m_nWaves, m_fAmplitude);
+    pCopy->initWithWaves(m_nWaves, m_fAmplitude, m_sGridSize, m_fDuration);
 
     CC_SAFE_DELETE(pNewZone);
     return pCopy;
@@ -91,19 +96,24 @@ CCObject* CCWaves3D::copyWithZone(CCZone *pZone)
 void CCWaves3D::update(float time)
 {
     int i, j;
-    for (i = 0; i < m_sGridSize.width + 1; ++i)
+    for (i = 0; i < m_sGridSize.x + 1; ++i)
     {
-        for (j = 0; j < m_sGridSize.height + 1; ++j)
+        for (j = 0; j < m_sGridSize.y + 1; ++j)
         {
-            ccVertex3F v = originalVertex(ccp(i ,j));
-            v.z += (sinf((float)M_PI * time * m_nWaves * 2 + (v.y+v.x) * 0.01f) * m_fAmplitude * m_fAmplitudeRate);
-            //CCLOG("v.z offset is %f\n", (sinf((float)M_PI * time * m_nWaves * 2 + (v.y+v.x) * .01f) * m_fAmplitude * m_fAmplitudeRate));
-            setVertex(ccp(i, j), v);
+            ccVertex3F v = originalVertex(ccg(i ,j));
+            v.z += (sinf((float)M_PI * time * m_nWaves * 2 + (v.y+v.x) * .01f) * m_fAmplitude * m_fAmplitudeRate);
+            CCLog("v.z offset is %f\n", (sinf((float)M_PI * time * m_nWaves * 2 + (v.y+v.x) * .01f) * m_fAmplitude * m_fAmplitudeRate));
+            setVertex(ccg(i, j), v);
         }
     }
 }
 
 // implementation of CCFlipX3D
+
+CCFlipX3D* CCFlipX3D::actionWithDuration(float duration)
+{
+    return CCFlipX3D::create(duration);
+}
 
 CCFlipX3D* CCFlipX3D::create(float duration)
 {
@@ -111,7 +121,7 @@ CCFlipX3D* CCFlipX3D::create(float duration)
 
     if (pAction)
     {
-        if (pAction->initWithDuration(duration))
+        if (pAction->initWithSize(ccg(1, 1), duration))
         {
             pAction->autorelease();
         }
@@ -126,12 +136,12 @@ CCFlipX3D* CCFlipX3D::create(float duration)
 
 bool CCFlipX3D::initWithDuration(float duration)
 {
-    return CCGrid3DAction::initWithDuration(duration, CCSizeMake(1, 1));
+    return CCGrid3DAction::initWithSize(ccg(1, 1), duration);
 }
 
-bool CCFlipX3D::initWithSize(const CCSize& gridSize, float duration)
+bool CCFlipX3D::initWithSize(const ccGridSize& gridSize, float duration)
 {
-    if (gridSize.width != 1 || gridSize.height != 1)
+    if (gridSize.x != 1 || gridSize.y != 1)
     {
         // Grid size must be (1,1)
         CCAssert(0, "Grid size must be (1,1)");
@@ -139,7 +149,7 @@ bool CCFlipX3D::initWithSize(const CCSize& gridSize, float duration)
         return false;
     }
 
-    return CCGrid3DAction::initWithDuration(duration, gridSize);
+    return CCGrid3DAction::initWithSize(gridSize, duration);
 }
 
 CCObject* CCFlipX3D::copyWithZone(CCZone *pZone)
@@ -174,30 +184,30 @@ void CCFlipX3D::update(float time)
 
     ccVertex3F v0, v1, v, diff;
 
-    v0 = originalVertex(ccp(1, 1));
-    v1 = originalVertex(ccp(0, 0));
+    v0 = originalVertex(ccg(1, 1));
+    v1 = originalVertex(ccg(0, 0));
 
     float    x0 = v0.x;
     float    x1 = v1.x;
     float x;
-    CCPoint    a, b, c, d;
+    ccGridSize    a, b, c, d;
 
     if ( x0 > x1 )
     {
         // Normal Grid
-        a = ccp(0,0);
-        b = ccp(0,1);
-        c = ccp(1,0);
-        d = ccp(1,1);
+        a = ccg(0,0);
+        b = ccg(0,1);
+        c = ccg(1,0);
+        d = ccg(1,1);
         x = x0;
     }
     else
     {
         // Reversed Grid
-        c = ccp(0,0);
-        d = ccp(0,1);
-        a = ccp(1,0);
-        b = ccp(1,1);
+        c = ccg(0,0);
+        d = ccg(0,1);
+        a = ccg(1,0);
+        b = ccg(1,1);
         x = x1;
     }
     
@@ -231,13 +241,18 @@ void CCFlipX3D::update(float time)
 
 // implementation of FlipY3D
 
+CCFlipY3D* CCFlipY3D::actionWithDuration(float duration)
+{
+    return CCFlipY3D::create(duration);
+}
+
 CCFlipY3D* CCFlipY3D::create(float duration)
 {
     CCFlipY3D *pAction = new CCFlipY3D();
 
     if (pAction)
     {
-        if (pAction->initWithDuration(duration))
+        if (pAction->initWithSize(ccg(1, 1), duration))
         {
             pAction->autorelease();
         }
@@ -282,30 +297,30 @@ void CCFlipY3D::update(float time)
     
     ccVertex3F    v0, v1, v, diff;
     
-    v0 = originalVertex(ccp(1, 1));
-    v1 = originalVertex(ccp(0, 0));
+    v0 = originalVertex(ccg(1, 1));
+    v1 = originalVertex(ccg(0, 0));
     
     float    y0 = v0.y;
     float    y1 = v1.y;
     float y;
-    CCPoint    a, b, c, d;
+    ccGridSize    a, b, c, d;
     
     if (y0 > y1)
     {
         // Normal Grid
-        a = ccp(0,0);
-        b = ccp(0,1);
-        c = ccp(1,0);
-        d = ccp(1,1);
+        a = ccg(0,0);
+        b = ccg(0,1);
+        c = ccg(1,0);
+        d = ccg(1,1);
         y = y0;
     }
     else
     {
         // Reversed Grid
-        b = ccp(0,0);
-        a = ccp(0,1);
-        d = ccp(1,0);
-        c = ccp(1,1);
+        b = ccg(0,0);
+        a = ccg(0,1);
+        d = ccg(1,0);
+        c = ccg(1,1);
         y = y1;
     }
     
@@ -340,13 +355,18 @@ void CCFlipY3D::update(float time)
 
 // implementation of Lens3D
 
-CCLens3D* CCLens3D::create(float duration, const CCSize& gridSize, const CCPoint& position, float radius)
+CCLens3D* CCLens3D::actionWithPosition(const CCPoint& pos, float r, const ccGridSize& gridSize, float duration)
+{
+    return CCLens3D::create(pos, r, gridSize, duration);
+}
+
+CCLens3D* CCLens3D::create(const CCPoint& pos, float r, const ccGridSize& gridSize, float duration)
 {
     CCLens3D *pAction = new CCLens3D();
 
     if (pAction)
     {
-        if (pAction->initWithDuration(duration, gridSize, position, radius))
+        if (pAction->initWithPosition(pos, r, gridSize, duration))
         {
             pAction->autorelease();
         }
@@ -359,15 +379,14 @@ CCLens3D* CCLens3D::create(float duration, const CCSize& gridSize, const CCPoint
     return pAction;
 }
 
-bool CCLens3D::initWithDuration(float duration, const CCSize& gridSize, const CCPoint& position, float radius)
+bool CCLens3D::initWithPosition(const CCPoint& pos, float r, const ccGridSize& gridSize, float duration)
 {
-    if (CCGrid3DAction::initWithDuration(duration, gridSize))
+    if (CCGrid3DAction::initWithSize(gridSize, duration))
     {
         m_position = ccp(-1, -1);
-        setPosition(position);
-        m_fRadius = radius;
+        setPosition(pos);
+        m_fRadius = r;
         m_fLensEffect = 0.7f;
-        m_bConcave = false;
         m_bDirty = true;
 
         return true;
@@ -393,7 +412,7 @@ CCObject* CCLens3D::copyWithZone(CCZone *pZone)
 
     CCGrid3DAction::copyWithZone(pZone);
 
-    pCopy->initWithDuration(m_fDuration, m_sGridSize, m_position, m_fRadius);
+    pCopy->initWithPosition(m_position, m_fRadius, m_sGridSize, m_fDuration);
     
     CC_SAFE_DELETE(pNewZone);
     return pCopy;
@@ -415,11 +434,11 @@ void CCLens3D::update(float time)
     {
         int i, j;
         
-        for (i = 0; i < m_sGridSize.width + 1; ++i)
+        for (i = 0; i < m_sGridSize.x + 1; ++i)
         {
-            for (j = 0; j < m_sGridSize.height + 1; ++j)
+            for (j = 0; j < m_sGridSize.y + 1; ++j)
             {
-                ccVertex3F v = originalVertex(ccp(i, j));
+                ccVertex3F v = originalVertex(ccg(i, j));
                 CCPoint vect = ccpSub(m_position, ccp(v.x, v.y));
                 float r = ccpLength(vect);
                 
@@ -439,11 +458,11 @@ void CCLens3D::update(float time)
                     {
                         vect = ccpNormalize(vect);
                         CCPoint new_vect = ccpMult(vect, new_r);
-                        v.z += (m_bConcave ? -1.0f : 1.0f) * ccpLength(new_vect) * m_fLensEffect;
+                        v.z += ccpLength(new_vect) * m_fLensEffect;
                     }
                 }
                 
-                setVertex(ccp(i, j), v);
+                setVertex(ccg(i, j), v);
             }
         }
         
@@ -453,13 +472,18 @@ void CCLens3D::update(float time)
 
 // implementation of Ripple3D
 
-CCRipple3D* CCRipple3D::create(float duration, const CCSize& gridSize, const CCPoint& position, float radius, unsigned int waves, float amplitude)
+CCRipple3D* CCRipple3D::actionWithPosition(const CCPoint& pos, float r, int wav, float amp, const ccGridSize& gridSize, float duration)
+{
+    return CCRipple3D::create(pos, r, wav, amp, gridSize, duration);
+}
+
+CCRipple3D* CCRipple3D::create(const CCPoint& pos, float r, int wav, float amp, const ccGridSize& gridSize, float duration)
 {
     CCRipple3D *pAction = new CCRipple3D();
 
     if (pAction)
     {
-        if (pAction->initWithDuration(duration, gridSize, position, radius, waves, amplitude))
+        if (pAction->initWithPosition(pos, r, wav, amp, gridSize, duration))
         {
             pAction->autorelease();
         }
@@ -472,14 +496,14 @@ CCRipple3D* CCRipple3D::create(float duration, const CCSize& gridSize, const CCP
     return pAction;
 }
 
-bool CCRipple3D::initWithDuration(float duration, const CCSize& gridSize, const CCPoint& position, float radius, unsigned int waves, float amplitude)
+bool CCRipple3D::initWithPosition(const CCPoint& pos, float r, int wav, float amp, const ccGridSize& gridSize, float duration)
 {
-    if (CCGrid3DAction::initWithDuration(duration, gridSize))
+    if (CCGrid3DAction::initWithSize(gridSize, duration))
     {
-        setPosition(position);
-        m_fRadius = radius;
-        m_nWaves = waves;
-        m_fAmplitude = amplitude;
+        setPosition(pos);
+        m_fRadius = r;
+        m_nWaves = wav;
+        m_fAmplitude = amp;
         m_fAmplitudeRate = 1.0f;
 
         return true;
@@ -510,7 +534,7 @@ CCObject* CCRipple3D::copyWithZone(CCZone *pZone)
 
     CCGrid3DAction::copyWithZone(pZone);
 
-    pCopy->initWithDuration(m_fDuration, m_sGridSize, m_position, m_fRadius, m_nWaves, m_fAmplitude);
+    pCopy->initWithPosition(m_position, m_fRadius, m_nWaves, m_fAmplitude, m_sGridSize, m_fDuration);
     
     CC_SAFE_DELETE(pNewZone);
     return pCopy;
@@ -520,11 +544,11 @@ void CCRipple3D::update(float time)
 {
     int i, j;
 
-    for (i = 0; i < (m_sGridSize.width+1); ++i)
+    for (i = 0; i < (m_sGridSize.x+1); ++i)
     {
-        for (j = 0; j < (m_sGridSize.height+1); ++j)
+        for (j = 0; j < (m_sGridSize.y+1); ++j)
         {
-            ccVertex3F v = originalVertex(ccp(i, j));
+            ccVertex3F v = originalVertex(ccg(i, j));
             CCPoint vect = ccpSub(m_position, ccp(v.x,v.y));
             float r = ccpLength(vect);
             
@@ -535,20 +559,25 @@ void CCRipple3D::update(float time)
                 v.z += (sinf( time*(float)M_PI * m_nWaves * 2 + r * 0.1f) * m_fAmplitude * m_fAmplitudeRate * rate);
             }
             
-            setVertex(ccp(i, j), v);
+            setVertex(ccg(i, j), v);
         }
     }
 }
 
 // implementation of Shaky3D
 
-CCShaky3D* CCShaky3D::create(float duration, const CCSize& gridSize, int range, bool shakeZ)
+CCShaky3D* CCShaky3D::actionWithRange(int range, bool shakeZ, const ccGridSize& gridSize, float duration)
+{
+    return CCShaky3D::create(range, shakeZ, gridSize, duration);
+}
+
+CCShaky3D* CCShaky3D::create(int range, bool shakeZ, const ccGridSize& gridSize, float duration)
 {
     CCShaky3D *pAction = new CCShaky3D();
 
     if (pAction)
     {
-        if (pAction->initWithDuration(duration, gridSize, range, shakeZ))
+        if (pAction->initWithRange(range, shakeZ, gridSize, duration))
         {
             pAction->autorelease();
         }
@@ -561,9 +590,9 @@ CCShaky3D* CCShaky3D::create(float duration, const CCSize& gridSize, int range, 
     return pAction;
 }
 
-bool CCShaky3D::initWithDuration(float duration, const CCSize& gridSize, int range, bool shakeZ)
+bool CCShaky3D::initWithRange(int range, bool shakeZ, const ccGridSize& gridSize, float duration)
 {
-    if (CCGrid3DAction::initWithDuration(duration, gridSize))
+    if (CCGrid3DAction::initWithSize(gridSize, duration))
     {
         m_nRandrange = range;
         m_bShakeZ = shakeZ;
@@ -591,7 +620,7 @@ CCObject* CCShaky3D::copyWithZone(CCZone *pZone)
 
     CCGrid3DAction::copyWithZone(pZone);
 
-    pCopy->initWithDuration(m_fDuration, m_sGridSize, m_nRandrange, m_bShakeZ);
+    pCopy->initWithRange(m_nRandrange, m_bShakeZ, m_sGridSize, m_fDuration);
     
     CC_SAFE_DELETE(pNewZone);
     return pCopy;
@@ -602,11 +631,11 @@ void CCShaky3D::update(float time)
     CC_UNUSED_PARAM(time);
     int i, j;
 
-    for (i = 0; i < (m_sGridSize.width+1); ++i)
+    for (i = 0; i < (m_sGridSize.x+1); ++i)
     {
-        for (j = 0; j < (m_sGridSize.height+1); ++j)
+        for (j = 0; j < (m_sGridSize.y+1); ++j)
         {
-            ccVertex3F v = originalVertex(ccp(i ,j));
+            ccVertex3F v = originalVertex(ccg(i ,j));
             v.x += (rand() % (m_nRandrange*2)) - m_nRandrange;
             v.y += (rand() % (m_nRandrange*2)) - m_nRandrange;
             if (m_bShakeZ)
@@ -614,20 +643,25 @@ void CCShaky3D::update(float time)
                 v.z += (rand() % (m_nRandrange*2)) - m_nRandrange;
             }
             
-            setVertex(ccp(i, j), v);
+            setVertex(ccg(i, j), v);
         }
     }
 }
 
 // implementation of Liquid
 
-CCLiquid* CCLiquid::create(float duration, const CCSize& gridSize, unsigned int waves, float amplitude)
+CCLiquid* CCLiquid::actionWithWaves(int wav, float amp, const ccGridSize& gridSize, float duration)
+{
+    return CCLiquid::create(wav, amp, gridSize, duration);
+}
+
+CCLiquid* CCLiquid::create(int wav, float amp, const ccGridSize& gridSize, float duration)
 {
     CCLiquid *pAction = new CCLiquid();
 
     if (pAction)
     {
-        if (pAction->initWithDuration(duration, gridSize, waves, amplitude))
+        if (pAction->initWithWaves(wav, amp, gridSize, duration))
         {
             pAction->autorelease();
         }
@@ -640,12 +674,12 @@ CCLiquid* CCLiquid::create(float duration, const CCSize& gridSize, unsigned int 
     return pAction;
 }
 
-bool CCLiquid::initWithDuration(float duration, const CCSize& gridSize, unsigned int waves, float amplitude)
+bool CCLiquid::initWithWaves(int wav, float amp, const ccGridSize& gridSize, float duration)
 {
-    if (CCGrid3DAction::initWithDuration(duration, gridSize))
+    if (CCGrid3DAction::initWithSize(gridSize, duration))
     {
-        m_nWaves = waves;
-        m_fAmplitude = amplitude;
+        m_nWaves = wav;
+        m_fAmplitude = amp;
         m_fAmplitudeRate = 1.0f;
 
         return true;
@@ -671,7 +705,7 @@ CCObject* CCLiquid::copyWithZone(CCZone *pZone)
 
     CCGrid3DAction::copyWithZone(pZone);
 
-    pCopy->initWithDuration(m_fDuration, m_sGridSize, m_nWaves, m_fAmplitude);
+    pCopy->initWithWaves(m_nWaves, m_fAmplitude, m_sGridSize, m_fDuration);
 
     CC_SAFE_DELETE(pNewZone);
     return pCopy;
@@ -681,27 +715,32 @@ void CCLiquid::update(float time)
 {
     int i, j;
 
-    for (i = 1; i < m_sGridSize.width; ++i)
+    for (i = 1; i < m_sGridSize.x; ++i)
     {
-        for (j = 1; j < m_sGridSize.height; ++j)
+        for (j = 1; j < m_sGridSize.y; ++j)
         {
-            ccVertex3F v = originalVertex(ccp(i, j));
+            ccVertex3F v = originalVertex(ccg(i, j));
             v.x = (v.x + (sinf(time * (float)M_PI * m_nWaves * 2 + v.x * .01f) * m_fAmplitude * m_fAmplitudeRate));
             v.y = (v.y + (sinf(time * (float)M_PI * m_nWaves * 2 + v.y * .01f) * m_fAmplitude * m_fAmplitudeRate));
-            setVertex(ccp(i, j), v);
+            setVertex(ccg(i, j), v);
         }
     }
 }
 
 // implementation of Waves
 
-CCWaves* CCWaves::create(float duration, const CCSize& gridSize, unsigned int waves, float amplitude, bool horizontal, bool vertical)
+CCWaves* CCWaves::actionWithWaves(int wav, float amp, bool h, bool v, const ccGridSize& gridSize, float duration)
+{
+    return CCWaves::create(wav, amp, h, v, gridSize, duration);
+}
+
+CCWaves* CCWaves::create(int wav, float amp, bool h, bool v, const ccGridSize& gridSize, float duration)
 {
     CCWaves *pAction = new CCWaves();
 
     if (pAction)
     {
-        if (pAction->initWithDuration(duration, gridSize, waves, amplitude, horizontal, vertical))
+        if (pAction->initWithWaves(wav, amp, h, v, gridSize, duration))
         {
             pAction->autorelease();
         }
@@ -714,15 +753,15 @@ CCWaves* CCWaves::create(float duration, const CCSize& gridSize, unsigned int wa
     return pAction;
 }
 
-bool CCWaves::initWithDuration(float duration, const CCSize& gridSize, unsigned int waves, float amplitude, bool horizontal, bool vertical)
+bool CCWaves::initWithWaves(int wav, float amp, bool h, bool v, const ccGridSize& gridSize, float duration)
 {
-    if (CCGrid3DAction::initWithDuration(duration, gridSize))
+    if (CCGrid3DAction::initWithSize(gridSize, duration))
     {
-        m_nWaves = waves;
-        m_fAmplitude = amplitude;
+        m_nWaves = wav;
+        m_fAmplitude = amp;
         m_fAmplitudeRate = 1.0f;
-        m_bHorizontal = horizontal;
-        m_bVertical = vertical;
+        m_bHorizontal = h;
+        m_bVertical = v;
 
         return true;
     }
@@ -747,7 +786,7 @@ CCObject* CCWaves::copyWithZone(CCZone *pZone)
 
     CCGrid3DAction::copyWithZone(pZone);
 
-    pCopy->initWithDuration(m_fDuration, m_sGridSize, m_nWaves, m_fAmplitude, m_bHorizontal, m_bVertical);
+    pCopy->initWithWaves(m_nWaves, m_fAmplitude, m_bHorizontal, m_bVertical, m_sGridSize, m_fDuration);
     
     CC_SAFE_DELETE(pNewZone);
     return pCopy;
@@ -757,11 +796,11 @@ void CCWaves::update(float time)
 {
     int i, j;
 
-    for (i = 0; i < m_sGridSize.width + 1; ++i)
+    for (i = 0; i < m_sGridSize.x + 1; ++i)
     {
-        for (j = 0; j < m_sGridSize.height + 1; ++j)
+        for (j = 0; j < m_sGridSize.y + 1; ++j)
         {
-            ccVertex3F v = originalVertex(ccp(i, j));
+            ccVertex3F v = originalVertex(ccg(i, j));
 
             if (m_bVertical)
             {
@@ -773,20 +812,25 @@ void CCWaves::update(float time)
                 v.y = (v.y + (sinf(time * (float)M_PI * m_nWaves * 2 + v.x * .01f) * m_fAmplitude * m_fAmplitudeRate));
             }
 
-            setVertex(ccp(i, j), v);
+            setVertex(ccg(i, j), v);
         }
     }
 }
 
 // implementation of Twirl
 
-CCTwirl* CCTwirl::create(float duration, const CCSize& gridSize, CCPoint position, unsigned int twirls, float amplitude)
+CCTwirl* CCTwirl::actionWithPosition(CCPoint pos, int t, float amp, const ccGridSize& gridSize, float duration)
+{
+    return CCTwirl::create(pos, t, amp, gridSize, duration);
+}
+
+CCTwirl* CCTwirl::create(CCPoint pos, int t, float amp, const ccGridSize& gridSize, float duration)
 {
     CCTwirl *pAction = new CCTwirl();
 
     if (pAction)
     {
-        if (pAction->initWithDuration(duration, gridSize, position, twirls, amplitude))
+        if (pAction->initWithPosition(pos, t, amp, gridSize, duration))
         {
             pAction->autorelease();
         }
@@ -799,13 +843,13 @@ CCTwirl* CCTwirl::create(float duration, const CCSize& gridSize, CCPoint positio
     return pAction;
 }
 
-bool CCTwirl::initWithDuration(float duration, const CCSize& gridSize, CCPoint position, unsigned int twirls, float amplitude)
+bool CCTwirl::initWithPosition(const CCPoint& pos, int t, float amp, const ccGridSize& gridSize, float duration)
 {
-    if (CCGrid3DAction::initWithDuration(duration, gridSize))
+    if (CCGrid3DAction::initWithSize(gridSize, duration))
     {
-        setPosition(position);
-        m_nTwirls = twirls;
-        m_fAmplitude = amplitude;
+        setPosition(pos);
+        m_nTwirls = t;
+        m_fAmplitude = amp;
         m_fAmplitudeRate = 1.0f;
 
         return true;
@@ -837,7 +881,7 @@ CCObject* CCTwirl::copyWithZone(CCZone *pZone)
     CCGrid3DAction::copyWithZone(pZone);
 
 
-    pCopy->initWithDuration(m_fDuration, m_sGridSize, m_position, m_nTwirls, m_fAmplitude);
+    pCopy->initWithPosition(m_position, m_nTwirls, m_fAmplitude, m_sGridSize, m_fDuration);
 
     CC_SAFE_DELETE(pNewZone);
     return pCopy;
@@ -848,13 +892,13 @@ void CCTwirl::update(float time)
     int i, j;
     CCPoint    c = m_position;
     
-    for (i = 0; i < (m_sGridSize.width+1); ++i)
+    for (i = 0; i < (m_sGridSize.x+1); ++i)
     {
-        for (j = 0; j < (m_sGridSize.height+1); ++j)
+        for (j = 0; j < (m_sGridSize.y+1); ++j)
         {
-            ccVertex3F v = originalVertex(ccp(i ,j));
+            ccVertex3F v = originalVertex(ccg(i ,j));
             
-            CCPoint    avg = ccp(i-(m_sGridSize.width/2.0f), j-(m_sGridSize.height/2.0f));
+            CCPoint    avg = ccp(i-(m_sGridSize.x/2.0f), j-(m_sGridSize.y/2.0f));
             float r = ccpLength(avg);
             
             float amp = 0.1f * m_fAmplitude * m_fAmplitudeRate;
@@ -867,7 +911,7 @@ void CCTwirl::update(float time)
             v.x = c.x + d.x;
             v.y = c.y + d.y;
 
-            setVertex(ccp(i ,j), v);
+            setVertex(ccg(i ,j), v);
         }
     }
 }

@@ -24,17 +24,21 @@ THE SOFTWARE.
 ****************************************************************************/
 #include "CCActionPageTurn3D.h"
 #include "cocoa/CCZone.h"
-#include "support/CCPointExtension.h"
 
 NS_CC_BEGIN
 
-CCPageTurn3D* CCPageTurn3D::create(float duration, const CCSize& gridSize)
+CCPageTurn3D* CCPageTurn3D::actionWithSize(const ccGridSize& gridSize, float time)
+{
+    return CCPageTurn3D::create(gridSize, time);
+}
+
+CCPageTurn3D* CCPageTurn3D::create(const ccGridSize& gridSize, float time)
 {
     CCPageTurn3D *pAction = new CCPageTurn3D();
 
     if (pAction)
     {
-        if (pAction->initWithDuration(duration, gridSize))
+        if (pAction->initWithSize(gridSize, time))
         {
             pAction->autorelease();
         }
@@ -63,12 +67,12 @@ void CCPageTurn3D::update(float time)
     float sinTheta = sinf(theta);
     float cosTheta = cosf(theta);
     
-    for (int i = 0; i <= m_sGridSize.width; ++i)
+    for (int i = 0; i <= m_sGridSize.x; ++i)
     {
-        for (int j = 0; j <= m_sGridSize.height; ++j)
+        for (int j = 0; j <= m_sGridSize.y; ++j)
         {
             // Get original vertex
-            ccVertex3F p = originalVertex(ccp(i ,j));
+            ccVertex3F p = originalVertex(ccg(i ,j));
             
             float R = sqrtf((p.x * p.x) + ((p.y - ay) * (p.y - ay)));
             float r = R * sinTheta;
@@ -103,7 +107,7 @@ void CCPageTurn3D::update(float time)
             }
             
             // Set new coords
-            setVertex(ccp(i, j), p);
+            setVertex(ccg(i, j), p);
             
         }
     }

@@ -32,7 +32,6 @@ THE SOFTWARE.
 #include "shaders/ccGLStateCache.h"
 #include "support/CCNotificationCenter.h"
 #include "CCEventType.h"
-#include "CCGL.h"
 // support
 #include "CCTexture2D.h"
 #include "cocoa/CCString.h"
@@ -103,6 +102,10 @@ void CCTextureAtlas::setQuads(ccV3F_C4B_T2F_Quad *var)
 }
 
 // TextureAtlas - alloc & init
+CCTextureAtlas * CCTextureAtlas::textureAtlasWithFile(const char* file, unsigned int capacity)
+{
+    return CCTextureAtlas::create(file, capacity);
+}
 
 CCTextureAtlas * CCTextureAtlas::create(const char* file, unsigned int capacity)
 {
@@ -114,6 +117,11 @@ CCTextureAtlas * CCTextureAtlas::create(const char* file, unsigned int capacity)
     }
     CC_SAFE_DELETE(pTextureAtlas);
     return NULL;
+}
+
+CCTextureAtlas * CCTextureAtlas::textureAtlasWithTexture(CCTexture2D *texture, unsigned int capacity)
+{
+    return CCTextureAtlas::createWithTexture(texture, capacity);
 }
 
 CCTextureAtlas * CCTextureAtlas::createWithTexture(CCTexture2D *texture, unsigned int capacity)
@@ -245,7 +253,7 @@ void CCTextureAtlas::setupIndices()
 void CCTextureAtlas::setupVBOandVAO()
 {
     glGenVertexArrays(1, &m_uVAOname);
-    ccGLBindVAO(m_uVAOname);
+    glBindVertexArray(m_uVAOname);
 
 #define kQuadSize sizeof(m_pQuads[0].bl)
 
@@ -269,8 +277,7 @@ void CCTextureAtlas::setupVBOandVAO()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_pBuffersVBO[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(m_pIndices[0]) * m_uCapacity * 6, m_pIndices, GL_STATIC_DRAW);
 
-    // Must unbind the VAO before changing the element buffer.
-    ccGLBindVAO(0);
+    glBindVertexArray(0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
@@ -287,9 +294,6 @@ void CCTextureAtlas::setupVBO()
 
 void CCTextureAtlas::mapBuffers()
 {
-    // Avoid changing the element buffer for whatever VAO might be bound.
-	ccGLBindVAO(0);
-    
     glBindBuffer(GL_ARRAY_BUFFER, m_pBuffersVBO[0]);
     glBufferData(GL_ARRAY_BUFFER, sizeof(m_pQuads[0]) * m_uCapacity, m_pQuads, GL_DYNAMIC_DRAW);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -602,24 +606,13 @@ void CCTextureAtlas::drawNumberOfQuads(unsigned int n, unsigned int start)
     if (m_bDirty) 
     {
         glBindBuffer(GL_ARRAY_BUFFER, m_pBuffersVBO[0]);
-        // option 1: subdata
-        //glBufferSubData(GL_ARRAY_BUFFER, sizeof(m_pQuads[0])*start, sizeof(m_pQuads[0]) * n , &m_pQuads[start] );
-		
-		// option 2: data
-        //		glBufferData(GL_ARRAY_BUFFER, sizeof(quads_[0]) * (n-start), &quads_[start], GL_DYNAMIC_DRAW);
-		
-		// option 3: orphaning + glMapBuffer
-		glBufferData(GL_ARRAY_BUFFER, sizeof(m_pQuads[0]) * (n-start), NULL, GL_DYNAMIC_DRAW);
-		void *buf = glMapBuffer(GL_ARRAY_BUFFER, GL_WRITE_ONLY);
-		memcpy(buf, m_pQuads, sizeof(m_pQuads[0])* (n-start));
-		glUnmapBuffer(GL_ARRAY_BUFFER);
-		
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glBufferSubData(GL_ARRAY_BUFFER, sizeof(m_pQuads[0])*start, sizeof(m_pQuads[0]) * n , &m_pQuads[start] );
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
 
         m_bDirty = false;
     }
 
-    ccGLBindVAO(m_uVAOname);
+    glBindVertexArray(m_uVAOname);
 
 #if CC_REBIND_INDICES_BUFFER
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_pBuffersVBO[1]);
@@ -635,7 +628,7 @@ void CCTextureAtlas::drawNumberOfQuads(unsigned int n, unsigned int start)
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 #endif
 
-//    glBindVertexArray(0);
+    glBindVertexArray(0);
 
 #else // ! CC_TEXTURE_ATLAS_USE_VAO
 
