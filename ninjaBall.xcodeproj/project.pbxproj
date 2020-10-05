@@ -217,6 +217,7 @@
 		3201312625229F590085789E /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = 3201309125229F590085789E /* CocosDenshion.m */; };
 		3201312725229F590085789E /* SimpleAudioEngine_objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 3201309525229F590085789E /* SimpleAudioEngine_objc.m */; };
 		3201312825229F590085789E /* SimpleAudioEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3201309625229F590085789E /* SimpleAudioEngine.mm */; };
+		3262390A25253953003E7FB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3262390925253953003E7FB1 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -686,6 +687,7 @@
 		3201309425229F590085789E /* CocosDenshion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocosDenshion.h; sourceTree = "<group>"; };
 		3201309525229F590085789E /* SimpleAudioEngine_objc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAudioEngine_objc.m; sourceTree = "<group>"; };
 		3201309625229F590085789E /* SimpleAudioEngine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SimpleAudioEngine.mm; sourceTree = "<group>"; };
+		3262390925253953003E7FB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -814,6 +816,7 @@
 		2C78E86A1689084500CFA337 /* ninjaBall */ = {
 			isa = PBXGroup;
 			children = (
+				3262390925253953003E7FB1 /* Assets.xcassets */,
 				32012B0125215BDA0085789E /* Info.plist */,
 				2C78E8831689084500CFA337 /* ios */,
 				2C78E88C1689084500CFA337 /* libs */,
@@ -1774,6 +1777,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0450;
+				TargetAttributes = {
+					2C78E8551689084500CFA337 = {
+						DevelopmentTeam = Q329V6GPTU;
+					};
+				};
 			};
 			buildConfigurationList = 2C78E8501689084500CFA337 /* Build configuration list for PBXProject "ninjaBall" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1804,6 +1812,7 @@
 				2C1E1E1F17C2D4F300ED3A93 /* sconscript in Resources */,
 				2CE3D59617C4EE9F00F1BFEE /* CloseNormal.png in Resources */,
 				2CE3D59717C4EE9F00F1BFEE /* CloseSelected.png in Resources */,
+				3262390A25253953003E7FB1 /* Assets.xcassets in Resources */,
 				2CE3D59817C4EE9F00F1BFEE /* Default.png in Resources */,
 				2CE3D59B17C4EE9F00F1BFEE /* Icon-72.png in Resources */,
 				2CE3D59C17C4EE9F00F1BFEE /* Icon-Small-50.png in Resources */,
@@ -2076,8 +2085,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.1;
+				DEVELOPMENT_TEAM = Q329V6GPTU;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=*]" = arm64;
@@ -2115,11 +2127,12 @@
 					"$(PROJECT_DIR)/ninjaBall/libs/cocos2dx/platform/third_party/ios/libraries",
 					"$(PROJECT_DIR)/ninjaBall/cocos2dx/platform/third_party/ios/libraries",
 				);
+				MARKETING_VERSION = 4.0;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.glowmanstudio.ninjaball;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.glowmanstudio.ninjaBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2130,8 +2143,11 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.1;
+				DEVELOPMENT_TEAM = Q329V6GPTU;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -2167,11 +2183,12 @@
 					"$(PROJECT_DIR)/ninjaBall/libs/cocos2dx/platform/third_party/ios/libraries",
 					"$(PROJECT_DIR)/ninjaBall/cocos2dx/platform/third_party/ios/libraries",
 				);
+				MARKETING_VERSION = 4.0;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-lz",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.glowmanstudio.ninjaball;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.glowmanstudio.ninjaBall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
